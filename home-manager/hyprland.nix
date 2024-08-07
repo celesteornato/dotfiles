@@ -40,6 +40,8 @@ in {
     settings = {
       exec-once = [
         "asztal"
+	"vesktop"
+	"librewolf"
         "hyprctl setcursor Qogir 24"
       ];
 
@@ -143,8 +145,8 @@ in {
           ",Print,         exec, ${screenshot}"
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
-          "SUPER SHIFT, A, exec, librewolf"
-          "SUPER, A, exec, wezterm"
+          "SUPER SHIFT, A, exec,nvidia-offload librewolf"
+          "SUPER, A, exec,nvidia-offload wezterm"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
