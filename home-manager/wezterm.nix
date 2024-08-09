@@ -112,7 +112,7 @@
         brightness = 0.8;
       };
 
-      window_background_opacity = 0.8;
+      window_background_opacity = 0.5;
       text_background_opacity = 1.0;
 
       audible_bell = "Disabled";

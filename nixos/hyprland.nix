@@ -106,16 +106,13 @@
         HOME="/home/$(find /home -maxdepth 1 -printf '%f\n' | tail -n 1)"
 
         mkdir -p "$CACHE"
-        chown greeter:greeter $CACHE
 
         if [[ -f "$HOME/.cache/ags/options.json" ]]; then
           cp $HOME/.cache/ags/options.json $OPTS
-          chown greeter:greeter $OPTS
         fi
 
         if [[ -f "$HOME/.config/background" ]]; then
           cp "$HOME/.config/background" $CACHE/background
-          chown greeter:greeter "$CACHE/background"
         fi
       '';
     in

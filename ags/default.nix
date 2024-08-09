@@ -49,10 +49,6 @@
 
   addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
 
-  greeter = writeShellScript "greeter" ''
-    export PATH=$PATH:${addBins dependencies}
-    ${cage}/bin/cage -ds -m last ${ags}/bin/ags -- -c ${config}/greeter.js
-  '';
 
   desktop = writeShellScript name ''
     export PATH=$PATH:${addBins dependencies}
@@ -72,8 +68,6 @@
         --external:gi://\* \
 
       ${esbuild}/bin/esbuild \
-        --bundle ./greeter/greeter.ts \
-        --outfile=greeter.js \
         --format=esm \
         --external:resource://\* \
         --external:gi://\* \
@@ -83,10 +77,8 @@
       mkdir -p $out
       cp -r assets $out
       cp -r style $out
-      cp -r greeter $out
       cp -r widget $out
       cp -f main.js $out/config.js
-      cp -f greeter.js $out/greeter.js
     '';
   };
 in
@@ -98,6 +90,5 @@ in
       mkdir -p $out/bin
       cp -r . $out
       cp ${desktop} $out/bin/${name}
-      cp ${greeter} $out/bin/greeter
     '';
   }
