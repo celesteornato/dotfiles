@@ -46,6 +46,7 @@
     neovim
     git
     wget
+    steam
   ];
   programs.steam = {
     enable = true;

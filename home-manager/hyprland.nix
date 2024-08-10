@@ -37,6 +37,7 @@ in {
       # plugins.borderspp
     ];
 
+
     settings = {
       exec-once = [
         "asztal"
@@ -104,6 +105,7 @@ in {
         (f "de.haeckerfelix.Fragments")
         (f "com.github.Aylur.ags")
         "workspace 7, title:Spotify"
+        "workspace 2, title:Vesktop"
       ];
 
       bind = let
@@ -145,8 +147,8 @@ in {
           ",Print,         exec, ${screenshot}"
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
-          "SUPER SHIFT, A, exec,nvidia-offload librewolf"
-          "SUPER, A, exec,nvidia-offload wezterm"
+          "SUPER SHIFT, A, exec,librewolf"
+          "SUPER, A, exec, wezterm"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"

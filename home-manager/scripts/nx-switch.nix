@@ -6,26 +6,20 @@
     fi
 
     if [[ "$1" == "-a" ]]; then
+      rm -rf "$HOME/.config/nvim"
+      rm -rf "$HOME/.config/ags"
       ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
       ln -s "$HOME/dotfiles/ags" "$HOME/.config/ags"
     fi
   '';
   nx-switch = pkgs.writeShellScriptBin "nx-switch" ''
     sudo nixos-rebuild switch --flake . --impure $@
-
-    ${symlink} -r
-    ${symlink} -a
   '';
   nx-boot = pkgs.writeShellScriptBin "nx-boot" ''
     sudo nixos-rebuild boot --flake . --impure $@
-
-    ${symlink} -r
-    ${symlink} -a
   '';
   nx-test = pkgs.writeShellScriptBin "nx-test" ''
     sudo nixos-rebuild test --flake . --impure $@
-    ${symlink} -r
-    ${symlink} -a
   '';
 in {
   home.packages = [nx-switch nx-boot nx-test];

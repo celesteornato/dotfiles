@@ -11,8 +11,9 @@
       (mpv.override {scripts = [mpvScripts.mpris];})
       # gnome-secrets
       fragments
+      fastfetch
+      vitetris
       nvtopPackages.full
-      steam
       prism
       prismlauncher
       vesktop

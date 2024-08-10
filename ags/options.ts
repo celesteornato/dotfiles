@@ -4,7 +4,7 @@ import { icon } from "lib/utils"
 import icons from "lib/icons"
 
 const options = mkOptions(OPTIONS, {
-    autotheme: opt(false),
+    autotheme: opt(true),
 
     wallpaper: {
         resolution: opt<import("service/wallpaper").Resolution>(1920),
@@ -157,11 +157,10 @@ const options = mkOptions(OPTIONS, {
             max: opt(6),
             favorites: opt([
                 [
-                    "firefox",
+                    "librewolf",
                     "wezterm",
                     "org.gnome.Nautilus",
-                    "org.gnome.Calendar",
-                    "spotify",
+                    "vesktop",
                 ],
             ]),
         },
@@ -234,7 +233,7 @@ const options = mkOptions(OPTIONS, {
 
     hyprland: {
         gaps: opt(2.4),
-        inactiveBorder: opt("#282828"),
+        inactiveBorder: opt("rgba(28282800)"),
         gapsWhenOnly: opt(false),
     },
 })
