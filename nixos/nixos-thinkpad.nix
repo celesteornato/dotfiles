@@ -8,7 +8,6 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./system.nix
-    ./nvidia.nix
     ./audio.nix
     ./locale.nix
     ./hyprland.nix

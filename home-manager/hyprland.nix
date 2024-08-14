@@ -111,10 +111,9 @@ in {
       bind = let
         binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
         mvfocus = binding "SUPER" "movefocus";
-        ws = binding "SUPER" "workspace";
-        resizeactive = binding "SUPER SHIFT" "resizeactive";
+        resizeactive = binding "SUPER CTRL" "resizeactive";
         mvactive = binding "SUPER ALT" "moveactive";
-        mvtows = binding "SUPER SHIFT" "movetoworkspace";
+        swapwin = binding "SUPER SHIFT" "swapwindow";
         e = "exec, asztal";
         arr = [1 2 3 4 5 6 7 8 9];
       in
@@ -158,14 +157,19 @@ in {
           "SUPER, S, fullscreen, 1"
           "SUPER, J, togglesplit"
 
-          (mvfocus "k" "u")
+          (swapwin "left" "l")
+          (swapwin "down" "d")
+          (swapwin "up" "u")
+          (swapwin "right" "r")
+
+          (swapwin "h" "l")
+          (swapwin "j" "d")
+          (swapwin "k" "u")
+          (swapwin "l" "r")
+
           (mvfocus "j" "d")
           (mvfocus "l" "r")
           (mvfocus "h" "l")
-          (ws "left" "e-1")
-          (ws "right" "e+1")
-          (mvtows "left" "e-1")
-          (mvtows "right" "e+1")
           (resizeactive "k" "0 -20")
           (resizeactive "j" "0 20")
           (resizeactive "l" "20 0")

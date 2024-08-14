@@ -25,6 +25,8 @@
       # yabridgectl
       # wine-staging
       nodejs
+      python3
+      mov-cli
     ];
     cli = [
       bat
@@ -35,6 +37,5 @@
       lazydocker
       lazygit
     ];
-
   };
 }

@@ -11,6 +11,20 @@
       nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
 
     # nixos config
+    thinkpadConfigurations = {
+      "nixos" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          asztal = self.packages.x86_64-linux.default;
+        };
+        modules = [
+          ./nixos/nixos-thinkpad.nix
+          home-manager.nixosModules.home-manager
+          {networking.hostName = "nixos";}
+        ];
+      };
+    };
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

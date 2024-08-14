@@ -14,27 +14,6 @@
   users.users.main.shell = pkgs.fish;
   programs.nix-ld.enable = true;
   security.rtkit.enable = true;
-  # NVIDIA
-  hardware = {
-    graphics = {
-      enable = true;
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
-  };
 
   # packages
   environment.systemPackages = with pkgs; [
@@ -46,7 +25,10 @@
     neovim
     git
     wget
+    i3
     steam
+    wineWowPackages.waylandFull
+    opera
   ];
   programs.steam = {
     enable = true;
@@ -91,6 +73,9 @@
       xserver = {
         videoDrivers = ["nvidia"];
         enable = true;
+        desktopManager.xterm.enable=false;
+        displayManager.defaultSession="none+i3";
+        windowManager.i3.enable=true;
         displayManager.startx.enable = true;
         xkb.layout = "fr";
         xkb.variant = "";
