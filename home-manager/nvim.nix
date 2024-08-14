@@ -38,7 +38,6 @@
       wget
       curl
       tree-sitter
-      enoent
       ripgrep
       fd
       fzf

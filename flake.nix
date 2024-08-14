@@ -21,7 +21,7 @@
         modules = [
           ./nixos/nixos-thinkpad.nix
           home-manager.nixosModules.home-manager
-          {networking.hostName = "nixos";}
+          {networking.hostName = "nixos-tp";}
         ];
       };
     };
