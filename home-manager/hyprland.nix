@@ -178,6 +178,7 @@ in {
           (mvactive "j" "0 20")
           (mvactive "l" "20 0")
           (mvactive "h" "-20 0")
+          "SUPER SHIFT ALT CTRL, L, exec, firefox linkedin.com"
         ];
 
       bindle = [
