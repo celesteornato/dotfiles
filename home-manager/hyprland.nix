@@ -147,7 +147,7 @@ in {
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec,librewolf"
-          "SUPER, A, exec, wezterm"
+          "SUPER, A, exec, steam-run wezterm"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
