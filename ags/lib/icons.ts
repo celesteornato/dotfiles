@@ -5,7 +5,7 @@ export const substitutes = {
     "com.raggesilver.BlackBox-symbolic": "terminal-symbolic",
     "org.wezfurlong.wezterm-symbolic": "terminal-symbolic",
     "audio-headset-bluetooth": "audio-headphones-symbolic",
-    "librewolf": "librewolf-symbolic",
+    // "librewolf": "librewolf-symbolic",
     "audio-card-analog-usb": "audio-speakers-symbolic",
     "audio-card-analog-pci": "audio-card-symbolic",
     "preferences-system": "emblem-system-symbolic",
@@ -19,8 +19,6 @@ export default {
         nix: "nix-snowflake-symbolic",
     },
     app: {
-
-        librewolf: "librewolf-symbolic",
         terminal: "terminal-symbolic",
     },
     fallback: {
