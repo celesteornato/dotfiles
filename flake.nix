@@ -11,8 +11,7 @@
       nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
 
     # nixos config
-    thinkpadConfigurations = {
-      "nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.thinkpad =nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
@@ -23,10 +22,8 @@
           home-manager.nixosModules.home-manager
           {networking.hostName = "nixos-tp";}
         ];
-      };
     };
-    nixosConfigurations = {
-      "nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
@@ -37,7 +34,6 @@
           home-manager.nixosModules.home-manager
           {networking.hostName = "nixos";}
         ];
-      };
     };
 
   };

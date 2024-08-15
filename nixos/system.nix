@@ -69,14 +69,8 @@
 
       # Touchpad
       libinput.enable = true;
-
       xserver = {
-        videoDrivers = ["nvidia"];
         enable = true;
-        desktopManager.xterm.enable=false;
-        displayManager.defaultSession="none+i3";
-        windowManager.i3.enable=true;
-        displayManager.startx.enable = true;
         xkb.layout = "fr";
         xkb.variant = "";
       };
