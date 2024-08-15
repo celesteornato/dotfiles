@@ -5,41 +5,50 @@
     self,
     home-manager,
     nixpkgs,
+    nixpkgs-stable,
     ...
-  }: {
+  }: let
+        overlay-stable = final: prev: {
+        stable = import nixpkgs-stable {
+            config.allowUnfree = true;
+        };
+      };
+  in {
     packages.x86_64-linux.default =
       nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
-
+     
     # nixos config
     nixosConfigurations.thinkpad =nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          asztal = self.packages.x86_64-linux.default;
-        };
-        modules = [
-          ./nixos/nixos-thinkpad.nix
-          home-manager.nixosModules.home-manager
-          {networking.hostName = "nixos-tp";}
-        ];
-    };
-    nixosConfigurations.dell = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          asztal = self.packages.x86_64-linux.default;
-        };
-        modules = [
-          ./nixos/nixos.nix
-          home-manager.nixosModules.home-manager
-          {networking.hostName = "nixos";}
-        ];
-    };
-
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            asztal = self.packages.x86_64-linux.default;
+          };
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
+            ./nixos/nixos-thinkpad.nix
+            home-manager.nixosModules.home-manager
+            {networking.hostName = "nixos-tp";}
+          ];
+      };
+      nixosConfigurations.dell = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            asztal = self.packages.x86_64-linux.default;
+          };
+          modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
+            ./nixos/nixos.nix
+            home-manager.nixosModules.home-manager
+            {networking.hostName = "nixos";}
+          ];
+      };
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";

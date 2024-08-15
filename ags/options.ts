@@ -71,7 +71,7 @@ const options = mkOptions(OPTIONS, {
             start: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "launcher",
                 "workspaces",
-                "taskbar",
+                //"taskbar",
                 "expander",
                 "messages",
             ]),
@@ -154,7 +154,7 @@ const options = mkOptions(OPTIONS, {
         },
         apps: {
             iconSize: opt(62),
-            max: opt(6),
+            max: opt(4),
             favorites: opt([
                 [
                     "librewolf",

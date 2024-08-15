@@ -40,7 +40,7 @@ in {
 
     settings = {
       exec-once = [
-        "asztal"
+        "ags -b hypr"
 	"vesktop"
 	"librewolf"
         "hyprctl setcursor Qogir 24"
@@ -114,7 +114,7 @@ in {
         resizeactive = binding "SUPER CTRL" "resizeactive";
         mvactive = binding "SUPER ALT" "moveactive";
         swapwin = binding "SUPER SHIFT" "swapwindow";
-        e = "exec, asztal";
+        e = "exec, ags -b hypr";
         arr = [1 2 3 4 5 6 7 8 9];
       in
         [
@@ -139,7 +139,7 @@ in {
           "Super, underscore, workspace, 8"
           "Super, ccedilla, workspace, 9"
           "Super, agrave, workspace, 10"
-          "Super SHIFT, R, ${e} quit; asztal"
+          "Super SHIFT, R, ${e} quit; ags -b hypr"
           "Super, D,       ${e} -t launcher"
           "Super, Tab,     ${e} -t overview"
           ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
@@ -155,7 +155,9 @@ in {
           "SUPER, F, togglefloating"
           "SUPER SHIFT, F, fullscreen"
           "SUPER, S, fullscreen, 1"
-          "SUPER, J, togglesplit"
+          "SUPER shift, J, togglesplit"
+          "SUPER shift, K, togglesplit"
+          "SUPER shift, K, swapwindow, u"
 
           (swapwin "left" "l")
           (swapwin "down" "d")

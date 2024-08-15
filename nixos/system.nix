@@ -12,7 +12,9 @@
 
   programs.fish.enable = true;
   users.users.main.shell = pkgs.fish;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+  };
   security.rtkit.enable = true;
 
   # packages
@@ -44,7 +46,7 @@
         browsing = true;
         defaultShared = true;
         openFirewall = true;
-        #drivers = [pkgs.hplipWithPlugin];
+        drivers = [pkgs.hplipWithPlugin];
       };
       avahi = {
         enable = true;

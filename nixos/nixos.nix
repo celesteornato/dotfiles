@@ -16,6 +16,8 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   hyprland.enable = true;
+  services.blueman.enable = true;
+
 
   users.users.${username} = {
     isNormalUser = true;

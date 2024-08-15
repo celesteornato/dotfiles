@@ -20,6 +20,7 @@
       gamemode
       mangohud
       figma-linux
+      stable.wezterm
       librewolf
       # yabridge
       # yabridgectl
@@ -27,6 +28,7 @@
       nodejs
       python3
       mov-cli
+      hplip
     ];
     cli = [
       bat
