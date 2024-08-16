@@ -20,7 +20,7 @@
       gamemode
       mangohud
       figma-linux
-      stable.wezterm
+      kitty
       librewolf
       # yabridge
       # yabridgectl

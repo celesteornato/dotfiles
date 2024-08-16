@@ -56,7 +56,6 @@ in {
         ../home-manager/starship.nix
         ../home-manager/theme.nix
         ../home-manager/tmux.nix
-        ../home-manager/wezterm.nix
         ./home.nix
       ];
     };

@@ -158,7 +158,7 @@ const options = mkOptions(OPTIONS, {
             favorites: opt([
                 [
                     "librewolf",
-                    "wezterm",
+                    "kitty",
                     "org.gnome.Nautilus",
                     "vesktop",
                 ],

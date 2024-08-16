@@ -105,7 +105,7 @@ with lib.hm.gvariant; {
     "org/gnome/shell" = {
       favorite-apps = [
         "librewolf.desktop"
-        "org.wezfurlong.wezterm.desktop"
+        "kitty"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
         "vesktop.desktop"
