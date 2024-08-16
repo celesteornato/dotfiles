@@ -27,6 +27,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
             ./nixos/nixos.nix
+            ./nixos/thinkpad.nix
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos-tp";}
           ];
