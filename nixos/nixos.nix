@@ -8,7 +8,6 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./system.nix
-    ./nvidia.nix
     ./audio.nix
     ./locale.nix
     ./hyprland.nix
@@ -16,7 +15,6 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   hyprland.enable = true;
-  services.blueman.enable = true;
 
 
   users.users.${username} = {

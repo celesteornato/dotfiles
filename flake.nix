@@ -26,7 +26,7 @@
           };
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
-            ./nixos/nixos-thinkpad.nix
+            ./nixos/nixos.nix
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos-tp";}
           ];
@@ -40,6 +40,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
             ./nixos/nixos.nix
+            ./nixos/dell.nix
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos";}
           ];
