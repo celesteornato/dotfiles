@@ -143,7 +143,6 @@ in {
           "Super, D,       ${e} -t launcher"
           "Super, Tab,     ${e} -t overview"
           ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
-          ",Print,         exec, ${screenshot}"
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec,librewolf"
@@ -170,8 +169,10 @@ in {
           (swapwin "l" "r")
 
           (mvfocus "j" "d")
+          (mvfocus "k" "u")
           (mvfocus "l" "r")
           (mvfocus "h" "l")
+
           (resizeactive "k" "0 -20")
           (resizeactive "j" "0 20")
           (resizeactive "l" "20 0")

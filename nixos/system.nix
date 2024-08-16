@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   # nix
   documentation.nixos.enable = false; # .desktop
+  services.thermald.enable = true; # Intel laptop thermal manager
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -21,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     earlyoom
+    emptty
     btop
     htop
     fish
@@ -31,6 +33,7 @@
     steam
     wineWowPackages.waylandFull
     opera
+    thermald
   ];
   programs.steam = {
     enable = true;
@@ -40,6 +43,7 @@
 
   # services
   services = {
+   
     printing = {
         enable = true;
         allowFrom = [ "all" ];
@@ -103,6 +107,20 @@
 
   # network
   networking.networkmanager.enable = true;
+  
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+  hardware.enableAllFirmware = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl 
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
   # bluetooth
   hardware.bluetooth = {

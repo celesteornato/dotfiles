@@ -1,11 +1,14 @@
 {
   description = "Personal configuration based off of Aylur's";
 
+  inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
   outputs = inputs @ {
     self,
     home-manager,
     nixpkgs,
     nixpkgs-stable,
+    nixos-hardware,
     ...
   }: let
         overlay-stable = final: prev: {
@@ -29,6 +32,7 @@
             ./nixos/nixos.nix
             ./nixos/thinkpad.nix
             ./nixos/hardware-configuration-tp.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-t480s
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos-tp";}
           ];
