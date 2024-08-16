@@ -6,7 +6,6 @@
   username = "main";
 in {
   imports = [
-    ./hardware-configuration.nix
     ./system.nix
     ./audio.nix
     ./locale.nix

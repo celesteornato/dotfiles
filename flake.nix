@@ -28,6 +28,7 @@
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
             ./nixos/nixos.nix
             ./nixos/thinkpad.nix
+            ./nixos/hardware-configuration-tp.nix
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos-tp";}
           ];
@@ -42,6 +43,7 @@
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
             ./nixos/nixos.nix
             ./nixos/dell.nix
+            ./nixos/hardware-configuration.nix
             home-manager.nixosModules.home-manager
             {networking.hostName = "nixos";}
           ];
