@@ -147,7 +147,7 @@ in {
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec,librewolf"
-          "SUPER, A, exec, blackbox"
+          "SUPER, A, exec, kitty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
