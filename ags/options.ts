@@ -105,11 +105,11 @@ const options = mkOptions(OPTIONS, {
             action: opt(() => App.toggleWindow("datemenu")),
         },
         battery: {
-            bar: opt<"hidden" | "regular" | "whole">("regular"),
+            bar: opt<"hidden" | "regular" | "whole">("whole"),
             charging: opt("#00D787"),
             percentage: opt(true),
-            blocks: opt(7),
-            width: opt(50),
+            blocks: opt(14),
+            width: opt(100),
             low: opt(30),
         },
         workspaces: {
