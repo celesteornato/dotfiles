@@ -9,6 +9,7 @@ in {
     ./system.nix
     ./audio.nix
     ./locale.nix
+    ./plymouth.nix
     ./hyprland.nix
   ];
 

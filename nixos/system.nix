@@ -32,6 +32,7 @@
     i3
     steam
     wineWowPackages.waylandFull
+    plymouth
     opera
     thermald
   ];
@@ -43,47 +44,45 @@
 
   # services
   services = {
-   
     printing = {
+      enable = true;
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+      drivers = [pkgs.hplipWithPlugin];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+      publish = {
         enable = true;
-        allowFrom = [ "all" ];
-        browsing = true;
-        defaultShared = true;
-        openFirewall = true;
-        drivers = [pkgs.hplipWithPlugin];
+        userServices = true;
       };
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        openFirewall = true;
-        publish = {
-          enable = true;
-          userServices = true;
-        };
-      };
+    };
 
-      # Bluetooth
-      blueman.enable = true;
+    # Bluetooth
+    blueman.enable = true;
 
-      # Sound
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-      };
+    # Sound
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
 
-      # Touchpad
-      libinput.enable = true;
-      xserver = {
-        enable = true;
-        xkb.layout = "fr";
-        xkb.variant = "";
-      };
+    # Touchpad
+    libinput.enable = true;
+    xserver = {
+      enable = true;
+      xkb.layout = "fr";
+      xkb.variant = "";
+    };
 
-      openssh.enable = true;
-      earlyoom.enable = true;
-
+    openssh.enable = true;
+    earlyoom.enable = true;
   };
 
 
