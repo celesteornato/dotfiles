@@ -3,9 +3,16 @@
   documentation.nixos.enable = false; # .desktop
   services.thermald.enable = true; # Intel laptop thermal manager
   nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
   };
 
   # dconf
@@ -44,6 +51,7 @@
 
   # services
   services = {
+    power-profiles-daemon.enable = true;
     printing = {
       enable = true;
       allowFrom = [ "all" ];
