@@ -32,13 +32,6 @@
     "file://${home}/.config Config"
   ];
 
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
-
   programs.home-manager.enable = true;
   home.stateVersion = "21.11";
 }

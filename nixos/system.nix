@@ -62,7 +62,7 @@
     #       STOP_CHARGE_THRESH_BAT0 = 80;
     #     };
     #   };
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
 
     printing = {
       enable = true;
@@ -112,17 +112,6 @@
     HandleLidSwitch=suspend
     HandleLidSwitchExternalPower=ignore
   '';
-
-  # kde connect
-  networking.firewall = rec {
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      }
-    ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
 
   # network
   networking.networkmanager.enable = true;
