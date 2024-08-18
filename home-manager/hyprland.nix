@@ -41,7 +41,7 @@ in {
     settings = {
       exec-once = [
         "ags -b hypr"
-	"vesktop"
+	"vesktop --start-minimized"
 	"librewolf"
         "hyprctl setcursor Qogir 24"
       ];

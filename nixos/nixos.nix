@@ -11,6 +11,7 @@ in {
     ./locale.nix
     ./plymouth.nix
     ./hyprland.nix
+    ./compilers.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -40,7 +41,6 @@ in {
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
-        ../home-manager/nvim.nix
         ../home-manager/ags.nix
         ../home-manager/blackbox.nix
         ../home-manager/browser.nix

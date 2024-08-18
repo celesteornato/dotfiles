@@ -41,12 +41,12 @@ const options = mkOptions(OPTIONS, {
             border: opt("#080808"),
         },
 
-        blur: opt(0),
+        blur: opt(10),
         scheme: opt<"dark" | "light">("dark"),
         widget: { opacity: opt(94) },
         border: {
-            width: opt(1),
-            opacity: opt(96),
+            width: opt(5),
+            opacity: opt(94),
         },
 
         shadows: opt(true),
@@ -58,7 +58,7 @@ const options = mkOptions(OPTIONS, {
     transition: opt(200),
 
     font: {
-        size: opt(13),
+        size: opt(15),
         name: opt("Ubuntu Nerd Font"),
     },
 
@@ -234,6 +234,7 @@ const options = mkOptions(OPTIONS, {
     hyprland: {
         gaps: opt(2.4),
         inactiveBorder: opt("rgba(28282800)"),
+        activeBorder: opt("rgba(00ACFF7F)"),
         gapsWhenOnly: opt(false),
     },
 })

@@ -25,9 +25,6 @@
       # yabridge
       # yabridgectl
       # wine-staging
-      nodejs
-      rustup
-      python3
       mov-cli
       hplip
     ];
