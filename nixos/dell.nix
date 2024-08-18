@@ -2,6 +2,14 @@
   imports = [
     ./nvidia.nix
   ];
+  environment.systemPackages = with pkgs; {
+    steam
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   services.blueman.enable = true;
   boot = {
     kernelParams = [

@@ -37,7 +37,6 @@
     git
     wget
     i3
-    steam
     wineWowPackages.waylandFull
     plymouth
     opera
@@ -45,11 +44,6 @@
     #tlp
     fwupd
   ];
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; 
-    dedicatedServer.openFirewall = true; 
-  };
 
   # services
   services = {
