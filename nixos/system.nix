@@ -33,6 +33,7 @@
     btop
     htop
     fish
+    vim
     neovim
     git
     wget

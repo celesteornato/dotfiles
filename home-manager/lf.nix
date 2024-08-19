@@ -17,6 +17,7 @@
     bat
     zip
     unzip
+    unrar
     gnutar
   ];
 
