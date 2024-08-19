@@ -1,24 +1,25 @@
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
+require("lazy-lsp").setup({
+	"dundalek/lazy-lsp.nvim",
+	dependencies = {
+		"neovim/nvim-lspconfig",
+		{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/nvim-cmp",
 	},
-})
+	config = function()
+		local lsp_zero = require("lsp-zero")
 
-require("mason-lspconfig").setup({
-	-- A list of servers to automatically install if they're not already installed
-	ensure_installed = { "pylsp", "lua_ls", "jdtls" },
-})
+		lsp_zero.on_attach(function(client, bufnr)
+			-- see :help lsp-zero-keybindings to learn the available actions
+			lsp_zero.default_keymaps({
+				buffer = bufnr,
+				preserve_mappings = false,
+			})
+		end)
 
--- Set different settings for different languages' LSP
--- LSP list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
---     - the settings table is sent to the LSP
---     - on_attach: a lua callback function to run after LSP attaches to a given buffer
-local lspconfig = require("lspconfig")
+		require("lazy-lsp").setup({})
+	end,
+})
 
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -32,11 +33,3 @@ local on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 end
-
--- Configure each language
--- How to add LSP for a specific language?
--- 1. use `:Mason` to install corresponding LSP
--- 2. add configuration below
-lspconfig.pylsp.setup({
-	on_attach = on_attach,
-})

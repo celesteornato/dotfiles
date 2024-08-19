@@ -8,8 +8,8 @@ vim.g.maplocalleader = " "
 -----------------
 -- Normal mode --
 -----------------
--- LSP
 
+-- LSP
 vim.keymap.set("n", "<leader>gd", ":Telescope lsp_definition<CR>", { desc = "[G]oto [D]efinition" })
 vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", { desc = "[G]oto [R]eference" })
 vim.keymap.set("n", "<leader>gI", ":Telescope lsp_implementations<CR>", { desc = "[G]oto [I]mplementation" })
@@ -36,6 +36,10 @@ vim.keymap.set("n", "<up>", "<cr>")
 vim.keymap.set("n", "<down>", "<cr>")
 vim.keymap.set("n", "<left>", "<cr>")
 vim.keymap.set("n", "<right>", "<cr>")
+
+-- Toggle Term
+vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=75 <cr>")
+vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=horizontal<cr>")
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation

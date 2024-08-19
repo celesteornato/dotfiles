@@ -39,9 +39,13 @@ require("lazy").setup({
 		version = "v2.*",
 	},
 	--- LSP
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	{
+		"dundalek/lazy-lsp.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			require("lazy-lsp").setup({})
+		end,
+	},
 
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
