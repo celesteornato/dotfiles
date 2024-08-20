@@ -42,7 +42,9 @@
     plymouth
     opera
     thermald
-    #tlp
+    tlp
+    powertop
+    python312
     fwupd
   ];
 
@@ -50,14 +52,16 @@
   services = {
     fwupd.enable = true;
     
-    #   tlp = {
-    #     enable = true;
-    #     settings = {
-    #       START_CHARGE_THRESH_BAT0 = 75;
-    #       STOP_CHARGE_THRESH_BAT0 = 80;
-    #     };
-    #   };
-    power-profiles-daemon.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_ENERGY_PERF_POLICY_ON_AC="performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT="balance_power";
+        START_CHARGE_THRESH_BAT0 = 75;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+      };
+    };
+    power-profiles-daemon.enable = false;
 
     printing = {
       enable = true;
@@ -110,6 +114,7 @@
 
   # network
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 631 ];
   
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };

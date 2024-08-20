@@ -26,7 +26,7 @@ require("lazy").setup({
 			"lspkind.nvim",
 			"hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
 			"hrsh7th/cmp-buffer", -- buffer auto-completion
-			"hrsh7th/cmp-path", -- path auto-completion
+			"hrsh7th/cmp-path",  -- path auto-completion
 			"hrsh7th/cmp-cmdline", -- cmdline auto-completion
 		},
 		config = function()
@@ -93,7 +93,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			require("telescope").setup({
@@ -269,11 +269,6 @@ require("lazy").setup({
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
-	},
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
 	},
 	require("config.neotree"),
 	require("config.lazyterm"),

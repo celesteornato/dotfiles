@@ -40,6 +40,7 @@ vim.keymap.set("n", "<right>", "<cr>")
 -- Toggle Term
 vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=75 <cr>")
 vim.keymap.set("n", "<leader>tt", ":ToggleTerm direction=horizontal<cr>")
+vim.keymap.set("n", "<C-t>", ":ToggleTerm<cr>")
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation

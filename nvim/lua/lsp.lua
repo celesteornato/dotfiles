@@ -1,5 +1,6 @@
 require("lazy-lsp").setup({
 	"dundalek/lazy-lsp.nvim",
+
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
@@ -13,11 +14,11 @@ require("lazy-lsp").setup({
 			-- see :help lsp-zero-keybindings to learn the available actions
 			lsp_zero.default_keymaps({
 				buffer = bufnr,
-				preserve_mappings = false,
+				preserve_mappings = false
 			})
 		end)
 
-		require("lazy-lsp").setup({})
+		require("lazy-lsp").setup {}
 	end,
 })
 

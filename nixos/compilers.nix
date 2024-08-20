@@ -5,6 +5,7 @@
     rustup
     cargo
     zulu
+    gradle
     python3
     nodejs
   ];

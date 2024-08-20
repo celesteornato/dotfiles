@@ -27,6 +27,7 @@
       # wine-staging
       mov-cli
       hplip
+      obs-studio
     ];
     cli = [
       bat
