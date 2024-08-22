@@ -272,4 +272,5 @@ require("lazy").setup({
 	},
 	require("config.neotree"),
 	require("config.lazyterm"),
+	require("config.lazygit"),
 })
