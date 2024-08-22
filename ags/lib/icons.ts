@@ -11,7 +11,7 @@ export const substitutes = {
     "preferences-system": "emblem-system-symbolic",
     "com.github.Aylur.ags-symbolic": "controls-symbolic",
     "com.github.Aylur.ags": "controls-symbolic",
-}
+};
 
 export default {
     missing: "image-missing-symbolic",
@@ -143,4 +143,4 @@ export default {
         dark: "dark-mode-symbolic",
         light: "light-mode-symbolic",
     },
-}
+};
