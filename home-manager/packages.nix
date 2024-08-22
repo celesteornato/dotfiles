@@ -8,8 +8,6 @@
   packages = with pkgs; {
     linux = [
       (mpv.override {scripts = [mpvScripts.mpris];})
-      inputs.nix-software-center.packages.${system}.nix-software-center
-      # gnome-secrets
       fragments
       fastfetch
       vitetris
@@ -22,13 +20,12 @@
       figma-linux
       kitty
       librewolf
-      # yabridge
-      # yabridgectl
-      # wine-staging
       mov-cli
       hplip
       obs-studio
       obsidian
+      blender
+      freecad
     ];
     cli = [
       bat
