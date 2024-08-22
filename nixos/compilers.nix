@@ -7,6 +7,7 @@
     zulu
     gradle
     python3
+    python312Packages.pip
     nodejs
   ];
 }
