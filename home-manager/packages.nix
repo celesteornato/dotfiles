@@ -1,14 +1,14 @@
-{pkgs, ...}: {
+{inputs, pkgs, ...}: {
   imports = [
     ./modules/packages.nix
     ./scripts/blocks.nix
     ./scripts/nx-switch.nix
     ./scripts/vault.nix
   ];
-
   packages = with pkgs; {
     linux = [
       (mpv.override {scripts = [mpvScripts.mpris];})
+      inputs.nix-software-center.packages.${system}.nix-software-center
       # gnome-secrets
       fragments
       fastfetch
@@ -28,6 +28,7 @@
       mov-cli
       hplip
       obs-studio
+      obsidian
     ];
     cli = [
       bat
