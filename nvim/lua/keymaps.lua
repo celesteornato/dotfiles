@@ -9,6 +9,14 @@ vim.g.maplocalleader = " "
 -- Normal mode --
 -----------------
 
+<<<<<<< Updated upstream
+=======
+-- Tabs
+vim.keymap.set("n", "<C-n>", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>T", ":tabnext<CR>")
+vim.keymap.set("n", "<C-w>", ":tabclose<CR>")
+
+>>>>>>> Stashed changes
 -- LSP
 vim.keymap.set("n", "<leader>gd", ":Telescope lsp_definition<CR>", { desc = "[G]oto [D]efinition" })
 vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", { desc = "[G]oto [R]eference" })
