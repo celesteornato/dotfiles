@@ -9,6 +9,9 @@ vim.g.maplocalleader = " "
 -- Normal mode --
 -----------------
 
+-- Clear noice
+vim.keymap.set("n", "<leader>tn", "<cmd>NoiceDismiss<CR>", { desc = "Toggle Noice shutting up" })
+
 -- Tabs
 vim.keymap.set("n", "<C-n>", ":tabnew<CR>")
 vim.keymap.set("n", "<leader>T", ":tabnext<CR>")

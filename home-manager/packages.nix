@@ -19,7 +19,8 @@
       mangohud
       figma-linux
       kitty
-      librewolf
+      stable.librewolf
+      fishPlugins.bobthefish
       mov-cli
       hplip
       obs-studio
