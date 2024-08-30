@@ -15,6 +15,7 @@ in {
     };
     initrd.systemd.enable = true;
     kernelParams = [
+      "nosgx"
       "quiet"
       "splash"
       "boot.shell_on_fail"
