@@ -9,5 +9,7 @@
     python3
     python312Packages.pip
     nodejs
+    cmake
+    gnumake
   ];
 }

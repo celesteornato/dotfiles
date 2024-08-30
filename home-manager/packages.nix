@@ -21,12 +21,16 @@
       kitty
       stable.librewolf
       fishPlugins.bobthefish
-      mov-cli
       hplip
       obs-studio
       obsidian
       blender
       freecad
+      openmw
+      steam-run
+      godot_4
+      godot_4-export-templates
+      mutt
     ];
     cli = [
       bat

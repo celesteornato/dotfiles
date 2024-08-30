@@ -12,6 +12,8 @@ in
             rustfmt
             pkg-config
             openssl
+            alsaLib
+            libudev-zero
         ];
 
         env = {
