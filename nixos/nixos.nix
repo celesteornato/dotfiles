@@ -12,6 +12,7 @@ in {
     ./plymouth.nix
     ./hyprland.nix
     ./compilers.nix
+    ./nvim.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
