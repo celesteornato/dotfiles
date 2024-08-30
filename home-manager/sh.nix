@@ -34,7 +34,7 @@ in {
 
   config.programs = {
     fish = {
-      # shellAliases = aliases // config.shellAliases;
+      shellAliases = aliases // config.shellAliases;
       enable = true;
     };
     bash = {
