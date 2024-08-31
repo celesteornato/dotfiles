@@ -254,7 +254,14 @@ require("lazy").setup({
 			},
 		},
 	},
-
+	{
+		"xero/evangelion.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme evangelion")
+		end,
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -273,4 +280,5 @@ require("lazy").setup({
 	require("config.neotree"),
 	require("config.lazyterm"),
 	require("config.lazygit"),
+	require("config.dashboard"),
 })

@@ -147,6 +147,7 @@ in {
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec,librewolf"
           "SUPER, A, exec, kitty"
+          "SUPER, T, exec, kitty tmux"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
