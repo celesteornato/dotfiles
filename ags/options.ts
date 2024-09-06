@@ -1,7 +1,7 @@
-import { opt, mkOptions } from "lib/option"
-import { distro } from "lib/variables"
-import { icon } from "lib/utils"
-import icons from "lib/icons"
+import { mkOptions, opt } from "lib/option";
+import { distro } from "lib/variables";
+import { icon } from "lib/utils";
+import icons from "lib/icons";
 
 const options = mkOptions(OPTIONS, {
     autotheme: opt(false),
@@ -105,7 +105,7 @@ const options = mkOptions(OPTIONS, {
             action: opt(() => App.toggleWindow("datemenu")),
         },
         battery: {
-            bar: opt<"hidden" | "regular" | "whole">("whole"),
+            bar: opt<"hidden" | "regular" | "whole">("regular"),
             charging: opt("#00D787"),
             percentage: opt(true),
             blocks: opt(14),
@@ -201,10 +201,12 @@ const options = mkOptions(OPTIONS, {
             interval: opt(60_000),
             unit: opt<"metric" | "imperial" | "standard">("metric"),
             key: opt<string>(
-                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.key || "",
+                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")
+                    ?.key || "",
             ),
             cities: opt<Array<number>>(
-                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.cities || [],
+                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")
+                    ?.cities || [],
             ),
         },
     },
@@ -226,7 +228,10 @@ const options = mkOptions(OPTIONS, {
     },
 
     notifications: {
-        position: opt<Array<"top" | "bottom" | "left" | "right">>(["top", "right"]),
+        position: opt<Array<"top" | "bottom" | "left" | "right">>([
+            "top",
+            "right",
+        ]),
         blacklist: opt(["Spotify"]),
         width: opt(440),
     },
@@ -237,7 +242,7 @@ const options = mkOptions(OPTIONS, {
         activeBorder: opt("rgba(00ACFF7F)"),
         gapsWhenOnly: opt(false),
     },
-})
+});
 
-globalThis["options"] = options
-export default options
+globalThis["options"] = options;
+export default options;
