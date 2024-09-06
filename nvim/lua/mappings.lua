@@ -1,10 +1,8 @@
--- define common options
 local opts = {
 	noremap = true, -- non-recursive
 	silent = true, -- do not show message
 }
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 -----------------
 -- Normal mode --
 -----------------
@@ -32,12 +30,12 @@ vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]e
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- File explorer
-vim.keymap.set("n", "<C-e>", ":Neotree toggle<CR>")
-vim.keymap.set("n", "<leader>te", ":Neotree toggle<CR>")
+vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>te", "<cmd>NvimTreeToggle<CR>")
 
 -- Transparency Babyyyyy
 vim.keymap.set("n", "<leader>et", ":TransparentToggle<CR>")
-vim.keymap.set("n", "<leader>ec", ":Telescope colorscheme<CR>")
+vim.keymap.set("n", "<leader>ec", ":Telescope themes<CR>")
 
 -- Remove arrow keys
 vim.keymap.set("n", "<up>", "<cr>")
@@ -64,6 +62,15 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- Telescope
+vim.keymap.set("n", "<leader>sg", "<cmd>Telescope grep_string<CR>")
+vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<CR>")
+vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<CR>")
+
+
+
+
 -----------------
 -- Visual mode --
 -----------------
@@ -76,3 +83,5 @@ vim.keymap.set("v", ">", ">gv", opts)
 --  Term mode  --
 -----------------
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
