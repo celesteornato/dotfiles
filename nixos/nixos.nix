@@ -56,6 +56,7 @@ in {
         ../home-manager/theme.nix
         ../home-manager/tmux.nix
         ../home-manager/kitty.nix
+        ../home-manager/helix.nix
         ./home.nix
       ];
     };

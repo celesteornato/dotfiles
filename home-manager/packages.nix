@@ -31,6 +31,8 @@
       godot_4
       godot_4-export-templates
       lynx
+      ocaml-top
+      helix
     ];
     cli = [
       bat
