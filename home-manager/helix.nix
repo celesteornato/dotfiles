@@ -1,39 +1,16 @@
-{ self
-, config
-, pkgs
-, lib
-, ...
-}:
-
-let
-  inherit (self) homeManagerModules;
-  # inherit (config.age) secrets;
-
-  flags = config.local.flags;
-  cfg = config.local.fragment.helix;
-in
-{
-  imports = [ homeManagerModules.wakatime ];
-
-  options.local.fragment.helix.enable = lib.mkEnableOption ''
-    Helix editor related
-  '';
-
-  config = lib.mkIf cfg.enable {
-    programs.helix = {
+{pkgs, config, upkgs, lpkgs, lib, ...}: {
+  programs.helix = {
       enable = true;
-      package = pkgs.helix;
       defaultEditor = true;
-
       settings = {
-        theme = "onedark";
+        theme = "tokyonight";
         editor = {
           auto-format = true;
           auto-save = true;
           bufferline = "multiple";
           line-number = "relative";
           mouse = false;
-          rulers = [ 80 ];
+          rulers = [ 100 ];
           text-width = 80;
 
           indent-guides = {
@@ -43,9 +20,9 @@ in
 
           file-picker.hidden = false;
 
-          lsp.display-inlay-hints = false;
+          lsp.display-inlay-hints = true;
 
-          soft-wrap.wrap-at-text-width = true;
+          soft-wrap.wrap-at-text-width = false;
         };
         keys =
           let
@@ -87,9 +64,7 @@ in
         taplo
         typst-lsp
         vscode-langservers-extracted
-        vue-language-server
         yaml-language-server
-        wakatime-lsp
       ];
 
       languages = {
@@ -102,24 +77,13 @@ in
 
         language = [
           { name = "c"; auto-format = true; formatter = { command = lib.getExe' pkgs.clang-tools "clang-format"; args = [ ]; }; }
-          { name = "html"; language-servers = [ "vscode-html-language-server" "wakatime" ]; }
-          { name = "markdown"; language-servers = [ "marksman" "wakatime" ]; }
-          { name = "nix"; language-servers = [ "nil" "wakatime" ]; auto-format = true; }
-          { name = "python"; language-servers = [ "pylsp" "wakatime" ]; }
-          { name = "rust"; language-servers = [ "rust-analyzer" "wakatime" ]; }
-          { name = "typescript"; language-servers = [ "typescript-language-server" "wakatime" ]; }
-          { name = "vue"; language-servers = [ "vuels" "typescript-language-server" "wakatime" ]; }
+          { name = "html"; language-servers = [ "vscode-html-language-server" ]; }
+          { name = "markdown"; language-servers = [ "marksman" ]; }
+          { name = "nix"; language-servers = [ "nil" ]; auto-format = true; }
+          { name = "python"; language-servers = [ "pylsp" ]; }
+          { name = "rust"; language-servers = [ "rust-analyzer" ]; }
+          { name = "typescript"; language-servers = [ "typescript-language-server" ]; }
         ];
       };
     };
-
-    # programs.wakatime = {
-    #   enable = true;
-    #   apiKeyFile = secrets.api-wakatime.path;
-    #   settings = {
-    #     exclude_unknown_project = true;
-    #   };
-    # };
-  };
 }
-
