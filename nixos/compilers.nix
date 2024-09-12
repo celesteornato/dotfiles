@@ -11,5 +11,7 @@
     nodejs
     cmake
     gnumake
+    ocaml
+    opam
   ];
 }
