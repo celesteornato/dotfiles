@@ -37,16 +37,16 @@ const options = mkOptions(OPTIONS, {
             },
             bg: opt("#fffffa"),
             fg: opt("#080808"),
-            widget: opt("#080808"),
+            widget: opt("#1a5fb4"),
             border: opt("#080808"),
         },
 
-        blur: opt(10),
+        blur: opt(50),
         scheme: opt<"dark" | "light">("dark"),
-        widget: { opacity: opt(94) },
+        widget: { opacity: opt(95) },
         border: {
-            width: opt(5),
-            opacity: opt(94),
+            width: opt(2),
+            opacity: opt(0),
         },
 
         shadows: opt(true),
@@ -55,7 +55,7 @@ const options = mkOptions(OPTIONS, {
         radius: opt(11),
     },
 
-    transition: opt(200),
+    transition: opt(10),
 
     font: {
         size: opt(15),
@@ -65,7 +65,7 @@ const options = mkOptions(OPTIONS, {
     bar: {
         flatButtons: opt(true),
         position: opt<"top" | "bottom">("top"),
-        corners: opt(50),
+        corners: opt(100),
         transparent: opt(false),
         layout: {
             start: opt<Array<import("widget/bar/Bar").BarWidget>>([
@@ -147,7 +147,7 @@ const options = mkOptions(OPTIONS, {
         margin: opt(80),
         nix: {
             pkgs: opt("nixpkgs/nixos-unstable"),
-            max: opt(8),
+            max: opt(16),
         },
         sh: {
             max: opt(16),
