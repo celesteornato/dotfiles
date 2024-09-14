@@ -63,6 +63,7 @@
         python311Packages.python-lsp-server
         taplo
         typst-lsp
+        rust-analyzer
         vscode-langservers-extracted
         yaml-language-server
       ];
@@ -72,7 +73,6 @@
           rust-analyzer.config = { check.command = "clippy"; };
 
           ltex-ls.command = "ltex-ls";
-          wakatime.command = "wakatime-lsp";
         };
 
         language = [
@@ -81,8 +81,9 @@
           { name = "markdown"; language-servers = [ "marksman" ]; }
           { name = "nix"; language-servers = [ "nil" ]; auto-format = true; }
           { name = "python"; language-servers = [ "pylsp" ]; }
-          { name = "rust"; language-servers = [ "rust-analyzer" ]; }
+          { name = "rust"; language-servers = [ "rust-analyzer" ]; auto-format=true;}
           { name = "typescript"; language-servers = [ "typescript-language-server" ]; }
+          # { name = "caml"; language-servers = [ "ocamllsp" ];}
         ];
       };
     };

@@ -156,11 +156,6 @@
       loader.efi.canTouchEfiVariables = true;
       # Custom param to counter a manufacturing defect
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
 
 
   system.stateVersion = "23.05";

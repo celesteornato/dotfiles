@@ -11,7 +11,10 @@
     nodejs
     cmake
     gnumake
-    ocaml
     opam
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.utop
+    ocamlPackages.ocamlformat
+    ocamlPackages.alcotest
   ];
 }
