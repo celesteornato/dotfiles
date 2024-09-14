@@ -32,6 +32,7 @@
       godot_4-export-templates
       lynx
       ocaml-top
+      steam
     ];
     cli = [
       bat
