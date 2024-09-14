@@ -13,6 +13,7 @@ in {
     ./hyprland.nix
     ./compilers.nix
     ./nvim.nix
+    ./steam.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
