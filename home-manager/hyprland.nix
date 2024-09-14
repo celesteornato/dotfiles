@@ -146,7 +146,7 @@ in {
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec,librewolf"
-          "SUPER, A, exec, kitty tmux"
+          "SUPER, A, exec, kitty tmux new-session -A -s main"
           "SUPER, T, exec, kitty "
 
 
