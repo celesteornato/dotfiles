@@ -3,7 +3,7 @@
       enable = true;
       defaultEditor = true;
       settings = {
-        theme = "tokyonight";
+        theme = "horizon-dark";
         editor = {
           auto-format = true;
           auto-save = true;
@@ -66,6 +66,10 @@
         rust-analyzer
         vscode-langservers-extracted
         yaml-language-server
+        csharp-ls
+        csharpier
+        haskell-language-server
+        stylish-haskell
       ];
 
       languages = {
@@ -83,6 +87,8 @@
           { name = "python"; language-servers = [ "pylsp" ]; }
           { name = "rust"; language-servers = [ "rust-analyzer" ]; auto-format=true;}
           { name = "typescript"; language-servers = [ "typescript-language-server" ]; }
+          { name = "c-sharp"; language-servers = [ "csharp-ls" ]; auto-format = true; }
+          { name = "haskell"; language-servers = [ "haskell-language-server" ]; auto-format = true; }
           # { name = "caml"; language-servers = [ "ocamllsp" ];}
         ];
       };

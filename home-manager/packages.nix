@@ -32,6 +32,9 @@
       godot_4-export-templates
       lynx
       ocaml-top
+      jetbrains.rider
+      dotnet-sdk_8
+      docker
     ];
     cli = [
       bat
