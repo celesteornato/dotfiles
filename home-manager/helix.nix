@@ -20,7 +20,7 @@
 
           file-picker.hidden = false;
 
-          lsp.display-inlay-hints = true;
+          lsp.display-inlay-hints = false;
 
           soft-wrap.wrap-at-text-width = false;
         };
@@ -35,6 +35,12 @@
                 # Swap original keybinds, default (lowercase) searches in `pwd`
                 f = "file_picker_in_current_directory";
                 F = "file_picker";
+              };
+              "C-r" = {
+                r = ":sh cargo run";
+                R = ":sh cargo run --release";
+                d = ":sh dotnet run";
+                t = ":sh dotnet test";
               };
 
               # Toggle inlay hints

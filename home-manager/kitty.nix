@@ -7,7 +7,7 @@
       dynamic_background_opacity = true;
       window_padding_width = 10;
       font_size = "14.0";
-      background_opacity = "0.5";
+      background_opacity = "0.2";
       background_blur = 5;
     };
   };

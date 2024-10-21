@@ -220,8 +220,8 @@ in {
 
         blur = {
           enabled = true;
-          size = 8;
-          passes = 3;
+          size = 2;
+          passes = 5;
           new_optimizations = "on";
           noise = 0.01;
           contrast = 0.9;
