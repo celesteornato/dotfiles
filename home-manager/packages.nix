@@ -33,8 +33,9 @@
       lynx
       ocaml-top
       jetbrains.rider
-      dotnet-sdk_8
+      dotnet-sdk_7
       docker
+      man-pages
     ];
     cli = [
       bat

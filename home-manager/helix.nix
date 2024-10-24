@@ -72,7 +72,7 @@
         rust-analyzer
         vscode-langservers-extracted
         yaml-language-server
-        csharp-ls
+        omnisharp-roslyn
         csharpier
         haskell-language-server
         stylish-haskell
@@ -85,18 +85,18 @@
           ltex-ls.command = "ltex-ls";
         };
 
-        language = [
-          { name = "c"; auto-format = true; formatter = { command = lib.getExe' pkgs.clang-tools "clang-format"; args = [ ]; }; }
-          { name = "html"; language-servers = [ "vscode-html-language-server" ]; }
-          { name = "markdown"; language-servers = [ "marksman" ]; }
-          { name = "nix"; language-servers = [ "nil" ]; auto-format = true; }
-          { name = "python"; language-servers = [ "pylsp" ]; }
-          { name = "rust"; language-servers = [ "rust-analyzer" ]; auto-format=true;}
-          { name = "typescript"; language-servers = [ "typescript-language-server" ]; }
-          { name = "c-sharp"; language-servers = [ "csharp-ls" ]; auto-format = true; }
-          { name = "haskell"; language-servers = [ "haskell-language-server" ]; auto-format = true; }
-          # { name = "caml"; language-servers = [ "ocamllsp" ];}
-        ];
+        # language = [
+        #   { name = "c"; auto-format = true; formatter = { command = lib.getExe' pkgs.clang-tools "clang-format"; args = [ ]; }; }
+        #   { name = "html"; language-servers = [ "vscode-html-language-server" ]; }
+        #   { name = "markdown"; language-servers = [ "marksman" ]; }
+        #   { name = "nix"; language-servers = [ "nil" ]; auto-format = true; }
+        #   { name = "python"; language-servers = [ "pylsp" ]; }
+        #   { name = "rust"; language-servers = [ "rust-analyzer" ]; auto-format=true;}
+        #   { name = "typescript"; language-servers = [ "typescript-language-server" ]; }
+        #   { name = "c-sharp"; language-servers = [ "omnisharp-roslyn" ]; auto-format = true; }
+        #   { name = "haskell"; language-servers = [ "haskell-language-server" ]; auto-format = true; }
+        #   { name = "caml"; language-servers = [ "ocamllsp" ];}
+        # ];
       };
     };
 }
