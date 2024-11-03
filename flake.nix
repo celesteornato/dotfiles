@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Full system flake, made to work with Aylur's GTK Shell";
 
   inputs = {
 

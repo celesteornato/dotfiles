@@ -37,6 +37,7 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      prezto.editor.keymap = "vi";
     };
 
     starship = {
