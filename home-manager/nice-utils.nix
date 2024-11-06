@@ -10,5 +10,7 @@
     blender # 3D modeler
     lazydocker # Docker interface
     lazygit # Git interface
+
+    libreoffice
   ];
 }
