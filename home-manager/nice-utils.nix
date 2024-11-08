@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     fragments # Torrents
@@ -7,10 +11,8 @@
     fastfetch # Neofetch replacement
     vesktop # BetterDiscord
     obs-studio # Screen recorder
-    blender # 3D modeler
     lazydocker # Docker interface
     lazygit # Git interface
-
     libreoffice
   ];
 }
