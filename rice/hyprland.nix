@@ -27,12 +27,9 @@ in
     package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    plugins = [
-      # inputs.hyprland-hyprspace.packages.${pkgs.system}.default
-      # plugins.hyprexpo
-      # plugins.hyprbars
-      # plugins.borderspp
-    ];
+    plugins =
+      [
+      ];
 
     settings = {
       exec-once = [
@@ -222,11 +219,13 @@ in
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 300;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1A1A1AAF)";
-        shadow_scale = 0.9;
+        shadow = {
+          enabled = true;
+          range = 300;
+          render_power = 3;
+          color = "rgba(1A1A1AAF)";
+          scale = 0.9;
+        };
 
         dim_inactive = false;
 
