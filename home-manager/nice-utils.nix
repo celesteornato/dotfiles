@@ -13,6 +13,7 @@
     obs-studio # Screen recorder
     lazydocker # Docker interface
     lazygit # Git interface
-    libreoffice
+    libreoffice # Office suite
+    wineWowPackages.waylandFull # Wine
   ];
 }
