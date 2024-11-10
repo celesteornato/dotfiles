@@ -3,11 +3,10 @@
   pkgs,
   libs,
   inputs,
+  username,
+  hostname,
   ...
 }:
-let
-  username = "main";
-in
 {
   imports = [
     ./services.nix
@@ -38,7 +37,6 @@ in
   # dconf
   programs.dconf.enable = true;
 
-  users.users.main.shell = pkgs.zsh;
   virtualisation.docker.enable = true;
   programs.nix-ld = {
     enable = true;
@@ -48,7 +46,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-tp";
+  networking.hostName = hostname;
 
   # Enable network manager applet
   programs.nm-applet.enable = true;
@@ -101,9 +99,10 @@ in
   console.keyMap = "fr";
   security.rtkit.enable = true;
 
-  users.users."main" = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "main";
+    description = username;
+    shell = pkgs.zsh;
     extraGroups = [
       "nixosvmtest"
       "networkmanager"

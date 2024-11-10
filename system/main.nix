@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  username = "main";
-in
+{ ... }:
 {
   imports = [
     ./system.nix

@@ -35,6 +35,12 @@
       url = "github:gokcehan/lf";
       flake = false;
     };
+    #--------------------------------------------------#
+
+    #--------------------------------------------------#
+    #     Inputs linked to my cool personal rice       #
+    #--------------------------------------------------#
+    textfox.url = "github:adriankarlen/textfox";
   };
   outputs =
     inputs@{
@@ -59,6 +65,9 @@
         specialArgs = {
           inherit inputs;
           asztal = self.packages.x86_64-linux.default;
+
+          hostname = "nixos-tp";
+          username = "main";
         };
 
         modules = [
@@ -71,7 +80,6 @@
           ./system/main.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-t480s
           home-manager.nixosModules.home-manager
-          { networking.hostName = "nixos-tp"; }
         ];
       };
 
