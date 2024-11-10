@@ -1,11 +1,12 @@
 let
   name = "celesteornato";
-in {
+in
+{
   programs.git = {
     enable = true;
     extraConfig = {
       color.ui = true;
-      core.editor = "nvim";
+      core.editor = "hx";
       credential.helper = "store";
       github.user = name;
       push.autoSetupRemote = true;

@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   lock-false = {
@@ -11,6 +16,12 @@ let
   };
 in
 {
+  imports = [ inputs.textfox.homeManagerModules.default ];
+
+  textfox = {
+    enable = true;
+    profile = "firefox profile name here";
+  };
   programs = {
     firefox = {
       enable = true;
@@ -58,6 +69,11 @@ in
           # Lastpass:
           "support@lastpass.com" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4357922/lastpass_password_manager-4.134.0.xpi";
+            installation_mode = "normal_installed";
+          };
+          # mtab:
+          "contact@maxhu.dev" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4379205/mtab-1.6.2.xpi";
             installation_mode = "normal_installed";
           };
         };

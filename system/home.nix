@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, username, ... }:
 {
   news.display = "show";
 
@@ -12,7 +12,6 @@
 
   home = {
     stateVersion = "21.11";
-    username = "main";
     sessionVariables = {
       QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
@@ -38,6 +37,7 @@
       "file://${home}/Downloads"
       "file://${home}/Desktop"
       "file://${home}/.config Config"
+      "file://${home} Home"
     ];
 
   programs.home-manager.enable = true;
