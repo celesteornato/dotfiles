@@ -74,7 +74,6 @@ in
       dwindle = {
         pseudotile = "yes";
         preserve_split = "yes";
-        # no_gaps_when_only = "yes";
       };
 
       gestures = {
@@ -245,11 +244,11 @@ in
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
         animation = [
-          "windows, 1, 2, myBezier"
-          "windowsOut, 1, 4, default, popin 80%"
-          "border, 1, 5, default"
-          "fade, 1, 3, default"
-          "workspaces, 1, 3, default"
+          "windows, 0, 1, myBezier"
+          "windowsOut, 0, 1, default, popin 80%"
+          "border, 1, 1, default"
+          "fade, 1, 1, default"
+          "workspaces, 1, 1, default"
         ];
       };
 
