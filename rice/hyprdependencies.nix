@@ -56,6 +56,7 @@
       pavucontrol
       brightnessctl
       swww
+      hyprlock
     ];
 
     systemd = {

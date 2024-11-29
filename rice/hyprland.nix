@@ -46,8 +46,16 @@ in
       ];
 
       general = {
-        layout = "dwindle";
+        layout = "master";
         resize_on_border = true;
+        gaps_in = 0;
+        gaps_out = [
+          0
+          0
+          0
+          0
+        ];
+        border_size = 0;
       };
 
       misc = {
@@ -74,6 +82,15 @@ in
       dwindle = {
         pseudotile = "yes";
         preserve_split = "yes";
+      };
+      master = {
+        mfact = 0.5;
+        new_status = "master";
+        new_on_top = true;
+        orientation = "left";
+        allow_small_split = true;
+        always_center_master = true;
+        smart_resizing = false;
       };
 
       gestures = {
@@ -230,8 +247,8 @@ in
 
         blur = {
           enabled = true;
-          size = 1;
-          passes = 7;
+          size = 3;
+          passes = 3;
           new_optimizations = "on";
           noise = 0.4;
           contrast = 0.8;

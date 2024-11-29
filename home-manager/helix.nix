@@ -79,7 +79,6 @@
       };
     };
     languages = {
-      language-server.roslyn.command = "roslyn-language-server";
       language = [
         {
           name = "nix";
@@ -89,7 +88,6 @@
         {
           name = "c-sharp";
           auto-format = true;
-          language-servers = [ "roslyn" ];
           formatter.command = lib.getExe pkgs.csharpier;
         }
         {
@@ -101,6 +99,7 @@
     };
     extraPackages = with pkgs; [
       rust-analyzer
+      omnisharp-roslyn
     ];
   };
 }
