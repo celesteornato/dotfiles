@@ -38,6 +38,7 @@ in
   home = {
     packages = with pkgs; [
       cantarell-fonts
+      source-code-pro
       font-awesome
       theme.package
       font.package

@@ -170,7 +170,7 @@ in
           "Super SHIFT, s,         exec, ${screenshot}"
           "SHIFT,Print,    exec, ${screenshot} --full"
           "SUPER SHIFT, A, exec, firefox"
-          "SUPER, T, exec, kitty tmux new-session -A -s main"
+          "SUPER, T, exec, emacsclient -c -a ~/"
           "SUPER, A, exec, kitty"
 
           "ALT, Tab, focuscurrentorlast"

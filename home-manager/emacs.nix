@@ -1,7 +1,9 @@
-{ pkg, ... }:
+{ pkgs, ... }:
 {
-  programs.emacs = {
-    enable = true;
-    package = pkg.emacs-nox;
-  };
+  home.packages = with pkgs; [
+    mu
+    emacsPackages.mu4e
+    cmake
+    libtool
+  ];
 }

@@ -23,7 +23,10 @@
       };
     };
     power-profiles-daemon.enable = false;
-
+    emacs = {
+      enable = true;
+      package = pkgs.emacs;
+    };
     printing = {
       enable = true;
       allowFrom = [ "all" ];

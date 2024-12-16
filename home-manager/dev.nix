@@ -14,7 +14,7 @@
 
     rustup
     clang-tools
-    gcc
+    clang
     gpp
     ocaml
     nasm

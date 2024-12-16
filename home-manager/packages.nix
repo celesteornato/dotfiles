@@ -4,8 +4,8 @@
     ./nice-utils.nix
     ./cli-utils.nix
     ./zsh.nix
-    ./dev.nix
     ./emacs.nix
+    ./dev.nix
     ../scripts/nx-switch.nix
     ../scripts/blocks.nix
   ];
