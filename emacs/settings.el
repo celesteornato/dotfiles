@@ -1,5 +1,8 @@
 (setq package-list '(
-  lsp-mode lsp-ui flycheck dap-mode vertico magit company crux expand-region multiple-cursors org-bullets)
+  lsp-mode lsp-ui flycheck dap-mode vertico magit company
+  crux expand-region multiple-cursors org-bullets
+  auctex-cluttex auctex-latexmk
+ )
 )
 (dolist (package package-list)
    (unless (package-installed-p package)
@@ -26,7 +29,7 @@
 (use-package evil)
 (evil-mode)
 
-(setq lsp-keymap-prefix "C-c l")
+(setq lsp-keymap-prefix "C-l")
 (require 'lsp-mode)
 (add-hook 'prog-mode-hook #'lsp)
 
@@ -56,3 +59,11 @@
       org-fontify-whole-heading-line t
       org-fontify-done-headline t
       org-fontify-quote-and-verse-blocks t)
+(font-lock-add-keywords 'org-mode
+   '(("^ *\\([-]\\) "
+ (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(require 'auctex-latexmk)
+  (auctex-cluttex-mode)
+(require 'auctex-latexmk)
+  (prettify-symbols-mode)
