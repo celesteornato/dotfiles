@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    mu
-    emacsPackages.mu4e
+  	emacs
     cmake
     libtool
   ];

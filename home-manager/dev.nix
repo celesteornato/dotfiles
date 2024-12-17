@@ -13,19 +13,13 @@
     ffmpeg
 
     rustup
+	python3
     clang-tools
     clang
     gpp
     ocaml
     nasm
     qemu
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        sdk_6_0
-        sdk_7_0
-        sdk_8_0
-      ]
-    )
+    dotnet-sdk_8
   ];
 }

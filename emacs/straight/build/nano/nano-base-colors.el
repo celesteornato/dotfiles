@@ -1,1 +1,0 @@
-/home/main/.emacs.d/straight/repos/nano-emacs/nano-base-colors.el
