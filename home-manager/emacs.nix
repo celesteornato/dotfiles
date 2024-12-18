@@ -4,5 +4,6 @@
   	emacs
     cmake
     libtool
+	omnisharp-roslyn
   ];
 }
