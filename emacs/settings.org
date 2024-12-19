@@ -8,6 +8,7 @@
     lsp-mode lsp-ui flycheck dap-mode vertico magit company
     crux expand-region multiple-cursors org-bullets fuzzy-finder linum-off
     auctex-cluttex auctex-latexmk format-all org-modern
+    gruvbox-theme borland-blue-theme
    )
   )
   (dolist (package package-list)
@@ -53,9 +54,6 @@
   (require 'lsp-mode)
   (add-hook 'prog-mode-hook #'lsp)
 #+end_src
-
-** Fuzzy-finder
-(fuzzy-finder-mode)
 
 * Nice to Have
 ** Theme
@@ -182,7 +180,6 @@ Stolen from [https://github.com/thriveth/Gruvbox-goodies]
             (setq right-margin-width 2)
             (set-window-buffer nil (current-buffer))))
       (setq org-startup-indented t
-            org-ellipsis "  " ;; folding symbol
             org-pretty-entities t
             org-hide-emphasis-markers t
             ;; show actually italicized text instead of /italicized text/
@@ -204,7 +201,6 @@ Stolen from [https://github.com/thriveth/Gruvbox-goodies]
   (add-hook 'org-mode-hook #'my-org-faces)
   (add-hook 'org-mode-hook #'org-modern-mode)
 #+end_src
-
 ** Latex
 #+begin_src emacs-lisp
   (require 'auctex-latexmk)
@@ -212,8 +208,7 @@ Stolen from [https://github.com/thriveth/Gruvbox-goodies]
   (require 'auctex-latexmk)
     (prettify-symbols-mode)
 #+end_src
-
-** Misc.
+** Misc
 #+begin_src emacs-lisp
     (setq-default indent-tabs-mode t)
     (setq-default tab-width 4) ; Assuming you want your tabs to be four spaces wide
@@ -244,5 +239,26 @@ Stolen from [https://github.com/thriveth/Gruvbox-goodies]
                           (exwm-workspace-switch-create ,i))))
                     (number-sequence 0 9))))
   ;; Enable EXWM
-  ;; (exwm-enable)
+  (exwm-enable)
+#+end_src
+
+** Bad Theme
+#+begin_src emacs-lisp
+
+  (global-set-key (kbd "C-c C-t") (
+    lambda () (interactive)
+        (load-theme 'gruvbox)
+        (set-face-attribute 'default nil :font "Caskaydia Cove Nerd Font" :height 160)
+        (menu-bar-mode -1)
+        (tool-bar-mode -1)
+        (scroll-bar-mode -1)
+  ))
+  (global-set-key (kbd "C-c t") (
+    lambda () (interactive)
+        (load-theme 'borland-blue)
+        (set-face-attribute 'default nil :font "Unifont Bold" :height 190)
+        (menu-bar-mode)
+        (tool-bar-mode)
+        (scroll-bar-mode)
+  ))
 #+end_src

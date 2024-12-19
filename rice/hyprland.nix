@@ -35,13 +35,14 @@ in
       exec-once = [
         "ags -b hypr"
         "vesktop --start-minimized"
+        "firefox --headless"
         "firefox"
         "hyprctl setcursor Qogir 24"
       ];
 
       monitor = [
         # "eDP-1, 1920x1080, 0x0, 1"
-        # "HDMI-A-1, 2560x1440, 1920x0, 1"
+        # "HDMI-A-2, 1920x1080, 0x0, eDP-1"
         ",preferred,auto,1"
       ];
 
