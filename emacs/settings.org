@@ -239,13 +239,13 @@ Stolen from [https://github.com/thriveth/Gruvbox-goodies]
                           (exwm-workspace-switch-create ,i))))
                     (number-sequence 0 9))))
   ;; Enable EXWM
-  (exwm-enable)
+;;  (exwm-enable)
 #+end_src
 
 ** Bad Theme
 #+begin_src emacs-lisp
 
-  (global-set-key (kbd "C-c C-t") (
+  (global-set-key (kbd "C-c M-t") (
     lambda () (interactive)
         (load-theme 'gruvbox)
         (set-face-attribute 'default nil :font "Caskaydia Cove Nerd Font" :height 160)
