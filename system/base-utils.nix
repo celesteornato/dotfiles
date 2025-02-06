@@ -32,6 +32,7 @@
     thermald
     fwupd
     earlyoom
+    os-prober
 
     # Nixos
     home-manager

@@ -58,5 +58,6 @@
 
     openssh.enable = true;
     earlyoom.enable = true;
+    systembus-notify.enable = true;
   };
 }

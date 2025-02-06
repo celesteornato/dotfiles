@@ -6,6 +6,7 @@
 {
   home.packages = with pkgs; [
     fragments # Torrents
+    pulseaudio # Audio Mixer
     mpv # Video Player
     feh # Image reader
     fastfetch # Neofetch replacement

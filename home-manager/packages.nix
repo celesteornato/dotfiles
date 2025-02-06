@@ -7,5 +7,6 @@
     ./emacs.nix
     ../scripts/nx-switch.nix
     ../scripts/blocks.nix
+    ../scripts/screenshot.nix
   ];
 }

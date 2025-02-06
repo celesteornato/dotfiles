@@ -6,9 +6,9 @@
     swaylock
     rofi
     waybar
-    gdm
     playerctl
     brightnessctl
     jq
+    swaynotificationcenter
   ];
 }
