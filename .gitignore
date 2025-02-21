@@ -5,3 +5,7 @@ transient
 elpa
 settings.el
 straight
+*.core
+getmail/
+.getmailrc
+getmailrc
