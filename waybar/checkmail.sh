@@ -2,7 +2,7 @@
 
 mail -e
 if [ "$?" -eq "0" ]; then
-  echo 'You have mail.'
+  echo '󰶍 You have mail.'
 else
-  echo 'No mail.'
+  echo '󰛮 No mail.'
 fi

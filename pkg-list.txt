@@ -1,12 +1,10 @@
 adapta-gtk-theme
 ansiweather
 bash
-bspwm
 btop
 cmake
 dmenu
 dolphin
-drm-61-kmod
 dunst
 emacs-wayland
 en-freebsd-doc
@@ -21,7 +19,6 @@ fusefs-ext2
 git
 gmake
 gnome-icon-theme
-gpu-firmware-intel-kmod-kabylake
 grim
 grimshot
 gstreamer1-plugins-alsa
@@ -49,7 +46,6 @@ mpv
 nautilus
 neomutt
 nerd-fonts
-nethack36-nox11
 networkmgr
 ninja
 notification-daemon
@@ -86,7 +82,6 @@ setxkbmap
 signal-desktop
 slurp
 sox
-steam-bottler
 sudo
 sway
 swayidle
@@ -102,7 +97,6 @@ virtual_oss_ctl
 vitetris
 waybar
 wget
-wifi-firmware-iwlwifi-kmod-8000
 wine
 wine-proton
 winetricks

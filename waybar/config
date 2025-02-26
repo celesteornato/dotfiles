@@ -196,7 +196,7 @@
 
     "custom/weather": {
         "interval": 120,
-        "format": "{}",
+        "format": "  {}",
         "exec": "~/.config/waybar/weather.sh"
     },
     "memory": {
