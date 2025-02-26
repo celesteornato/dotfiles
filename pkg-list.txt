@@ -16,12 +16,14 @@ fish
 flameshot
 fusefs-exfat
 fusefs-ext2
+fzf
 git
 gmake
 gnome-icon-theme
 grim
 grimshot
 gstreamer1-plugins-alsa
+gtar
 gtk-mixer
 gtkglext
 helix
@@ -67,8 +69,6 @@ poudriere
 prismlauncher
 pulseaudio
 pulseaudio-module-sndio
-py311-build
-py311-flit-core
 py311-getmail6
 py311-jedi
 py311-waypaper
@@ -76,8 +76,8 @@ py311-wpgtk
 qtutilities
 rofi
 ruff
+rust
 scrot
-seatd
 setxkbmap
 signal-desktop
 slurp
@@ -89,6 +89,7 @@ swaylock-effects
 swww
 sxhkd
 thunar
+tmux
 tofi
 vifm
 vim
@@ -104,6 +105,7 @@ wlogout
 wofi
 wpa_supplicant_gui
 xclipboard
+xf86-video-intel
 xorg-fonts
 xsysstats
 xterm

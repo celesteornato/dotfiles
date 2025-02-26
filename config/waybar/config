@@ -196,8 +196,8 @@
 
     "custom/weather": {
         "interval": 120,
-        "format": "{}",
-        "exec": "ansiweather -l Paris -p false -a false -i false -H true"
+        "format": "  {}",
+        "exec": "~/.config/waybar/weather.sh"
     },
     "memory": {
         "interval": 5,
