@@ -37,6 +37,7 @@ exec waybar &
 exec linux-discord --start-minimized &
 exec wpa_gui -qt &
 exec emacs --daemon &
+exec dunst &
 
 ### Input configuration
 input type:touchpad {
@@ -44,6 +45,7 @@ input type:touchpad {
 }
 input type:keyboard {
   xkb_layout fr
+  xkb_options  "compose:prsc"
 }
 
 # Start a terminal

@@ -30,3 +30,4 @@ skip-levels = 1
 
 [editor.inline-diagnostics]
 cursor-line = "warning" # show warnings and errors on the cursorline inline
+
