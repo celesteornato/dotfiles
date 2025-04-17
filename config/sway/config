@@ -22,21 +22,26 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu tofi-drun | xargs swaymsg exec --
+set $cmdexec tofi-run | xargs swaymsg exec --
 
 default_border pixel 2
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
-
 default_floating_border none
 gaps inner 10
 gaps outer 10
 ### Output configuration
 
-output * bg ~/Pictures/Wallpapers/gruvbsd.png fill
+output * bg ~/Pictures/Wallpapers/macos-sequoia.jpeg fill
 
-exec waybar &
-exec linux-discord --start-minimized &
-exec wpa_gui -qt &
+exec pipewire 
+exec wireplumber
+exec pipewire-pulse
+
+exec waybar
+
+exec vesktop --start-minimized &
 exec emacs --daemon &
+exec nm-applet &
 exec dunst &
 
 ### Input configuration
@@ -48,6 +53,27 @@ input type:keyboard {
   xkb_options  "compose:prsc"
 }
 
+set $system_theme 'Arc-Dark'
+set $system_icons 'Numix-Square'
+set $system_dpi_scaling_factor 1
+set $cursor_size 22
+set $cursor_theme Breeze
+set $cursor_theme Adwaita
+set $titlebar_text_size 32
+set $titlebar_font Cantarell
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+  gsettings set $gnome-schema gtk-theme $system_theme
+  gsettings set $gnome-schema icon-theme $system_icons
+  gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
+  gsettings set $gnome-schema cursor-theme $cursor_theme
+  gsettings set $gnome-schema cursor-size $cursor_size
+}
+
+# Mouse
+seat seat0 xcursor_theme $cursor_theme $cursor_size
+
 # Start a terminal
 bindsym $mod+a exec $term
 
@@ -55,22 +81,21 @@ bindsym $mod+shift+a exec firefox
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+shift+s exec grimshot copy area
 
-# Brightness
-bindsym XF86MonBrightnessDown exec 'backlight decr 20'
-bindsym XF86MonBrightnessUp exec 'backlight incr 20'
-# VolumE
-BINDsym XF86AudioRaiseVolume exec 'mixer vol.volume=+0.05'
-bindsym XF86AudioLowerVolume exec 'mixer vol.volume=-0.05'
-bindsym XF86AudioMute exec 'mixer vol.mute=toggle'
-bindsym shift+XF86AudioLowerVolume exec 'mixer rec.mute=0'
-bindsym XF86AudioMicMute exec 'mixer rec.mute=toggle'
-bindsym shift+XF86AudioRaiseVolume exec 'mixer rec.mute=1'
+# Volume
+ 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggleBINDsym XF86AudioRaiseVolume exec 'mixer vol.volume=+0.05'
+
 # Kill focused window
 bindsym $mod+q kill
 # Hide Bar
-bindsym $mod+space exec killall -SIGUSR1 waybar
+bindsym $mod+space exec pkill -10 waybar
 # Start your launcher
 bindsym $mod+d exec $menu
+bindsym $mod+shift+d exec $cmdexec
 bindsym $mod+Control+l exec hyprlock
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -184,6 +209,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindswitch --reload --locked lid:on exec hyprlock
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 include /etc/sway/config.d/*
 

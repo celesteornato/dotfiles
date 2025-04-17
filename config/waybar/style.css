@@ -51,17 +51,12 @@ window#waybar.hidden {
 }
 
 #memory,
-#custom-power,
 #custom-mail,
 #battery,
 #backlight,
-#custom-microphone,
 #wireplumber,
-#pulseaudio,
-#custom-oss,
 #network,
 #custom-weather,
-#custom-backlight,
 #clock,
 #disk,
 #cpu,
@@ -77,18 +72,35 @@ window#waybar.hidden {
   background-color: #1E1E1E;
 }
 
-#custom-backlight,
-#custom-microphone,
-#pulseaudio,
-#custom-oss,
 #wireplumber
 {
   background-color: #8ec07c;
 }
+
 #custom-weather
 {
   background-color: #D3689B;
   margin-left: 60px;
+}
+
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+  margin-top: 4px;
+  min-width: 6px;
+  min-height: 60px;
+  border-radius: 8px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  border-radius: 8px;
 }
 
 #custom-logo {
@@ -97,7 +109,7 @@ window#waybar.hidden {
   padding-left: 10px;
   font-size: 24px;
   border-radius: 32px 32px 32px 32px;
-  color: #B5010F;
+  color: #00FF00;
   /* color: #000000; */
 }
 
@@ -128,7 +140,7 @@ window#waybar.hidden {
 }
 
 #network {
-  background-color: #94e2d5;
+  background-color: #8fb5b8;
   padding-right: 17px;
 }
 
