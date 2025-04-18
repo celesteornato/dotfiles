@@ -38,7 +38,7 @@
         "transition-left-to-right": false
         },
         "modules": [
-            "wireplumber",
+            "pulseaudio",
             "pulseaudio/slider"
         ]
     },
@@ -110,9 +110,9 @@
       "max": 140,
       "orientation": "vertical"
     },
-    "wireplumber": {
+    "pulseaudio": {
     	"format": "{icon}\n{volume}%",
-    	"format-bluetooth": "{}\n{volume}%",
+    	"format-bluetooth": " {icon}\n{volume}%",
     	"format-muted": "",
     	"format-icons": {
     		"alsa_output.pci-0000_00_1f.3.analog-stereo": "",

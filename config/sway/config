@@ -1,6 +1,9 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+     
+include $HOME/.config/sway/config.d/*
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -33,9 +36,9 @@ gaps outer 10
 
 output * bg ~/Pictures/Wallpapers/macos-sequoia.jpeg fill
 
-exec pipewire 
-exec wireplumber
+exec pipewire
 exec pipewire-pulse
+exec wireplumber
 
 exec waybar
 
@@ -79,6 +82,7 @@ bindsym $mod+a exec $term
 
 bindsym $mod+shift+a exec firefox
 bindsym $mod+t exec emacsclient -c
+bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym $mod+shift+s exec grimshot copy area
 
 # Volume
