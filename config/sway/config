@@ -34,9 +34,6 @@ gaps outer 10
 
 output * bg ~/Pictures/Wallpapers/Effeil.jpg fill
 
-exec_always pkill waybar
-exec_always waybar
-
 ### Input configuration
 input type:touchpad {
   tap enabled

@@ -29,7 +29,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": " {icon} ",
+    "format": "{icon}",
     // "format": "< %g >",
     // "format_focused" : "< %g ● >",
     "format-icons": {
