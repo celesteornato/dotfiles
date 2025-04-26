@@ -1,7 +1,5 @@
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
+# exec dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
      
 include $HOME/.config/sway/config.d/*
 # Default config for sway
@@ -27,33 +25,27 @@ set $term kitty
 set $menu tofi-drun | xargs swaymsg exec --
 set $cmdexec tofi-run | xargs swaymsg exec --
 
-default_border pixel 2
+default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
 default_floating_border none
 gaps inner 10
 gaps outer 10
 ### Output configuration
 
-output * bg ~/Pictures/Wallpapers/macos-sequoia.jpeg fill
+output * bg ~/Pictures/Wallpapers/Effeil.jpg fill
 
-exec pipewire
-exec pipewire-pulse
-exec wireplumber
-
-exec waybar
-
-exec vesktop --start-minimized &
-exec emacs --daemon &
-exec nm-applet &
-exec dunst &
+exec_always pkill waybar
+exec_always waybar
 
 ### Input configuration
 input type:touchpad {
   tap enabled
+  pointer_accel 0.6
+  accel_profile "flat"
 }
 input type:keyboard {
   xkb_layout fr
-  xkb_options  "compose:prsc"
+  xkb_options "compose:prsc"
 }
 
 set $system_theme 'Arc-Dark'
@@ -80,7 +72,7 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 # Start a terminal
 bindsym $mod+a exec $term
 
-bindsym $mod+shift+a exec firefox
+bindsym $mod+shift+a exec firefox-wayland
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym $mod+shift+s exec grimshot copy area
@@ -114,6 +106,7 @@ bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+q exec swaymsg exit
 # Moving around:
 #
 # Move your focus around

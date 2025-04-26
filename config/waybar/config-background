@@ -89,7 +89,7 @@
   "custom/swap": {
     "on-click": "~/.config/waybar/scripts/swap.sh",
     "tooltip": "Swap between waybar configs",
-    "format": "Gruv  "
+    "format": "Gruv  "
   },
   "custom/mpd": {
     "format": " {title} - {artist}",

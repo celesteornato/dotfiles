@@ -11,16 +11,20 @@
     "custom/swap",
     "tray",
     "sway/mode",
-    "custom/cava-internal",
+    "custom/cava-internal"
+    // "mpd#2",
+    // "mpd#3",
+    // "mpd#4",
+    // "mpd"
   ],
   "modules-center": ["clock"],
   "modules-right": [
-    "battery",
     "backlight",
     "pulseaudio",
+    "custom/keyboard-layout",
     "temperature",
     "memory",
-    "cpu",
+    "battery",
     "network",
   ],
 
@@ -29,7 +33,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": " {icon} ",
+    "format": "  {icon} ",
     // "format": "< %g >",
     // "format_focused" : "< %g ● >",
     "format-icons": {
@@ -89,7 +93,7 @@
   "custom/swap": {
     "on-click": "~/.config/waybar/scripts/swap.sh",
     "tooltip": "Swap between waybar configs",
-    "format": "Gruv  "
+    "format": "Bg  "
   },
   "custom/mpd": {
     "format": " {title} - {artist}",
@@ -117,8 +121,8 @@
     }
   },
   "tray": {
-    "icon-size": 16,
-    "spacing": 10
+    "icon-size": 14,
+    "spacing": 5
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -143,9 +147,8 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     },
-    "format": "  {:%a %d %b   %H:%M}", //12 hour format
-    // "format": " {:%d %m %Y  %H:%M}",	//24 hour format
-    "format-alt": "  {:%d/%m/%Y  %H:%M:%S}",
+    "format": " {:%A %d/%m/%y    %H:%M}",	//24 hour format
+    "format-alt": " {:%A, the %d of %B %Y    %T}",	//24 hour format
     // //"timezones": [ "Kolkata" ],
     // //"max-length": 200
     "interval": 1
@@ -178,12 +181,11 @@
   //     "interval": 1
   // },
   "cpu": {
-    "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "format": "﬙ {usage: >3}%",
     "on-click": "alacritty -e htop"
   },
   "memory": {
-    "format": " {: >3}%",
+    "format": " {: >3}%",
     "on-click": "alacritty -e htop"
   },
   "temperature": {
@@ -249,6 +251,11 @@
     "exec-if": "exit 0", // always run; consider advanced run conditions
     "on-click": "alacritty -e sudo pacman -Syu", // update system
     "signal": 8
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "nwgbar",
+    "tooltip": false
   },
   "custom/keyboard-layout": {
     "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
