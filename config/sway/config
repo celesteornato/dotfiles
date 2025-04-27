@@ -23,7 +23,7 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu tofi-drun | xargs swaymsg exec --
-set $cmdexec tofi-run | xargs swaymsg exec --
+set $cmdexec tofi-run --require-match=false | xargs kitty --hold --
 
 default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
@@ -82,6 +82,10 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggleBINDsym XF86AudioRaiseVolume exec 'mixer vol.volume=+0.05'
 
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+
 # Kill focused window
 bindsym $mod+q kill
 # Hide Bar
@@ -90,6 +94,9 @@ bindsym $mod+space exec pkill -10 waybar
 bindsym $mod+d exec $menu
 bindsym $mod+shift+d exec $cmdexec
 bindsym $mod+Control+l exec hyprlock
+
+for_window [app_id="Alacritty"] floating enable 
+for_window [app_id="pavucontrol"] floating enable 
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
