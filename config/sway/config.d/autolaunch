@@ -37,6 +37,7 @@ exec /usr/libexec/xdg-desktop-portal
 
 # MPD
 exec mpd &
+exec mpc load main
 
 # nwg-drawer
 exec_always nwg-drawer -r 

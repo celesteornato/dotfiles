@@ -1,5 +1,6 @@
 @define-color  bg_h #1d2021;
 @define-color  bg   #282828;
+@define-color  bg_a rgba(40,40,40,0.9);
 @define-color  bg_s #32302f;
 @define-color  bg1  #3c3836;
 @define-color  bg2  #504945;

@@ -12,6 +12,10 @@
     "tray",
     "sway/mode",
     "custom/cava-internal",
+    "mpd#2",
+    "mpd#3",
+    "mpd#4",
+    "mpd",
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -51,7 +55,7 @@
     "format": " {elapsedTime:%M:%S}",
     "format-disconnected": "⚠  Disconnected",
     "format-stopped": " Not Playing",
-    "on-click": "mpc toggle",
+    "on-click": "exec alacritty --command ncmpcpp",
     "state-icons": {
       "playing": "",
       "paused": ""
@@ -89,7 +93,7 @@
   "custom/swap": {
     "on-click": "~/.config/waybar/scripts/swap.sh",
     "tooltip": "Swap between waybar configs",
-    "format": "Gruv  "
+    "format": "Gruv  "
   },
   "custom/mpd": {
     "format": " {title} - {artist}",
@@ -99,6 +103,7 @@
   "custom/cava-internal": {
     "exec": "sh ~/.config/waybar/scripts/Cava.sh",
     "format": "{}",
+    "on-click": "exec alacritty --command ncmpcpp -s visualizer",
     "tooltip": false,
     "layer": "below",
     "output": "all"
@@ -180,7 +185,8 @@
   "cpu": {
     "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "alacritty -e htop"
+    "on-click": "alacritty -e htop",
+    "interval": 1
   },
   "memory": {
     "format": " {: >3}%",
@@ -262,7 +268,7 @@
   },
   "custom/launcher": {
     "format": " ",
-    "on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+    "on-click": "exec pkill sway",
     "tooltip": false
   }
 }
