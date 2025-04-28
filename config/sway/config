@@ -23,7 +23,7 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu tofi-drun | xargs swaymsg exec --
-set $cmdexec tofi-run --require-match=false | xargs kitty --hold --
+set $cmdexec alacritty --command sunbeam
 
 default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
@@ -39,6 +39,7 @@ input type:touchpad {
   tap enabled
   pointer_accel 0.6
   accel_profile "flat"
+  dwt disabled
 }
 input type:keyboard {
   xkb_layout fr
