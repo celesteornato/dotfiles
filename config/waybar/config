@@ -55,7 +55,8 @@
     "format": " {elapsedTime:%M:%S}",
     "format-disconnected": "⚠  Disconnected",
     "format-stopped": " Not Playing",
-      "on-click": "exec alacritty --command ncmpcpp",
+    "on-click": "exec alacritty --command ncmpcpp",
+    "on-click-right": "exec ~/.config/sway/scripts/music_init.sh",
     "state-icons": {
       "playing": "",
       "paused": ""
@@ -93,7 +94,7 @@
   "custom/swap": {
     "on-click": "~/.config/waybar/scripts/swap.sh",
     "tooltip": "Swap between waybar configs",
-    "format": "Gruv  "
+    "format": "Gruv  "
   },
   "custom/mpd": {
     "format": " {title} - {artist}",

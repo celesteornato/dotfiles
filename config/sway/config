@@ -32,7 +32,8 @@ gaps inner 10
 gaps outer 10
 ### Output configuration
 
-output * bg ~/Pictures/Wallpapers/Effeil.jpg fill
+output eDP-1 bg ~/Pictures/Wallpapers/Effeil.jpg fill
+output eDP-1 resolution 3840x2160 scale 2
 
 ### Input configuration
 input type:touchpad {
