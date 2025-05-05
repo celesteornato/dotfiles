@@ -3,7 +3,7 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 20,
   "margin": "0 0 0 0",
-  "width": 1500, // Waybar width
+  "width": 1400, // Waybar width
   // Choose the order of the modules idle_inhibitor
   "modules-left": [
     "sway/workspaces",
@@ -18,7 +18,6 @@
     "battery",
     "backlight",
     "pulseaudio",
-    "temperature",
     "memory",
     "cpu",
     "network",

@@ -198,8 +198,7 @@ window#waybar {
 #clock {
     color: white;
     border-radius: 10px;
-    margin-right: 40px;
-    margin-left: 10px;
+    margin: 8px 10px;
 }
 
 #backlight {

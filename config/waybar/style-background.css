@@ -58,8 +58,7 @@
 }
 
 window#waybar {
-    border-bottom: 4px solid shade(@bg, 1.1);
-    /* border-radius: 10px; */
+    border-radius: 0;
     /* background:#2d2a2e; */
     background-color: @bg_a;
     /* background-color: rgba(0, 0, 0, 0); */
