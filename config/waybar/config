@@ -1,23 +1,19 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 30,
+  "height": 20,
   "margin": "0 0 0 0",
-  //"width": 1350, // Waybar width
+  "width": 1500, // Waybar width
   // Choose the order of the modules idle_inhibitor
   "modules-left": [
-    "custom/launcher",
     "sway/workspaces",
     "custom/swap",
     "tray",
     "sway/mode",
     "custom/cava-internal",
-    "mpd#2",
-    "mpd#3",
-    "mpd#4",
     "mpd",
   ],
-  "modules-center": ["clock"],
+  "modules-center": ["custom/mail", "clock"],
   "modules-right": [
     "battery",
     "backlight",
@@ -29,6 +25,13 @@
   ],
 
   // Modules configuration
+
+  "custom/mail": {
+    "interval": 15,
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/check_mail.sh",
+    "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
+  },
 
   "sway/workspaces": {
     "disable-scroll": true,

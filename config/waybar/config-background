@@ -17,7 +17,7 @@
     "mpd#4",
     "mpd",
   ],
-  "modules-center": ["clock"],
+  "modules-center": ["custom/mail", "clock"],
   "modules-right": [
     "battery",
     "backlight",
@@ -29,6 +29,14 @@
   ],
 
   // Modules configuration
+
+  "custom/mail": {
+    "interval": 15,
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/check_mail.sh",
+    "on-click": "exec alacritty --command neomutt"
+  },
+
 
   "sway/workspaces": {
     "disable-scroll": true,

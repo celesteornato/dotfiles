@@ -47,14 +47,14 @@ input type:keyboard {
   xkb_options "compose:prsc"
 }
 
-set $system_theme 'Arc-Dark'
-set $system_icons 'Numix-Square'
+set $system_theme 'WhiteSur-Dark'
+set $system_icons 'WhiteSur-Dark'
 set $system_dpi_scaling_factor 1
 set $cursor_size 22
 set $cursor_theme Breeze
 set $cursor_theme Adwaita
 set $titlebar_text_size 32
-set $titlebar_font Cantarell
+set $titlebar_font "Caskaydia Cove Nerd Font"
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
@@ -75,6 +75,7 @@ bindsym $mod+shift+a exec firefox-wayland
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym $mod+shift+s exec grimshot copy area
+bindsym $mod+m exec alacritty --command neomutt
 
 # Volume
  

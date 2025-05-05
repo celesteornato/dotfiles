@@ -308,6 +308,7 @@ window#waybar {
 
 #tray {
     background-color: @bg_s;
+    color: #000000;
     margin: 8px 10px;
     border-radius: 10px;
 }

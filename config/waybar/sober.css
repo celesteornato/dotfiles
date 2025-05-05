@@ -1,0 +1,30 @@
+@define-color base   rgba(40,40,40,1);
+@define-color mantle rgba(40,40,40,1);
+@define-color crust  rgba(0,0,0,0.5);
+
+@define-color text     #cad3f5;
+@define-color subtext0 #a5adcb;
+@define-color subtext1 #b8c0e0;
+
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color surface2 #5b6078;
+
+@define-color overlay0 #6e738d;
+@define-color overlay1 #8087a2;
+@define-color overlay2 #939ab7;
+
+@define-color blue      lightgrey;
+@define-color lavender  lightgrey;
+@define-color sapphire  lightgrey;
+@define-color sky       lightgrey;
+@define-color teal      lightgrey;
+@define-color green     lightgrey;
+@define-color yellow    lightgrey;
+@define-color peach     lightgrey;
+@define-color maroon    lightgrey;
+@define-color red       lightgrey;
+@define-color mauve     lightgrey;
+@define-color pink      lightgrey;
+@define-color flamingo  lightgrey;
+@define-color rosewater lightgrey;
