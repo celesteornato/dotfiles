@@ -49,6 +49,3 @@ exec nm-applet
 
 exec waybar
 
-workspace ​
-exec kitty neomutt
-workspace 1
