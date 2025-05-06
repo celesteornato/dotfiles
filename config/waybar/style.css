@@ -1,39 +1,4 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
-
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
 @import "sober.css";
-
-/*
-  Polar Night
-  nord0  #2e3440
-  nord1  #3b4252
-  nord2  #434c5e
-  nord3  #4c566a
-  Snow Storm
-  nord4  #d8dee9
-  nord5  #e5e9f0
-  nord6  #eceff4
-  Frost
-  nord7  #8fbcbb
-  nord8  #88c0d0
-  nord9  #81a1c1
-  nord10 #5e81ac
-  Aurora
-  nord11 #bf616a
-  nord12 #d08770
-  nord13 #ebcb8b
-  nord14 #a3be8c
-  nord15 #b48ead
-  */
 
 /* -----------------------------------------------------------------------------
    * Base styles
@@ -42,69 +7,33 @@
 /* Reset all styles */
 
 * {
-    color: white;
+    color: @foreground;
     border: 0;
     padding: 0 0;
+    border-radius: 4px;
     font-family: CaskaydiaCoveNerdFont;
     font-size: 16px;
     font-weight: bold;
-    transition: all 0.5s ease;
+    /* transition: all 0.5s ease; */
 }
-
 
 window#waybar {
   color: transparent;
   background-color: @crust;
   opacity: 0.9;
-  border-radius: 0 0 10px 10px;
 }
-
-#workspaces button {
-    color: @red0;
-    border-radius: 50%;
-    /* background-color: @base; */
-    margin: 0px 0px;
-    padding: 0 10px 0 10px;
-}
-
-#workspaces button:hover * {
-    color: @mauve;
-}
-
-#workspaces button:hover {
-    color: @mauve;
-    box-shadow: none;
-    /* Remove predefined box-shadow */
-    text-shadow: none;
-    /* Remove predefined text-shadow */
-    border: 0px;
-    background: none;
-}
-
 #workspaces * {
-    color: grey;
+    color: @foreground2;
+    margin: 4px;
+    padding: 0 4px 0 4px;
 }
-
-#workspaces {
-    border-style: solid;
-    opacity: 1;
-    border-radius: 10px;
-    margin: 8px 0px 8px 8px;
+#workspaces button:hover * {
+    color: @foreground2;
 }
-
-#workspaces button.focused {
-    color: @mauve;
-    border-radius: 20px;
-    /* background-color: @flamingo; */
-}
-
 #workspaces button.focused * {
-    color: @mauve;
+    color: @foreground;
 }
 
-#mode {
-    color: #ebcb8b;
-}
 
 #clock,
 #custom-swap,
@@ -121,13 +50,10 @@ window#waybar {
 #pulseaudio,
 #mode,
 #tray,
-#custom-power,
 #custom-pacman,
 #mpd {
     padding: 5px 8px;
     border-style: solid;
-    /*background-color: transparent;*/
-    opacity: 1;
     margin: 8px 0;
 }
 
@@ -135,23 +61,13 @@ window#waybar {
    * Module styles
    * -------------------------------------------------------------------------- */
 
-#mode {
-    border-radius: 10px;
-    color: @mauve;
-    margin-right: 5px;
-}
-
 #custom-cava-internal {
-    border-radius: 10px;
-    color: @mauve;
+    background-color: @background-subtle;
 }
 
 #mpd {
-    border-radius: 10px;
-    color: @mauve;
     margin-left: 5px;
 }
-
 #mpd.2 {
     border-radius: 10px 0px 0px 10px;
     margin: 8px 0px 8px 6px;
@@ -173,57 +89,37 @@ window#waybar {
 #mpd.2,
 #mpd.3,
 #mpd.4 {
-    background-color: @crust;
+    background-color: @background-subtle;
     font-size: 12px;
 }
 
-#custom-swap {
-    border-radius: 10px;
-    color: #c0c0c0;
-    margin-left: 10px;
-    /*background-color: @mauve;*/
-}
-
-#custom-background {
-    border-radius: 0px 10px 10px 0px;
-    background-color: @base;
-    color: white;
-    padding: 5px 14px 5px 5px;
-}
-
 #clock {
-    color: white;
-    border-radius: 10px;
-    margin: 8px 10px;
+    color: @highlight;
 }
 
 #backlight {
-    color: @yellow;
-    /* border-bottom: 2px solid @yellow; */
     border-radius: 10px 0 0 10px;
 }
 
 #battery {
-    color: #d8dee9;
-    /* border-bottom: 2px solid #d8dee9; */
-    border-radius: 10px 10px 10px 10px;
+    color: @foreground;
     margin-right: 10px;
 }
 
 #battery.charging {
-    color: #81a1c1;
-    /* border-bottom: 2px solid #81a1c1; */
+    background-color: @foreground;
+    color: @base;
 }
+
 
 @keyframes blink {
     to {
-        color: @red;
-        /* border-bottom: 2px solid @red; */
+        color: @background-subtle;
     }
 }
-
 #battery.critical:not(.charging) {
-    color: #bf616a;
+    background-color: @urgent;
+    color: @base;
     /* border-bottom: 2px solid #bf616a; */
     animation-name: blink;
     animation-duration: 0.5s;
@@ -232,71 +128,45 @@ window#waybar {
     animation-direction: alternate;
 }
 
+
 #cpu {
-    color: @sky;
     border-radius: 0 10px 10px 0;
     margin-right: 10px;
     /* border-bottom: 2px solid @sky; */
 }
 
-#cpu #cpu-icon {
-    color: @sky;
-}
-
-#memory {
-    color: @sky;
-}
-
-#network.disabled {
-    color: #bf616a;
-    /* border-bottom: 2px solid #bf616a; */
-}
-
 #network {
-    color: @green;
-    /* border-bottom: 2px solid @green; */
-    border-radius: 10px;
     margin-right: 5px;
 }
 
+#network.disabled {
+    background-color: @foreground2;
+    color: @base;
+}
+
 #network.disconnected {
-    color: #bf616a;
-    /* border-bottom: 2px solid #bf616a; */
+    background-color: @foreground2;
+    color: @base;
 }
 
 #pulseaudio {
-    color: @flamingo;
-    border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
-    /* border-bottom: 2px solid @flamingo; */
 }
 
 #pulseaudio.muted {
-    color: #3b4252;
-    /* border-bottom: 2px solid #3b4252; */
-}
-
-#temperature {
-    color: @teal;
-    /* border-bottom: 2px solid @teal; */
-    border-radius: 10px 0 0 10px;
+    background-color: @foreground;
+    color: @base;
 }
 
 #temperature.critical {
-    color: @red;
-    /* border-bottom: 2px solid @red; */
-}
-
-#idle_inhibitor {
-    background-color: #ebcb8b;
-   /* color: @base;*/
+    background-color: @urgent;
+    color: @base;
 }
 
 #tray {
-    /* background-color: @base; */
     margin: 8px 10px;
-    border-radius: 10px;
 }
+
 #tray menu menuitem{
   background-color: @base;
 }
@@ -306,16 +176,6 @@ window#waybar {
 }
 
 #custom-launcher {
-    color: @mauve;
     border-radius: 0px 15px 0px 0px;
     padding: 5px 10px 5px 10px;
-}
-
-#custom-power {
-    color: @base;
-    background-color: @red;
-    border-radius: 10px;
-    margin-left: 5px;
-    margin-right: 15px;
-    padding: 5px 10px;
 }

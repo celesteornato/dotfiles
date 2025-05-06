@@ -8,10 +8,13 @@
   // Choose the order of the modules idle_inhibitor
   "modules-left": [
     "sway/workspaces",
-    "custom/swap",
+    // "custom/swap",
     "tray",
     "sway/mode",
     "custom/cava-internal",
+    "mpd#2",
+    "mpd#3",
+    "mpd#4",
     "mpd",
   ],
   "modules-center": ["clock"],
@@ -270,9 +273,7 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 0,
-  "margin": "0 0 0 0",
-  "width": 0,
+  "width": 1920,
   "modules-center": [
     "custom/mail"
   ],
