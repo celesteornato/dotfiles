@@ -61,44 +61,18 @@ window#waybar {
    * Module styles
    * -------------------------------------------------------------------------- */
 
-#custom-cava-internal {
-    background-color: @background-subtle;
-}
 
-#mpd {
-    margin-left: 5px;
+#mpd,
+#mpd.* {
+    padding: 0;
+    margin: 0 5px;
 }
-#mpd.2 {
-    border-radius: 10px 0px 0px 10px;
-    margin: 8px 0px 8px 6px;
-    padding: 4px 12px 4px 10px;
-}
-
-#mpd.3 {
-    border-radius: 0px 0px 0px 0px;
-    margin: 8px 0px 8px 0px;
-    padding: 4px;
-}
-
-#mpd.4 {
-    border-radius: 0px 10px 10px 0px;
-    margin: 8px 0px 8px 0px;
-    padding: 4px 10px 4px 14px;
-}
-
-#mpd.2,
-#mpd.3,
-#mpd.4 {
-    background-color: @background-subtle;
-    font-size: 12px;
+#mpd.1 {
+    margin-left: 20px;
 }
 
 #clock {
     color: @highlight;
-}
-
-#backlight {
-    border-radius: 10px 0 0 10px;
 }
 
 #battery {
@@ -126,13 +100,6 @@ window#waybar {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-
-#cpu {
-    border-radius: 0 10px 10px 0;
-    margin-right: 10px;
-    /* border-bottom: 2px solid @sky; */
 }
 
 #network {

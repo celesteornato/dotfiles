@@ -11,17 +11,13 @@
     // "custom/swap",
     "tray",
     "sway/mode",
-    "custom/cava-internal",
-    "mpd#2",
-    "mpd#3",
-    "mpd#4",
-    "mpd",
+    "group/mpd"
   ],
   "modules-center": ["clock"],
   "modules-right": [
     "network",
     "cpu",
-    "memory",
+    //"memory",
     "backlight",
     "pulseaudio",
     "battery",
@@ -46,6 +42,21 @@
       "10": "10"
     }
   },
+
+  "group/mpd": {
+      "drawer": {
+        "transition-duration": 500,
+      },
+      "modules": [
+        "custom/cava-internal",
+        "mpd#2",
+        "mpd#3",
+        "mpd#4",
+        "mpd#1",
+      ],
+      "orientation": "horizontal"
+    },
+
   "mpd": {
     "tooltip": true,
     "tooltip-format": "{artist} - {album} - {title} - Total Time : {totalTime:%M:%S}",
