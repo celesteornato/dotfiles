@@ -14,7 +14,7 @@
     font-family: CaskaydiaCoveNerdFont;
     font-size: 16px;
     font-weight: bold;
-    /* transition: all 0.5s ease; */
+    transition: all 0.5s ease;
 }
 
 window#waybar {
@@ -61,6 +61,22 @@ window#waybar {
    * Module styles
    * -------------------------------------------------------------------------- */
 
+#cpu {
+    margin-left: 30px;
+    border-radius: 4px 0 0 4px;
+}
+#memory {
+    border-radius: 0;
+}
+#network {
+    border-radius: 0 4px 4px 0;
+}
+
+#cpu,
+#memory,
+#network {
+    background-color: @background-subtle;
+}
 
 #mpd,
 #mpd.* {
@@ -73,10 +89,11 @@ window#waybar {
 
 #clock {
     color: @highlight;
+    margin-right: 30px;
 }
 
 #battery {
-    color: @foreground;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
