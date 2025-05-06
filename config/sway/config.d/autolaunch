@@ -45,7 +45,8 @@ exec vesktop --start-minimized
 
 exec emacs --daemon
 
-exec nm-applet
-
 exec waybar
 
+exec nm-applet
+
+exec kdeconnect-indicator

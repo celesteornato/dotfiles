@@ -1,9 +1,10 @@
+[
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 20,
   "margin": "0 0 0 0",
-  "width": 1400, // Waybar width
+  "width": 1500, // Waybar width
   // Choose the order of the modules idle_inhibitor
   "modules-left": [
     "sway/workspaces",
@@ -13,24 +14,15 @@
     "custom/cava-internal",
     "mpd",
   ],
-  "modules-center": ["custom/mail", "clock"],
+  "modules-center": ["clock"],
   "modules-right": [
-    "battery",
+    "network",
+    "cpu",
+    "memory",
     "backlight",
     "pulseaudio",
-    "memory",
-    "cpu",
-    "network",
+    "battery",
   ],
-
-  // Modules configuration
-
-  "custom/mail": {
-    "interval": 15,
-    "format": "{}",
-    "exec": "~/.config/waybar/scripts/check_mail.sh",
-    "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
-  },
 
   "sway/workspaces": {
     "disable-scroll": true,
@@ -274,4 +266,23 @@
     "on-click": "exec pkill sway",
     "tooltip": false
   }
+},
+{
+  "layer": "top", // Waybar at top layer
+  "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 0,
+  "margin": "0 0 0 0",
+  "width": 0,
+  "modules-center": [
+    "custom/mail"
+  ],
+  "custom/mail": {
+    "interval": 15,
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/check_mail.sh",
+    "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
+  },
+
 }
+
+]
