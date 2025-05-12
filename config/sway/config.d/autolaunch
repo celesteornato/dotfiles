@@ -7,9 +7,9 @@ exec mako
 
 # Pipewire
 exec pipewire
+exec pipewire-pulse
 
-     
- 
+
 # Wob
 exec mkfifo $SWAYSOCK.wob
 # THIS DOESN'T WORK. --border-color etc. not valid

@@ -65,10 +65,14 @@ window#waybar {
     margin-left: 30px;
     border-radius: 4px 0 0 4px;
 }
+
+
+#custom-cava-internal,
 #memory {
     font-family: CaskaydiaCoveNerdFont;
     border-radius: 0;
 }
+
 #network {
     border-radius: 0 4px 4px 0;
 }

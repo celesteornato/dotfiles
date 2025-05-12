@@ -215,7 +215,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindswitch --reload --locked lid:off exec hyprlock
+bindswitch --locked lid:on exec hyprlock
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 
