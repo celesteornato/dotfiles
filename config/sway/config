@@ -22,7 +22,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu tofi-drun | xargs swaymsg exec --
+set $menu ~/.config/rofi/launchers/type-3/launcher.sh
 set $cmdexec alacritty --command sunbeam
 
 default_border pixel 0
@@ -47,8 +47,8 @@ input type:keyboard {
   xkb_options "compose:prsc"
 }
 
-set $system_theme 'WhiteSur-Dark'
-set $system_icons 'WhiteSur-Dark'
+set $system_theme 'WhiteSur-dark'
+set $system_icons 'WhiteSur-dark'
 set $system_dpi_scaling_factor 1
 set $cursor_size 22
 set $cursor_theme Breeze
@@ -63,6 +63,10 @@ exec_always {
   gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
   gsettings set $gnome-schema cursor-theme $cursor_theme
   gsettings set $gnome-schema cursor-size $cursor_size
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  gsettings set org.gnome.desktop.interface gtk-theme WhiteSur-dark 
+
+
 }
 
 # Mouse
@@ -76,6 +80,8 @@ bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym $mod+shift+s exec grimshot copy area
 bindsym $mod+m exec alacritty --command neomutt
+
+bindsym $mod+b exec mpv ~/Videos/baltrou.mp4
 
 # Volume
  
@@ -172,11 +178,6 @@ bindsym $mod+tab workspace next
 bindsym $mod+shift+tab workspace prev#
 # Layout stuff:
 #
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
-bindsym $mod+b splith
-bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 bindsym $mod+w layout stacking

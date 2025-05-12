@@ -21,6 +21,7 @@ window#waybar {
   color: transparent;
   background-color: @crust;
   opacity: 0.9;
+  border-radius: 0 0 12px 12px;
 }
 #workspaces * {
     color: @foreground2;
@@ -49,7 +50,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #mode,
-#tray,
+#custom-traydrawer,
 #custom-pacman,
 #mpd {
     padding: 5px 8px;
@@ -72,12 +73,20 @@ window#waybar {
     border-radius: 0 4px 4px 0;
 }
 
+
+
 #cpu,
 #memory,
 #network {
     background-color: @background-subtle;
 }
 
+
+#custom-traydrawer {
+    background-color: transparent;
+}
+
+#tray,
 #mpd,
 #mpd.* {
     padding: 0;
@@ -92,6 +101,7 @@ window#waybar {
     margin-right: 30px;
 }
 
+#custom-traydrawer,
 #battery {
     margin-left: 10px;
     margin-right: 10px;
@@ -147,9 +157,6 @@ window#waybar {
     color: @base;
 }
 
-#tray {
-    margin: 8px 10px;
-}
 
 #tray menu menuitem{
   background-color: @base;

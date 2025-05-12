@@ -1,18 +1,17 @@
-[
+
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 20,
-  "margin": "0 0 0 0",
+  "margin-top": -3,
   "width": 1250, // Waybar width
   // Choose the order of the modules idle_inhibitor
   "modules-left": [
     "sway/workspaces",
-    // "custom/swap",
-    "tray",
     "sway/mode",
+    "group/tray",
     "group/mpd",
-    "custom/mail"
+    "custom/mail",
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -41,11 +40,27 @@
     }
   },
 
+  "custom/traydrawer": {
+    "format": "󱊖 "
+  },
+
   "custom/mail": {
     "interval": 15,
     "format": "{}",
     "exec": "~/.config/waybar/scripts/check_mail.sh",
     "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
+  },
+
+  "group/tray": {
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": true
+      },
+      "modules": [
+        "custom/traydrawer",
+        "tray"
+      ],
+      "orientation": "horizontal"
   },
 
   "group/stats": {
@@ -267,15 +282,6 @@
     "on-click": "exec pkill sway",
     "tooltip": false
   }
-},
-{
-  "layer": "top", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
-  "width": 1920,
-  "modules-center": [
-    "custom/mail"
-  ],
-
 }
 
-]
+
