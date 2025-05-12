@@ -11,9 +11,8 @@
     border: 0;
     padding: 0 0;
     border-radius: 4px;
-    font-family: CaskaydiaCoveNerdFont;
+    font-family: "SF Pro Display Bold";
     font-size: 16px;
-    font-weight: bold;
     transition: all 0.5s ease;
 }
 
@@ -67,6 +66,7 @@ window#waybar {
     border-radius: 4px 0 0 4px;
 }
 #memory {
+    font-family: CaskaydiaCoveNerdFont;
     border-radius: 0;
 }
 #network {

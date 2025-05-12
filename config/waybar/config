@@ -212,7 +212,7 @@
   },
   "backlight": {
     // "device": "acpi_video1",
-    "format": "{icon} {percent: >3}%",
+    "format": "{icon}   {percent: >3}%",
     "format-icons": ["", ""],
     // "on-scroll-down": "brightnessctl -c backlight set 5%-",
     "on-scroll-down": "light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob",
@@ -234,16 +234,16 @@
   "network": {
     // "interface": "wlp2s0", // (Optional) To force the use of this interface
     "format": "⚠  Disabled",
-    "format-wifi": "  {essid}",
-    // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-    "format-ethernet": "  Wired",
+    "format-wifi": "    {essid}",
+    "format-ethernet": "   {ifname}:   {ipaddr}/{cidr}",
+    // "format-ethernet": "  Wired",
     "format-disconnected": "⚠  Disconnected",
-    // "on-click": "alacritty -e nmtui"
-    "on-click": "nm-connection-editor"
+    "on-click": "alacritty -e nmtui",
+    "on-click-right": "nm-connection-editor"
   },
   "pulseaudio": {
     "scroll-step": 1,
-    "format": "{icon} {volume: >3}%",
+    "format": "{icon}   {volume: >3}%",
     "format-bluetooth": "{icon} {volume: >3}%",
     "format-muted": " muted",
     "format-icons": {

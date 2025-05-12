@@ -1,6 +1,6 @@
 @define-color base   rgba(40,40,40,1);
 @define-color mantle rgba(40,40,40,1);
-@define-color crust  rgba(0,0,0,0.5);
+@define-color crust  rgba(0,0,0,0.7);
 
 @define-color foreground lightgrey;
 @define-color foreground2 grey;

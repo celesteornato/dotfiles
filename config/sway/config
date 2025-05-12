@@ -32,7 +32,7 @@ gaps inner 10
 gaps outer 10
 ### Output configuration
 
-output eDP-1 bg ~/Pictures/Wallpapers/Effeil.jpg fill
+output eDP-1 bg ~/Pictures/Wallpapers/sequoia.jpeg fill
 output eDP-1 resolution 3840x2160 scale 2
 
 ### Input configuration
@@ -215,7 +215,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindswitch --reload --locked lid:on exec hyprlock
+bindswitch --reload --locked lid:off exec hyprlock
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 
