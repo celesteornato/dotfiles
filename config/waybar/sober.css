@@ -1,0 +1,11 @@
+@define-color base   rgba(40,40,40,1);
+@define-color mantle rgba(40,40,40,1);
+@define-color crust  rgba(0,0,0,0.7);
+
+@define-color foreground lightgrey;
+@define-color foreground2 grey;
+@define-color highlight white;
+
+@define-color urgent red;
+
+@define-color background-subtle rgba(20, 20, 20, 0.3);

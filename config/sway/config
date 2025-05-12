@@ -1,0 +1,223 @@
+# exec dbus-update-activation-environment 2>/dev/null && \
+#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+     
+include $HOME/.config/sway/config.d/*
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu ~/.config/rofi/launchers/type-3/launcher.sh
+set $cmdexec alacritty --command sunbeam
+
+default_border pixel 0
+client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
+default_floating_border none
+gaps inner 10
+gaps outer 10
+### Output configuration
+
+output eDP-1 bg ~/Pictures/Wallpapers/sequoia.jpeg fill
+output eDP-1 resolution 3840x2160 scale 2
+
+### Input configuration
+input type:touchpad {
+  tap enabled
+  pointer_accel 0.6
+  accel_profile "flat"
+  dwt disabled
+}
+input type:keyboard {
+  xkb_layout fr
+  xkb_options "compose:prsc"
+}
+
+set $system_theme 'WhiteSur-dark'
+set $system_icons 'WhiteSur-dark'
+set $system_dpi_scaling_factor 1
+set $cursor_size 22
+set $cursor_theme Breeze
+set $cursor_theme Adwaita
+set $titlebar_text_size 32
+set $titlebar_font "Caskaydia Cove Nerd Font"
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+  gsettings set $gnome-schema gtk-theme $system_theme
+  gsettings set $gnome-schema icon-theme $system_icons
+  gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
+  gsettings set $gnome-schema cursor-theme $cursor_theme
+  gsettings set $gnome-schema cursor-size $cursor_size
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  gsettings set org.gnome.desktop.interface gtk-theme WhiteSur-dark 
+
+
+}
+
+# Mouse
+seat seat0 xcursor_theme $cursor_theme $cursor_size
+
+# Start a terminal
+bindsym $mod+a exec $term
+
+bindsym $mod+shift+a exec firefox-wayland
+bindsym $mod+t exec emacsclient -c
+bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
+bindsym $mod+shift+s exec grimshot copy area
+bindsym $mod+m exec alacritty --command neomutt
+
+bindsym $mod+b exec mpv ~/Videos/baltrou.mp4
+
+# Volume
+ 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggleBINDsym XF86AudioRaiseVolume exec 'mixer vol.volume=+0.05'
+
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+
+# Kill focused window
+bindsym $mod+q kill
+# Hide Bar
+bindsym $mod+space exec pkill -10 waybar
+# Start your launcher
+bindsym $mod+d exec $menu
+bindsym $mod+shift+d exec $cmdexec
+bindsym $mod+Control+l exec hyprlock
+
+for_window [app_id="Alacritty"] floating enable 
+for_window [app_id="pavucontrol"] floating enable 
+for_window [app_id="kdeconnect*"] floating enable 
+for_window [app_id="nm-*"] floating enable 
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+q exec swaymsg exit
+# Moving around:
+#
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# Workspaces:
+#
+# Switch to workspace
+
+
+bindsym $mod+ampersand workspace number 1
+bindsym $mod+eacute workspace number 2
+bindsym $mod+quotedbl workspace number 3
+bindsym $mod+apostrophe workspace number 4
+bindsym $mod+parenleft workspace number 5
+bindsym $mod+minus workspace number 6
+bindsym $mod+egrave workspace number 7
+bindsym $mod+underscore workspace number 8
+bindsym $mod+ccedilla workspace number 9
+bindsym $mod+agrave workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace number 1
+bindsym $mod+Shift+eacute move container to workspace number 2
+bindsym $mod+Shift+quotedbl move container to workspace number 3
+bindsym $mod+Shift+apostrophe move container to workspace number 4
+bindsym $mod+Shift+parenleft move container to workspace number 5
+bindsym $mod+Shift+minus move container to workspace number 6
+bindsym $mod+Shift+egrave move container to workspace number 7
+bindsym $mod+Shift+underscore move container to workspace number 8
+bindsym $mod+Shift+ccedilla move container to workspace number 9
+bindsym $mod+Shift+agrave move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+# Tabbing
+bindsym $mod+tab workspace next
+bindsym $mod+shift+tab workspace prev#
+# Layout stuff:
+#
+
+# Switch the current container between different layout styles
+bindsym $mod+w layout stacking
+bindsym $mod+s layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+shift+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+f floating toggle
+
+# Move focus to the parent container
+
+#Resizing containers:
+mode "resize" {
+# left will shrink the containers width
+# right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bindswitch --locked lid:on exec hyprlock
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+include /etc/sway/config.d/*
+

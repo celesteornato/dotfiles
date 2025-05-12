@@ -1,0 +1,14 @@
+font = Caskaydia Cove Nerd Font
+corner-radius = 20
+outline-color = #D3D1B90A
+outline-width = 
+border-color = #00000000
+border-width = 0
+background-color = #111111DA
+text-color = #ba8F
+selection-color = #fa8F
+prompt-text = "~> "
+num-results = 16
+hide-cursor = false
+# width = 640
+# height = 480

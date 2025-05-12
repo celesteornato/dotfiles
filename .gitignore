@@ -1,0 +1,11 @@
+custom.el
+eln-cache
+'#init.el#'
+transient
+elpa
+settings.el
+straight
+*.core
+getmail/
+.getmailrc
+getmailrc

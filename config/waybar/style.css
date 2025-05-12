@@ -1,0 +1,177 @@
+@import "sober.css";
+
+/* -----------------------------------------------------------------------------
+   * Base styles
+   * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+
+* {
+    color: @foreground;
+    border: 0;
+    padding: 0 0;
+    border-radius: 4px;
+    font-family: "SF Pro Display Bold";
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+window#waybar {
+  color: transparent;
+  background-color: @crust;
+  opacity: 0.9;
+  border-radius: 0 0 12px 12px;
+}
+#workspaces * {
+    color: @foreground2;
+    margin: 4px;
+    padding: 0 4px 0 4px;
+}
+#workspaces button:hover * {
+    color: @foreground2;
+}
+#workspaces button.focused * {
+    color: @foreground;
+}
+
+
+#clock,
+#custom-swap,
+#custom-background,
+#custom-cava-internal,
+#battery,
+#cpu,
+#memory,
+#idle_inhibitor,
+#temperature,
+#custom-keyboard-layout,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#custom-traydrawer,
+#custom-pacman,
+#mpd {
+    padding: 5px 8px;
+    border-style: solid;
+    margin: 8px 0;
+}
+
+/* -----------------------------------------------------------------------------
+   * Module styles
+   * -------------------------------------------------------------------------- */
+
+#cpu {
+    margin-left: 30px;
+    border-radius: 4px 0 0 4px;
+}
+
+
+#custom-cava-internal,
+#memory {
+    font-family: CaskaydiaCoveNerdFont;
+    border-radius: 0;
+}
+
+#network {
+    border-radius: 0 4px 4px 0;
+}
+
+
+
+#cpu,
+#memory,
+#network {
+    background-color: @background-subtle;
+}
+
+
+#custom-traydrawer {
+    background-color: transparent;
+}
+
+#tray,
+#mpd,
+#mpd.* {
+    padding: 0;
+    margin: 0 5px;
+}
+#mpd.1 {
+    margin-left: 20px;
+}
+
+#clock {
+    color: @highlight;
+    margin-right: 30px;
+}
+
+#custom-traydrawer,
+#battery {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#battery.charging {
+    background-color: @foreground;
+    color: @base;
+}
+
+
+@keyframes blink {
+    to {
+        color: @background-subtle;
+    }
+}
+#battery.critical:not(.charging) {
+    background-color: @urgent;
+    color: @base;
+    /* border-bottom: 2px solid #bf616a; */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    margin-right: 5px;
+}
+
+#network.disabled {
+    background-color: @foreground2;
+    color: @base;
+}
+
+#network.disconnected {
+    background-color: @foreground2;
+    color: @base;
+}
+
+#pulseaudio {
+    margin-right: 10px;
+}
+
+#pulseaudio.muted {
+    background-color: @foreground;
+    color: @base;
+}
+
+#temperature.critical {
+    background-color: @urgent;
+    color: @base;
+}
+
+
+#tray menu menuitem{
+  background-color: @base;
+}
+
+#custom-mail {
+    margin: 10px 10px;
+}
+
+#custom-launcher {
+    border-radius: 0px 15px 0px 0px;
+    padding: 5px 10px 5px 10px;
+}

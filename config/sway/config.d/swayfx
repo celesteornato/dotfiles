@@ -1,0 +1,17 @@
+# waybar blur
+layer_effects "waybar" blur enable; shadows enable; corner_radius 12
+layer_effects "gtk-layer-shell" blur enable; shadows enable; corner_radius 13
+layer_effects "tofi-drun" blur enable; shadows enable; corner_radius 13
+layer_effects "rofi" blur enable; blur_ignore_transparent enable; blur_brightness 0.75; corner_radius 6
+
+smart_corner_radius enable
+corner_radius 15
+shadows enable
+shadows_on_csd disable
+shadow_blur_radius 8
+
+## blur
+blur enable
+blur_xray disable
+blur_passes 4
+blur_radius 8
