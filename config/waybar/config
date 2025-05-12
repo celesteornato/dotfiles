@@ -195,12 +195,12 @@
   "cpu": {
     "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "alacritty -e htop",
+    "on-click": "alacritty -e btop",
     "interval": 1
   },
   "memory": {
     "format": " {: >3}%",
-    "on-click": "alacritty -e htop"
+    "on-click": "alacritty -e btop"
   },
   "temperature": {
     // "thermal-zone": 2,
