@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./thinkpad.nix
+    ./dell.nix
     ./system.nix
     ./base-utils.nix
     ./dev.nix

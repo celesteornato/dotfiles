@@ -4,8 +4,7 @@
   environment.systemPackages = with pkgs; [
     # godot_4-mono
     # godot_4-export-templates
-    gparted
-
+    unityhub
     docker
     distrobox
 
@@ -24,7 +23,6 @@
       with dotnetCorePackages;
       combinePackages [
         dotnetCorePackages.sdk_8_0
-        dotnetCorePackages.sdk_7_0
         dotnetPackages.Nuget
       ]
     )

@@ -3,8 +3,7 @@
 
   inputs = {
     # Main #
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -12,7 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    textfox.url = "github:adriankarlen/textfox";
   };
 
   outputs =
@@ -28,11 +26,11 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in
     {
-      nixosConfigurations."nixos-tp" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."nixos-dell" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
-          hostname = "nixos-tp";
+          hostname = "nixos-dell";
           username = "main";
         };
         modules = [
@@ -50,15 +48,9 @@
                   };
                 })
               ];
-              nixpkgs.config = {
-                permittedInsecurePackages = [
-                  "dotnet-sdk-7.0.410"
-                ];
-              };
             }
           )
           ./system/main.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-t480s
           home-manager.nixosModules.home-manager
         ];
       };

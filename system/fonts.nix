@@ -10,6 +10,6 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    nerdfonts
+    nerd-fonts.caskaydia-cove
   ];
 }

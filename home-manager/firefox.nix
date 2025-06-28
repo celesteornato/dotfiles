@@ -16,12 +16,6 @@ let
   };
 in
 {
-  imports = [ inputs.textfox.homeManagerModules.default ];
-
-  textfox = {
-    enable = true;
-    profile = "firefox profile name here";
-  };
   programs = {
     firefox = {
       enable = true;

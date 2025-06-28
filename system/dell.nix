@@ -3,8 +3,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = false; # see the note above
+  hardware.nvidia.open = false;
 
   services.xserver.videoDrivers = [
     "modesetting"

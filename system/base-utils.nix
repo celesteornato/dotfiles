@@ -22,13 +22,10 @@
 
     # Some software (i.e. trenchbroom) does not cite dolphin as a
     # dependency but will break without it
-    dolphin
+    kdePackages.dolphin
     nautilus
 
     # Drivers, services
-    tlp
-    hplip
-    plymouth
     thermald
     fwupd
     earlyoom

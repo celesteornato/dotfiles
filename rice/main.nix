@@ -1,14 +1,16 @@
 { inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    sway
+    swayfx
 
-    swaylock
-    rofi
+    hyprlock
+    tofi
     waybar
     playerctl
     brightnessctl
     jq
     swaynotificationcenter
+    sway-contrib.grimshot
+    wl-clipboard
   ];
 }
