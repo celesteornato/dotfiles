@@ -6,6 +6,10 @@
     prismlauncher
     gamemode
     mangohud
+
+    bsdgames
+    nethack
+    nethack-qt
   ];
   programs.steam = {
     enable = true;

@@ -5,5 +5,6 @@
     cmake
     libtool
     omnisharp-roslyn
+    ispell
   ];
 }

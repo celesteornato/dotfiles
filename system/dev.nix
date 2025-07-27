@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, username, ... }:
 {
 
   environment.systemPackages = with pkgs; [
@@ -10,15 +10,25 @@
 
     ffmpeg
 
+    texliveFull
+    zip
+
     rustup
     python3
+    nil
     llvmPackages_19.clang-tools
     llvmPackages_19.clang
     gpp
+    asm-lsp
     ocaml
+
     nasm
     qemu
+    xorriso
+    pkg-config
 
+    libdatachannel
+    linuxHeaders
     (
       with dotnetCorePackages;
       combinePackages [
@@ -27,4 +37,6 @@
       ]
     )
   ];
+  programs.adb.enable = true;
+  users.users.${username}.extraGroups = [ "adbusers" ];
 }

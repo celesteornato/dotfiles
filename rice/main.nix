@@ -13,4 +13,5 @@
     sway-contrib.grimshot
     wl-clipboard
   ];
+
 }

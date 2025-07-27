@@ -41,6 +41,18 @@
     enable = true;
   };
 
+  # Sets up all the libraries to load
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+  ];
+
   documentation.enable = true;
   documentation.doc.enable = true;
   documentation.man.enable = true;
@@ -63,7 +75,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
     settings.General.Experimental = true; # for gnome-bluetooth percentage
   };
 
@@ -71,6 +83,7 @@
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
+
   hardware.enableAllFirmware = true;
   hardware.graphics = {
     enable = true;
