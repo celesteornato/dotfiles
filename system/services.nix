@@ -11,7 +11,7 @@
     fwupd.enable = true;
     pcscd.enable = true;
 
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
     emacs = {
       enable = true;
       package = pkgs.emacs;
