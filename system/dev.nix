@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     # godot_4-mono
     # godot_4-export-templates
-    unityhub
     docker
     distrobox
 
@@ -29,13 +28,13 @@
 
     libdatachannel
     linuxHeaders
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        dotnetCorePackages.sdk_8_0
-        dotnetPackages.Nuget
-      ]
-    )
+    # (
+    #   with dotnetCorePackages;
+    #   combinePackages [
+    #     dotnetCorePackages.sdk_8_0
+    #     dotnetPackages.Nuget
+    #   ]
+    # )
   ];
   programs.adb.enable = true;
   users.users.${username}.extraGroups = [ "adbusers" ];
