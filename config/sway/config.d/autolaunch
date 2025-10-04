@@ -35,6 +35,9 @@ exec kanshi
 # Xdg DEsktop Portal
 exec /usr/libexec/xdg-desktop-portal
 
+# Autorotate (fw12)
+exec ~/.config/sway/scripts/autorotate.sh
+
 # MPD
 exec ~/.config/sway/scripts/music_init.sh
 

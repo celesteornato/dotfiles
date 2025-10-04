@@ -1,6 +1,4 @@
-# exec dbus-update-activation-environment 2>/dev/null && \
-#      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-     
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus     
 include $HOME/.config/sway/config.d/*
 # Default config for sway
 #
@@ -22,8 +20,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu ~/.config/rofi/launchers/type-3/launcher.sh
-set $cmdexec alacritty --command sunbeam
+set $menu rofi -show drun
 
 default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
@@ -32,9 +29,12 @@ gaps inner 10
 gaps outer 10
 ### Output configuration
 
-output eDP-1 bg ~/Pictures/Wallpapers/sequoia.jpeg fill
-output eDP-1 resolution 3840x2160 scale 2
+output eDP-1 scale 1.0 pos 0 0
+output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
+output * bg ~/Pictures/Tahoe.jpg fill
 
+output DP-4 scale 0.8 pos 1920 0
+ 
 ### Input configuration
 input type:touchpad {
   tap enabled
@@ -97,12 +97,10 @@ bindsym XF86AudioNext exec mpc next
 
 # Kill focused window
 bindsym $mod+q kill
-# Hide Bar
-bindsym $mod+space exec pkill -10 waybar
 # Start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod+shift+d exec $cmdexec
-bindsym $mod+Control+l exec hyprlock
+bindsym $mod+Control+l exec swaylock
 
 for_window [app_id="Alacritty"] floating enable 
 for_window [app_id="pavucontrol"] floating enable 
@@ -118,10 +116,11 @@ floating_modifier $mod normal
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r exec "pkill waybar -USR2"
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-bindsym $mod+Shift+q exec swaymsg exit
+bindsym $mod+Ctrl+Shift+q exec swaymsg exit
 # Moving around:
 #
 # Move your focus around
@@ -215,7 +214,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindswitch --locked lid:on exec hyprlock
+bindswitch --locked lid:on exec swaylock
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 
