@@ -40,7 +40,7 @@ input type:touchpad {
   tap enabled
   pointer_accel 0.6
   accel_profile "flat"
-  dwt disabled
+  # dwt disabled
 }
 input type:keyboard {
   xkb_layout fr
