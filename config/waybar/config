@@ -1,26 +1,27 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "margin-top": -8,
+  // "margin-top": -8,
   "expand-left": false,
   "expand-right": false,
   "expand-center": false,
   "padding-top": 0,
-  "width": 1200, // Waybar width
+  //"width": 1200, // Waybar width
+  "height": 20,
   "modules-left": [
+    "group/stats",
+    "sway/window",
     "sway/workspaces",
     "sway/mode",
     //"custom/cava-internal",
-    "group/tray",
-    "custom/keyboard",
-    "custom/keyboard2",
     "custom/mail",
   ],
-  "modules-center": ["clock"],
+  "modules-center": [],
   "modules-right": [
     "pulseaudio",
     "backlight",
-    "group/stats",
+    "battery",
+    "clock",
   ],
 
   "sway/workspaces": {
@@ -44,8 +45,12 @@
     }
   },
 
+    "sway/window": {
+	"format": "{}"
+    },
+
   "custom/traydrawer": {
-    "format": "󱊖 "
+    "format": ""
   },
 
   "custom/mail": {
@@ -55,28 +60,17 @@
     "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
   },
 
-  "group/tray": {
+  "group/stats": {
       "drawer": {
         "transition-duration": 500,
         "transition-left-to-right": true
       },
       "modules": [
         "custom/traydrawer",
-        "tray"
-      ],
-      "orientation": "horizontal"
-  },
-
-  "group/stats": {
-      "drawer": {
-        "transition-duration": 500,
-        "transition-left-to-right": false
-      },
-      "modules": [
-        "battery",
         "cpu",
         "memory",
         "network",
+        "tray",
       ],
       "orientation": "horizontal"
   },
@@ -193,8 +187,8 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     },
-    "format": "  {:%a %d %b |   %H:%M}",
-    "format-alt": "  {:%d/%m/%Y |   %H:%M:%S}",
+    "format": "{:%a %b %d     %H:%M}",
+    "format-alt": "{:%d/%m/%Y    %H:%M:%S}",
     "interval": 1
   },
   "cpu": {
@@ -216,12 +210,14 @@
   },
   "backlight": {
     // "device": "acpi_video1",
-    "format": "{icon}   {percent: >3}%",
-    "format-icons": ["", ""],
-    // "on-scroll-down": "brightnessctl -c backlight set 5%-",
-    "on-scroll-down": "light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob",
-    // "on-scroll-up": "brightnessctl -c backlight set +5%"
-    "on-scroll-up": "light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob"
+    "format": "{icon}",
+    "format-alt": "{icon}    {percent: >3}%",
+    "tooltip-format": "{percent}%",
+    "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", "󰖨 "],
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    //"on-scroll-down": "light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob",
+    "on-scroll-up": "brightnessctl -c backlight set +5%"
+    //"on-scroll-up": "light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob"
   },
   "battery": {
     "states": {
@@ -230,17 +226,27 @@
       "critical": 15
     },
     "interval": 0.5,
-    "format": "{icon} {capacity: >3}%",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-    //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
+    "format": "{icon}",
+    "format-charging": "",
+    "format-alt-charging": "{icon}    {capacity: >3}%",
+    "format-alt": "{icon}    {capacity: >3}%",
+    "tooltip-format": "{capacity}%, {time} until empty (at -{power}W)",
+    "tooltip-format-charging": "{capacity}%, {time} until full (at {power}W)",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "events": {
+        "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+        "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+        "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    },
   },
+                
   "network": {
     // "interface": "wlp2s0", // (Optional) To force the use of this interface
+    "interval": 1,
     "format": "⚠  Disabled",
     "format-wifi": "    {essid}",
     "format-ethernet": "   {ifname}:   {ipaddr}/{cidr}",
+    "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
     // "format-ethernet": "  Wired",
     "format-disconnected": "⚠  Disconnected",
     "on-click": "alacritty -e nmtui",
@@ -248,19 +254,20 @@
   },
   "pulseaudio": {
     "scroll-step": 1,
-    "format": "{icon}   {volume: >3}%",
+    "format": "{icon}",
+    "format-alt": "{icon}    {volume: >3}%",
     "format-bluetooth": "{icon} {volume: >3}%",
-    "format-muted": " muted",
+    "format-muted": "",
     "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
+      "headphones": " ",
+      "handsfree": " ",
+      "headset": " ",
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", ""]
+      "default": [" ", " "]
     },
-    "on-click": "pavucontrol",
+    "on-click-right": "pavucontrol",
     "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
     "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
   },

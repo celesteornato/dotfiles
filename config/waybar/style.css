@@ -11,7 +11,7 @@
     border: 0;
     padding: 0 0;
     border-radius: 4px;
-    font-family: "SF Pro Display Bold";
+    font-family: "SF Pro Text";
     font-size: 16px;
     font-weight: bold;
     transition: all 0.5s ease;
@@ -21,7 +21,7 @@ window#waybar {
   color: transparent;
   background-color: @crust;
   opacity: 0.9;
-  border-radius: 0 0 12px 12px;
+  /* border-radius: 0 0 12px 12px; */
 }
 #workspaces * {
     color: @foreground2;
@@ -53,9 +53,9 @@ window#waybar {
 #custom-traydrawer,
 #custom-pacman,
 #mpd {
-    padding: 5px 8px;
+    padding: 5px 10px;
     border-style: solid;
-    margin: 8px 0;
+    /* margin: 8px 0; */
 }
 
 /* -----------------------------------------------------------------------------
@@ -103,7 +103,8 @@ window#waybar {
 
 #clock {
     color: @highlight;
-    margin-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #custom-traydrawer,
@@ -148,9 +149,6 @@ window#waybar {
     color: @base;
 }
 
-#pulseaudio {
-    margin-right: 10px;
-}
 
 #pulseaudio.muted {
     background-color: @foreground;
