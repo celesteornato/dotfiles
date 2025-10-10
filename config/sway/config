@@ -25,13 +25,13 @@ set $menu rofi -show drun
 default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
 default_floating_border none
-gaps inner 10
-gaps outer 10
+gaps inner 8
+gaps outer 8
 ### Output configuration
 
 output eDP-1 scale 1.0 pos 0 0
 output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
-output * bg ~/Pictures/Tahoe.jpg fill
+output * bg ~/Pictures/sequoia.jpg fill
 
 output DP-4 scale 0.8 pos 1920 0
  
@@ -47,26 +47,24 @@ input type:keyboard {
   xkb_options "compose:prsc"
 }
 
-set $system_theme 'WhiteSur-dark'
-set $system_icons 'WhiteSur-dark'
+set $system_theme Adwaita
+set $system_icons Adwaita
 set $system_dpi_scaling_factor 1
 set $cursor_size 22
 set $cursor_theme Breeze
 set $cursor_theme Adwaita
 set $titlebar_text_size 32
-set $titlebar_font "Caskaydia Cove Nerd Font"
+set $titlebar_font "SF Text Pro"
 
-set $gnome-schema org.gnome.desktop.interface
+set $gnome_schema org.gnome.desktop.interface
 exec_always {
   gsettings set $gnome-schema gtk-theme $system_theme
   gsettings set $gnome-schema icon-theme $system_icons
-  gsettings set $gnome-schema text-scaling-factor $system_dpi_scaling_factor
-  gsettings set $gnome-schema cursor-theme $cursor_theme
-  gsettings set $gnome-schema cursor-size $cursor_size
-  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-  gsettings set org.gnome.desktop.interface gtk-theme WhiteSur-dark 
-
-
+  gsettings set $gnome_schema text-scaling-factor $system_dpi_scaling_factor
+  gsettings set $gnome_schema cursor-theme $cursor_theme
+  gsettings set $gnome_schema cursor-size $cursor_size
+  gsettings set $gnome_schema color-scheme prefer-dark
+  gsettings set org.gnome.desktop.interface gtk-theme $system_theme 
 }
 
 # Mouse
@@ -75,7 +73,7 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 # Start a terminal
 bindsym $mod+a exec $term
 
-bindsym $mod+shift+a exec firefox-wayland
+bindsym $mod+shift+a exec firefox
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym $mod+shift+s exec grimshot copy area
