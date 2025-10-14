@@ -1,9 +1,9 @@
 @define-color base   rgba(40,40,40,1);
-@define-color crust  rgba(20,20,20,0.5);
+@define-color crust  rgba(10,10,10,0.1);
 
 @define-color foreground white;
 @define-color foreground2 lightgrey;
 
 @define-color urgent red;
 
-@define-color background-subtle rgba(80, 80, 80, 0.5);
+@define-color background-subtle rgba(30, 30, 30, 1);

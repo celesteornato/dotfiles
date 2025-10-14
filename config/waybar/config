@@ -5,10 +5,11 @@
   "expand-right": false,
   "expand-center": false,
   "padding-top": 0,
-  "height": 20,
+  "height": 34,
   "modules-left": [
     "group/stats",
     "sway/window",
+    "sway/workspaces",
     "sway/mode",
     "custom/mail",
   ],
@@ -40,7 +41,9 @@
     }
   },
   "custom/traydrawer": {
-    "format": " "
+    "format": " ",
+    "tooltip": false,
+    "on-scroll-up": ""
   },
 
   "custom/mail": {
@@ -59,6 +62,7 @@
         "custom/traydrawer",
         "cpu",
         "memory",
+	"temperature",
         "tray",
       ],
       "orientation": "horizontal"
@@ -129,21 +133,15 @@
     // Commands to execute on events
     "on-click": "mpc -q pause && mpc -q next && mpc -q start"
   },
-  "custom/swap": {
-    "on-click": "~/.config/waybar/scripts/swap.sh",
-    "tooltip": "Swap between waybar configs",
-    "format": "Gruv  "
-  },
   "custom/mpd": {
     "format": " {title} - {artist}",
     "interval": 5,
     "exec": "mpc current --format='\"title\":\"%title%\",\"artist\":\"%artist%\"'"
   },
   "custom/cava-internal": {
-    "exec": "sh ~/.config/waybar/scripts/Cava.sh",
-    "format": "{}",
+    "exec": "cava",
+    "format": "llll{}",
     "on-click": "exec alacritty --command ncmpcpp",
-    "on-click-right": "exec ~/.config/sway/scripts/music_init.sh",
     "tooltip": false,
     "layer": "below",
     "output": "all"
@@ -152,14 +150,7 @@
     "format": "<span style=\"italic\">{}</span>"
   },
   "sway/window": {
-    "format": "~ {app_id}"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
+    "format": "{app_id}"
   },
   "tray": {
     "icon-size": 16,
@@ -203,10 +194,8 @@
     "on-click": "alacritty -e btop"
   },
   "temperature": {
-    // "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "thermal-zone": 11,
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
     "format": "  {temperatureC}°C"
   },
   "backlight": {
@@ -239,20 +228,7 @@
         "on-charging-100": "notify-send -u normal 'Charge' 'Battery Full!'"
     },
   },
-                
-  "network#2": {
-    // "interface": "wlp2s0", // (Optional) To force the use of this interface
-    "interval": 1,
-    "format": "Disabled",
-    "format-wifi": "{essid}",
-    "format-ethernet": "{ifname}:   {ipaddr}/{cidr}",
-    "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
-    "format-disconnected": "",
-    "on-click": "alacritty -e nmtui",
-    "on-click-right": "nm-connection-editor"
-  },
-
-  "network": {
+   "network": {
     "interval": 1,
     "format": "{} ",
     "format-disconnected": "Disconnected",
@@ -260,14 +236,24 @@
     "format-ethernet": "",
     "on-click": "alacritty -e nmtui",
     "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
-    "on-click-right": "nm-connection-editor"
+    "on-click-right": "nm-connection-editor",
+    "on-scroll-up": ""
   },
-
+  "network#2": {
+    "interval": 1,
+    "format": "Disabled",
+    "format-wifi": "{essid}",
+    "format-ethernet": "{ifname}:   {ipaddr}/{cidr}",
+    "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
+    "format-disconnected": "",
+    "on-click": "alacritty -e nmtui",
+    "on-click-right": "nm-connection-editor",
+    "on-scroll-up": ""
+  },
   "pulseaudio": {
     "scroll-step": 1,
     "format": "{icon}",
     "format-alt": "{icon}    {volume: >3}%",
-    "format-bluetooth": "{icon}    {volume: >3}%",
     "format-muted": " ",
     "format-icons": {
       "headphones": " ",
@@ -281,16 +267,6 @@
     "on-click-right": "pavucontrol",
     "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
     "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
-  },
-  "custom/keyboard": {
-    "format": "     ", // Icon: keyboard
-    "tooltip": false,
-    "on-click": "exec wvkbd-mobintl",
-  },
-  "custom/keyboard2": {
-    "format": "     ", // Icon: keyboard
-    "tooltip": false,
-    "on-click": "pkill wvkbd-mobintl"
   },
 }
 

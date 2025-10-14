@@ -20,7 +20,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun
+set $menu tofi-drun | xargs swaymsg exec
 
 default_border pixel 0
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
@@ -40,19 +40,19 @@ input type:touchpad {
   tap enabled
   pointer_accel 0.6
   accel_profile "flat"
-  # dwt disabled
+  dwt disabled
 }
 input type:keyboard {
   xkb_layout fr
-  xkb_options "compose:prsc"
+  xkb_options "compose:caps"
 }
 
-set $system_theme Adwaita
-set $system_icons Adwaita
+set $system_theme WhiteSur-dark
+set $system_icons WhiteSur-dark
 set $system_dpi_scaling_factor 1
 set $cursor_size 22
-set $cursor_theme Breeze
-set $cursor_theme Adwaita
+set $cursor_theme WhiteSur-dark
+set $cursor_theme WhiteSur-dark
 set $titlebar_text_size 32
 set $titlebar_font "SF Text Pro"
 
@@ -76,7 +76,7 @@ bindsym $mod+a exec $term
 bindsym $mod+shift+a exec firefox
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
-bindsym $mod+shift+s exec grimshot copy area
+bindsym Print exec grimshot copy area
 bindsym $mod+m exec alacritty --command neomutt
 
 bindsym $mod+b exec mpv ~/Videos/baltrou.mp4
@@ -86,12 +86,16 @@ bindsym $mod+b exec mpv ~/Videos/baltrou.mp4
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggleBINDsym XF86AudioRaiseVolume exec 'mixer vol.volume=+0.05'
+bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
 
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
+
+
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # Kill focused window
 bindsym $mod+q kill
@@ -115,6 +119,7 @@ floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r exec "pkill waybar -USR2"
+bindsym $mod+Ctrl+r exec "waybar"
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'

@@ -14,20 +14,27 @@
     transition: all 0.5s ease;
 }
 
-/* SF Pro doesn't support all symbols, switch to Nerd Fonts when it is a problem */
-#memory {
-    font-family: "CaskaydiaCove Nerd Font";
-}
-
 window#waybar {
   color: transparent;
   border-radius: 0;
   opacity: 0.9;
 }
 
+/* SF Pro doesn't support all symbols, switch to Nerd Fonts when it is a problem */
+#memory {
+    font-family: "CaskaydiaCove Nerd Font";
+}
+
+/* Removing margin-left on letmost icon */
+#custom-traydrawer {
+    margin: 0px;
+    padding: 0px;
+}
+
 /* Setting background on drawer items */
 #cpu,
 #memory,
+#temperature,
 #tray,
 #network.2 {
     background-color: @background-subtle;
@@ -36,7 +43,8 @@ window#waybar {
 }
 
 /* Removing border-radius on items that are part of a drawer */
-#memory {
+#memory,
+#temperature {
     border-radius: 0px;
 }
 #cpu {
@@ -52,8 +60,14 @@ window#waybar {
     color: @base;
     background-color: @foreground2;
 }
-
 #network.disconnected {
     color: @base;
     background-color: @urgent;
+}
+
+#workspaces * {
+   color: @foreground2;
+}
+#workspaces button.focused * {
+   color: @foreground;
 }
