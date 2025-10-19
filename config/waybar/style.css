@@ -2,7 +2,7 @@
 
 * {
     color: @foreground;
-    background-color: @crust;
+    background-color: transparent;
     border: 0;
     margin: 0px;
     padding: 1px 4px;
@@ -12,12 +12,14 @@
     font-weight: bold;
     border-radius: 8px;
     transition: all 0.5s ease;
+    opacity: 1;
 }
 
 window#waybar {
   color: transparent;
+  background-color: @crust;
   border-radius: 0;
-  opacity: 0.9;
+  opacity: 0.99;
 }
 
 /* SF Pro doesn't support all symbols, switch to Nerd Fonts when it is a problem */
@@ -37,7 +39,6 @@ window#waybar {
 #temperature,
 #tray,
 #network.2 {
-    background-color: @background-subtle;
     margin: 0;
     padding: 0 10px;
 }

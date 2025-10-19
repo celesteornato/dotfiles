@@ -1,5 +1,5 @@
 @define-color base   rgba(40,40,40,1);
-@define-color crust  rgba(10,10,10,0.1);
+@define-color crust  rgba(20,20,20,0.5);
 
 @define-color foreground white;
 @define-color foreground2 lightgrey;

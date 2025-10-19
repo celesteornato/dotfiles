@@ -1,10 +1,6 @@
 {
   "layer": "top",
   "position": "top", // Waybar position (top|bottom|left|right)
-  "expand-left": false,
-  "expand-right": false,
-  "expand-center": false,
-  "padding-top": 0,
   "height": 34,
   "modules-left": [
     "group/stats",
