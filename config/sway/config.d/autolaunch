@@ -53,3 +53,5 @@ exec waybar
 exec nm-applet
 
 exec kdeconnect-indicator
+
+# exec activate-linux

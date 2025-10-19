@@ -23,17 +23,18 @@ set $term kitty
 set $menu tofi-drun | xargs swaymsg exec
 
 default_border pixel 0
-client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
 default_floating_border none
+smart_gaps on
+
+client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
 gaps inner 8
 gaps outer 8
 ### Output configuration
-
 output eDP-1 scale 1.0 pos 0 0
 output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
 output * bg ~/Pictures/sequoia.jpg fill
-
 output DP-4 scale 0.8 pos 1920 0
+
  
 ### Input configuration
 input type:touchpad {
@@ -46,6 +47,7 @@ input type:keyboard {
   xkb_layout fr
   xkb_options "compose:caps"
 }
+
 
 set $system_theme WhiteSur-dark
 set $system_icons WhiteSur-dark
