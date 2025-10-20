@@ -21,7 +21,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{icon}",
+    "format": "{icon} ",
     "on-click": "",
     "format-icons": {
       "1": "1",
