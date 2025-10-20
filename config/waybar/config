@@ -12,9 +12,9 @@
   "modules-center": [],
   "modules-right": [
     "group/networkdrawer",
-    "battery",
-    "backlight",
-    "pulseaudio",
+    "group/batterydrawer",
+    "group/backlightdrawer",
+    "group/pulseaudiodrawer",
     "clock",
   ],
 
@@ -58,7 +58,7 @@
         "custom/traydrawer",
         "cpu",
         "memory",
-	"temperature",
+	    "temperature",
         "tray",
       ],
       "orientation": "horizontal"
@@ -72,6 +72,42 @@
       "modules": [
         "network",
         "network#2",
+      ],
+      "orientation": "horizontal"
+  },
+
+  "group/batterydrawer": {
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "battery",
+        "power-profiles-daemon",
+      ],
+      "orientation": "horizontal"
+  },
+
+  "group/backlightdrawer": {
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "backlight",
+        "backlight#2",
+      ],
+      "orientation": "horizontal"
+  },
+
+  "group/pulseaudiodrawer": {
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "pulseaudio",
+        "pulseaudio#2",
       ],
       "orientation": "horizontal"
   },
@@ -194,15 +230,28 @@
     "critical-threshold": 80,
     "format": "  {temperatureC}°C"
   },
+  "power-profiles-daemon": {
+    "format": "{icon}    {profile}",
+    "tooltip": false,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
   "backlight": {
     "format": "{icon}",
-    "format-alt": "{icon}    {percent: >3}%",
-    "tooltip-format": "{percent}%",
-    // "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", "󰛨 "],
+    "tooltip": false,
     "format-icons": ["󱩍 ", "󱩎 ", "󱩏 ", "󱩐 ", "󱩑 ", "󱩒 ", "󱩓 ", "󱩔 ", "󱩕 ", "󱩖 ", "󰛨 "],
     "on-scroll-down": "brightnessctl -c backlight set 5%-",
     "on-scroll-up": "brightnessctl -c backlight set +5%"
   },
+  "backlight#2": {
+    "format": "{percent: >3}%",
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    "on-scroll-up": "brightnessctl -c backlight set +5%"
+  },
+
   "battery": {
     "states": {
       "good": 75,
@@ -247,9 +296,9 @@
     "on-scroll-up": ""
   },
   "pulseaudio": {
-    "scroll-step": 1,
+    "scroll-step": 0.1,
     "format": "{icon}",
-    "format-alt": "{icon}    {volume: >3}%",
+    "tooltip": false,
     "format-muted": " ",
     "format-icons": {
       "headphones": " ",
@@ -261,8 +310,16 @@
       "default": [" ", " ", " "]
     },
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
-    "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  },
+
+  "pulseaudio#2": {
+    "tooltip": false,
+    "format": "{volume: >3}%",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
   },
 }
 
