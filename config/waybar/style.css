@@ -26,10 +26,14 @@ window#waybar {
 
 }
 
+#window * {
+    font-weight: bold;
+}
 
 /* Removing margin on letmost icon */
 #custom-traydrawer
 {
+    font-size: 23px;
     margin: 0px;
     padding: 0px;
 }

@@ -4,8 +4,8 @@
   "height": 34,
   "modules-left": [
     "group/stats",
-    "sway/window",
-    "sway/workspaces",
+    "group/window", // just sway/window, css is being mean for some reason
+    //"sway/workspaces",
     "sway/mode",
     "custom/mail",
   ],
@@ -37,7 +37,7 @@
     }
   },
   "custom/traydrawer": {
-    "format": " ",
+    "format": "󰄛 ",
     "tooltip": false,
     "on-scroll-up": ""
   },
@@ -113,17 +113,17 @@
   },
 
   "group/mpd": {
-      "drawer": {
-        "transition-duration": 500,
-      },
-      "modules": [
-        "custom/cava-internal",
-        "mpd#2",
-        "mpd#3",
-        "mpd#4",
-      ],
-      "orientation": "horizontal"
+    "drawer": {
+      "transition-duration": 500,
     },
+    "modules": [
+      "custom/cava-internal",
+      "mpd#2",
+      "mpd#3",
+      "mpd#4",
+    ],
+    "orientation": "horizontal"
+  },
 
   "mpd": {
     "tooltip": true,
@@ -183,6 +183,9 @@
   },
   "sway/window": {
     "format": "{app_id}"
+  },
+  "group/window": {
+    "modules": ["sway/window",]
   },
   "tray": {
     "icon-size": 16,
@@ -322,5 +325,3 @@
     "on-scroll-down": "pamixer -ud 2"
   },
 }
-
-
