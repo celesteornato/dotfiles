@@ -24,15 +24,15 @@ set $menu tofi-drun | xargs swaymsg exec
 
 default_border pixel 0
 default_floating_border none
-smart_gaps on
+smart_gaps off
 
 client.focused "#8b9fad" "#8b9fad" "#8b9fad" "#8b9fad"
-gaps inner 8
-gaps outer 8
+gaps inner 3
+gaps outer 1
 ### Output configuration
 output eDP-1 scale 1.0 pos 0 0
 output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
-output * bg ~/Pictures/sequoia.jpg fill
+output * bg ~/Pictures/sequoia.jpg fill scale 1
 output DP-4 scale 0.8 pos 1920 0
 
  
