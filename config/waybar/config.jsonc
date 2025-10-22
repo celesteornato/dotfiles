@@ -1,0 +1,313 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "modules-left": [
+        "group/stats",
+        "sway/window",
+        "sway/workspaces",
+        "sway/mode",
+        "custom/mail"
+    ],
+    "modules-right": [
+        "group/bluetoothdrawer",
+        "group/networkdrawer",
+        "group/batterydrawer",
+        "group/backlightdrawer",
+        "group/pulseaudiodrawer",
+        "clock"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "disable-click": true,
+        "format": "{icon} ",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+    "custom/traydrawer": {
+        "format": "󰄛 ",
+        "tooltip": false,
+        "on-scroll-up": ""
+    },
+    "custom/mail": {
+        "interval": 15,
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/check_mail.sh",
+        "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
+    },
+    "group/stats": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/traydrawer",
+            "cpu",
+            "memory",
+            "temperature",
+            "tray"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/networkdrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "network",
+            "network#2"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/bluetoothdrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "bluetooth",
+            "bluetooth#2"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/batterydrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+            "battery#2"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/backlightdrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "backlight",
+            "backlight#2"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/pulseaudiodrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#2"
+        ],
+        "orientation": "horizontal"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "format": "{app_id}"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "format": "{:%a %b %d     %H:%M}",
+        "format-alt": "{:%d/%m/%Y    %H:%M:%S}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "on-click": "alacritty -e btop",
+        "interval": 1
+    },
+    "memory": {
+        "format": " {: >3}%",
+        "on-click": "alacritty -e btop"
+    },
+    "temperature": {
+        "thermal-zone": 11,
+        "critical-threshold": 80,
+        "format": "  {temperatureC}°C"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}    {profile}",
+        "tooltip": false,
+        "format-icons": {
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "backlight": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": [
+            "󱩍 ",
+            "󱩎 ",
+            "󱩏 ",
+            "󱩐 ",
+            "󱩑 ",
+            "󱩒 ",
+            "󱩓 ",
+            "󱩔 ",
+            "󱩕 ",
+            "󱩖 ",
+            "󰛨 "
+        ],
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "backlight#2": {
+        "format": "{percent: >3}%",
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "battery": {
+        "states": {
+            "good": 75,
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 0.5,
+        "full-at": 100,
+        "format": "{icon}",
+        "format-charging": " {capacity: >3}%",
+        "format-alt": "{icon}    {capacity: >3}%",
+        "tooltip-format": "{capacity}%, {time} until empty (at -{power}W)",
+        "tooltip-format-charging": "{capacity}%, {time} until full (at {power}W)",
+        "tooltip-format-full": "Battery full",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Charge' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Charge' Very Low Battery'",
+            "on-charging-100": "notify-send -u normal 'Charge' 'Battery Full!'"
+        }
+    },
+    "battery#2": {
+        "interval": 0.5,
+        "full-at": 100,
+        "format": "{capacity: >3}%",
+        "format-charging": "Full in {time}",
+        "format-full": "Battery full"
+    },
+    "network": {
+        "interval": 1,
+        "format": "{} ",
+        "format-disconnected": "No wifi",
+        "format-disabled": " ",
+        "format-wifi": " ",
+        "format-ethernet": "",
+        "on-click": "alacritty -e nmtui",
+        "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
+        "on-click-right": "nm-connection-editor",
+        "on-scroll-up": ""
+    },
+    "network#2": {
+        "interval": 1,
+        "format": "Disabled",
+        "format-wifi": "{essid}",
+        "format-ethernet": "{ifname}:   {ipaddr}/{cidr}",
+        "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
+        "format-disconnected": "",
+        "on-click": "alacritty -e nmtui",
+        "on-click-right": "nm-connection-editor",
+        "on-scroll-up": ""
+    },
+    "bluetooth": {
+        "format-connected": "",
+        "format-on": "",
+        "format-disabled": "󰂲",
+        "on-click": "alacritty -e bluetui"
+    },
+    "bluetooth#2": {
+        "format": "{status}",
+        "format-on": "",
+        "format-connected": "{device_alias}",
+        "format-connected-battery": "{device_alias}    {device_battery_percentage}%",
+        "format-disabled": "Bluetooth disabled",
+        "on-click": "alacritty -e bluetui"
+    },
+    "pulseaudio": {
+        "scroll-step": 0.1,
+        "format": "{icon}",
+        "tooltip": false,
+        "format-muted": " ",
+        "format-icons": {
+            "headphones": " ",
+            "handsfree": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
+        },
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pamixer -ui 2",
+        "on-scroll-down": "pamixer -ud 2"
+    },
+    "pulseaudio#2": {
+        "tooltip": false,
+        "format": "{volume: >3}%",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pamixer -ui 2",
+        "on-scroll-down": "pamixer -ud 2"
+    }
+}
