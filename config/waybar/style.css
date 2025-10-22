@@ -28,6 +28,13 @@ window#waybar {
 
 #window * {
     font-weight: bold;
+    text-shadow: black 1px 0 5px;
+}
+
+/* Bluetooth is a half-size icon so its size must be slightly adjusted */
+#bluetooth.1
+{
+    font-size: 19px; 
 }
 
 /* Removing margin on letmost icon */
@@ -72,7 +79,7 @@ window#waybar {
 }
 
 /* Changing colour on some stuff */
-#battery.charging,
+#battery.1.charging,
 #pulseaudio.muted {
     color: @base;
     background-color: @foreground2;
