@@ -43,8 +43,10 @@ window#waybar {
 #memory,
 #temperature,
 #tray,
-#network.2,
 #power-profiles-daemon,
+#network.2,
+#bluetooth.2,
+#battery.2,
 #pulseaudio.2,
 #backlight.2
 {
@@ -59,9 +61,12 @@ window#waybar {
 {
     border-radius: 0px;
 }
+
+#power-profiles-daemon,
 #cpu {
     border-radius: 8px 0px 0px 8px;
 }
+#battery.2,
 #tray {
     border-radius: 0px 8px 8px 0px;
 }

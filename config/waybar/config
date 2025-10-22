@@ -4,13 +4,14 @@
   "height": 34,
   "modules-left": [
     "group/stats",
-    "group/window", // just sway/window, css is being mean for some reason
+    "sway/window", // just sway/window, css is being mean for some reason
     //"sway/workspaces",
     "sway/mode",
     "custom/mail",
   ],
   "modules-center": [],
   "modules-right": [
+	"group/bluetoothdrawer",
     "group/networkdrawer",
     "group/batterydrawer",
     "group/backlightdrawer",
@@ -76,6 +77,18 @@
       "orientation": "horizontal"
   },
 
+  "group/bluetoothdrawer": {
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "bluetooth",
+        "bluetooth#2",
+      ],
+      "orientation": "horizontal"
+  },
+
   "group/batterydrawer": {
       "drawer": {
         "transition-duration": 500,
@@ -84,6 +97,7 @@
       "modules": [
         "battery",
         "power-profiles-daemon",
+        "battery#2",
       ],
       "orientation": "horizontal"
   },
@@ -184,9 +198,6 @@
   "sway/window": {
     "format": "{app_id}"
   },
-  "group/window": {
-    "modules": ["sway/window",]
-  },
   "tray": {
     "icon-size": 16,
     "spacing": 10
@@ -276,10 +287,18 @@
         "on-charging-100": "notify-send -u normal 'Charge' 'Battery Full!'"
     },
   },
-   "network": {
+  "battery#2": {
+    "interval": 0.5,
+    "full-at": 100,
+    "format": "{capacity: >3}%",
+    "format-charging": "Full in {time}",
+    "format-full": "Battery full",
+  },
+  "network": {
     "interval": 1,
     "format": "{} ",
-    "format-disconnected": "Disconnected",
+    "format-disconnected": "No wifi",
+    "format-disabled": " ",
     "format-wifi": " ",
     "format-ethernet": "",
     "on-click": "alacritty -e nmtui",
@@ -297,6 +316,19 @@
     "on-click": "alacritty -e nmtui",
     "on-click-right": "nm-connection-editor",
     "on-scroll-up": ""
+  },
+  "bluetooth": {
+    "format-connected": "",
+    "format-on": "",
+    "format-disabled": "󰂲",
+    "on-click": "alacritty -e bluetui"
+  },
+  "bluetooth#2": {
+    "format": "{status}",
+    "format-connected": "{device_alias}",
+    "format-connected-battery": "{device_alias}    {device_battery_percentage}%",
+    "format-disabled": "Bluetooth disabled",
+    "on-click": "alacritty -e bluetui"
   },
   "pulseaudio": {
     "scroll-step": 0.1,
