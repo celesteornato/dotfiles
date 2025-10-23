@@ -116,9 +116,6 @@
         ],
         "orientation": "horizontal"
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "sway/window": {
         "format": "{app_id}"
     },
