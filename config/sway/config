@@ -20,7 +20,7 @@ gaps outer 1
 ### Output configuration
 output eDP-1 scale 1.0 pos 0 0
 output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
-output * bg ~/Pictures/sequoia.jpg fill scale 1
+output * bg ~/Pictures/sequoianight.jpg fill
 output DP-4 scale 0.8 pos 1920 0
 
  
