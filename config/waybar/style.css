@@ -4,7 +4,7 @@
     color: @foreground;
     background-color: transparent;
     border: 0;
-    margin: -2px;
+    margin: 0px;
     padding: 1px 3px;
     margin: 0px 4px 0px 9px;
     font-family: "SF Pro Text";
@@ -42,6 +42,7 @@ window#waybar {
 /* Removing margin on letmost icon */
 #custom-traydrawer
 {
+    text-shadow: black 1px 0 5px;
     font-size: 23px;
     margin: 0px;
     padding: 0px;
@@ -88,6 +89,13 @@ window#waybar {
     font-weight: bold;
     text-shadow: white 1px 0 5px;
 }
+
+#pulseaudio.bluetooth {
+    margin: 2px;
+    /* Weird margins for some reason otherwise */
+}
+
+
 #network.disconnected {
     color: @base;
     background-color: @urgent;
@@ -98,6 +106,9 @@ window#waybar {
 }
 #workspaces button.focused * {
    color: @foreground;
+}
+#workspaces button.urgent * {
+   color: @urgent;
 }
 
 

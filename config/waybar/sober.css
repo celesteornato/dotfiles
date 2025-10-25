@@ -4,6 +4,6 @@
 @define-color foreground white;
 @define-color foreground2 lightgrey;
 
-@define-color urgent red;
+@define-color urgent rgba(255, 0, 0, 0.8);
 
-@define-color background-subtle rgba(30, 30, 30, 0.4);
+@define-color background-subtle rgba(50, 50, 60, 0.4);

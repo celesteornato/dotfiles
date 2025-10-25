@@ -243,7 +243,6 @@
     },
     "network": {
         "interval": 1,
-        "format": "{} ",
         "format-disconnected": "No wifi",
         "format-disabled": " ",
         "format-wifi": " ",
@@ -281,6 +280,7 @@
     "pulseaudio": {
         "scroll-step": 0.1,
         "format": "{icon}",
+        "format-bluetooth": "{icon}",
         "tooltip": false,
         "format-muted": " ",
         "format-icons": {
@@ -302,7 +302,7 @@
     },
     "pulseaudio#2": {
         "tooltip": false,
-        "format": "{volume: >3}%",
+        "format": "{volume}%",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "pamixer -ui 2",
         "on-scroll-down": "pamixer -ud 2"
