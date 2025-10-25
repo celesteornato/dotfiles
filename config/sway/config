@@ -91,7 +91,7 @@ bindsym $mod+q kill
 # Start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod+shift+d exec $cmdexec
-bindsym $mod+Control+l exec swaylock
+bindsym $mod+Control+l exec hyprlock
 
 for_window [app_id="Alacritty"] floating enable 
 for_window [app_id="pavucontrol"] floating enable 
@@ -206,7 +206,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindswitch --locked lid:on exec swaylock
+bindswitch --locked lid:on exec hyprlock
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
 
