@@ -8,7 +8,7 @@ set $down j
 set $up k
 set $right l
 set $term kitty
-set $menu tofi-drun | xargs swaymsg exec
+set $menu tofi-drun | xargs swaymsg exec --
 
 default_border pixel 0
 default_floating_border none
@@ -20,7 +20,7 @@ gaps outer 1
 ### Output configuration
 output eDP-1 scale 1.0 pos 0 0
 output eDP-1 color_profile icc /usr/share/color/icc/colord/profile.icm
-output * bg ~/Pictures/sequoianight.jpg fill
+output * bg ~/.background_img fill
 output DP-4 scale 0.8 pos 1920 0
 
  
@@ -33,9 +33,8 @@ input type:touchpad {
 }
 input type:keyboard {
   xkb_layout fr
-  xkb_options "compose:caps"
+  xkb_options "shift:both_capslock, compose:caps"
 }
-
 
 set $system_theme WhiteSur-dark
 set $system_icons WhiteSur-dark
@@ -63,7 +62,7 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 # Start a terminal
 bindsym $mod+a exec $term
 
-bindsym $mod+shift+a exec firefox
+bindsym $mod+shift+a exec firefox-wayland
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym Print exec grimshot copy area
@@ -92,6 +91,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+shift+d exec $cmdexec
 bindsym $mod+Control+l exec hyprlock
+
 
 for_window [app_id="Alacritty"] floating enable 
 for_window [app_id="pavucontrol"] floating enable 

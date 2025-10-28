@@ -1,4 +1,4 @@
-@import "sober.css";
+@import "current.css";
 
 * {
     color: @foreground;
@@ -16,7 +16,7 @@
 }
 
 decoration {
-  background-color: black;
+  background-color: @crust;
 }
 
 window#waybar {
@@ -30,7 +30,7 @@ window#waybar {
 #workspaces button.focused *
 {
     font-weight: bold;
-    text-shadow: black 1px 0 5px;
+    text-shadow: @crust 1px 0 5px;
 }
 
 /* Bluetooth is a half-size icon so its size must be slightly adjusted */
@@ -87,7 +87,7 @@ window#waybar {
     /* color: @base; */
     /* background-color: @foreground2; */
     font-weight: bold;
-    text-shadow: white 1px 0 5px;
+    text-shadow: @foreground 1px 0 5px;
 }
 
 #pulseaudio.bluetooth {
