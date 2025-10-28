@@ -55,3 +55,6 @@ exec nm-applet
 exec kdeconnect-indicator
 
 # exec activate-linux
+
+exec ~/.bin/capsmorse -Mc "~/.config/sway/scripts/check_mail.sh" -d 30 -D 1000
+exec ~/.bin/capsmorse -I /dev/input/event11 -L /sys/class/leds/chromeos:white:power/brightness -s

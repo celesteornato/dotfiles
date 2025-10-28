@@ -7,7 +7,6 @@
         "sway/window",
         "sway/workspaces",
         "sway/mode",
-        "custom/mail"
     ],
     "modules-right": [
         "group/bluetoothdrawer",
@@ -39,12 +38,6 @@
         "format": "󰄛 ",
         "tooltip": false,
         "on-scroll-up": ""
-    },
-    "custom/mail": {
-        "interval": 15,
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/check_mail.sh",
-        "on-click": "alacritty --command neomutt; ~/.config/waybar/scripts/check_mail.sh"
     },
     "group/stats": {
         "drawer": {
