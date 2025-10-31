@@ -80,6 +80,7 @@ bindsym Shift+XF86AudioMute exec pactl set-sink-volume @DEFAULT_SINK@ 0%
 
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
