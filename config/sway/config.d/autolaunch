@@ -6,9 +6,6 @@ exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec mako
 
 # Pipewire
-exec pipewire
-exec pipewire-pulse
-
 
 # Wob
 exec mkfifo $SWAYSOCK.wob
@@ -55,6 +52,9 @@ exec nm-applet
 exec kdeconnect-indicator
 
 # exec activate-linux
+
+# getmail daemon
+exec ~/.config/sway/scripts/fetch_mail.sh &
 
 exec ~/.bin/capsmorse -Mc "~/.config/sway/scripts/check_mail.sh" -d 30 -D 1000
 exec ~/.bin/capsmorse -I /dev/input/event11 -L /sys/class/leds/chromeos:white:power/brightness -s
