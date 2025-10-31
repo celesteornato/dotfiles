@@ -4,7 +4,7 @@ layer_effects "gtk-layer-shell" blur enable; shadows enable; corner_radius 13
 layer_effects "launcher" blur enable; blur_ignore_transparent enable; corner_radius 6; shadows disable
 
 smart_corner_radius enable
-corner_radius 5
+corner_radius 8
 shadows disable
 shadows_on_csd disable
 shadow_blur_radius 8
