@@ -12,6 +12,11 @@ then
   echo "switching to light bg mode"
   swaymsg 'layer_effects "waybar" blur disable;'
   ln -f ~/.config/waybar/light.css ~/.config/waybar/current.css
+elif [ $BRIGHTNESS -lt 10 ]
+then
+  echo "switching to darker bg mode"
+  swaymsg 'layer_effects "waybar" blur disable;'
+  ln -f ~/.config/waybar/darker.css ~/.config/waybar/current.css
 else
   echo "switching to dark bg mode"
   swaymsg 'layer_effects "waybar" blur enable;'
