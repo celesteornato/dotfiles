@@ -6,6 +6,9 @@ exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec mako
 
 # Pipewire
+exec pipewire
+exec pipewire-pulse
+exec wireplumber
 
 # Wob
 exec mkfifo $SWAYSOCK.wob
