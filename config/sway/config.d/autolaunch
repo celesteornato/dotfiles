@@ -58,3 +58,7 @@ exec ~/.config/sway/scripts/fetch_mail.sh &
 
 exec ~/.bin/capsmorse -Mc "~/.config/sway/scripts/check_mail.sh" -d 30 -D 1000
 exec ~/.bin/capsmorse -I /dev/input/event11 -L /sys/class/leds/chromeos:white:power/brightness -s
+
+# Necessary so as to correctly set whether or not the bar should be blurred
+exec_always bg_switch ~/.background_img noreload
+

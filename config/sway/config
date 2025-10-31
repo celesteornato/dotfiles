@@ -92,7 +92,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+shift+d exec $cmdexec
 bindsym $mod+Control+l exec hyprlock
-
+bindsym $mod+shift+b exec 'find ~/Pictures/ -name "*.jpg" -o -iname "*.png" | tofi --width 800 | xargs bg_switch'
 
 for_window [app_id="Alacritty"] floating enable 
 for_window [app_id="pavucontrol"] floating enable 

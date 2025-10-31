@@ -1,6 +1,9 @@
 #!/bin/sh
 cp "$1" ~/.background_img
+if [ "$2" != "noreload" ]
+then
 swaymsg reload
+fi
 
 BRIGHTNESS=$(magick ~/.background_img -gravity South -chop 90% -colorspace gray -format "%[fx:round(100*mean)]" info:)
 
