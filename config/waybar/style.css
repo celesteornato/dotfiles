@@ -26,12 +26,19 @@ window#waybar {
     opacity: 0.99;
 }
 
-
 #window *,
 #workspaces button.focused *
 {
     font-weight: bold;
     text-shadow: @foreground 0px 0 7px;
+}
+
+#workspaces button.focused * {
+   color: @foreground;
+}
+
+#workspaces button.urgent * {
+   color: @urgent;
 }
 
 /* Bluetooth is a half-size icon so its size must be slightly adjusted */
@@ -62,7 +69,7 @@ window#waybar {
 {
     margin: 0;
     padding: 0 10px;
-    background-color: @foreground;
+    background-color: @background-subtle;
     color: @foreground2;
 }
 
@@ -106,12 +113,6 @@ window#waybar {
     background-color: @urgent;
 }
 
-#workspaces button.focused * {
-   color: @foreground;
-}
-#workspaces button.urgent * {
-   color: @urgent;
-}
 
 
 /* SF Pro doesn't support all symbols, switch to Nerd Fonts when it is a problem */
