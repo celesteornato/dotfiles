@@ -1,1 +1,9 @@
-/home/main/.config/waybar/light.css
+@define-color crust  transparent;
+@define-color base   rgba(40,40,40,1);
+@define-color urgent rgba(255, 0, 0, 0.8);
+
+@define-color foreground black;
+@define-color foreground2 lightgrey;
+
+@define-color background-opaque white;
+@define-color background-subtle white;

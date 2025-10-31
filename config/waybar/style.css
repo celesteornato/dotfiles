@@ -16,21 +16,22 @@
 }
 
 decoration {
-  background-color: @crust;
+    color: @foreground;
+    background-color: @background-opaque;
 }
 
 window#waybar {
-  background-color: @crust;
-  border-radius: 0;
-  opacity: 0.99;
-
+    background-color: @crust;
+    border-radius: 0;
+    opacity: 0.99;
 }
+
 
 #window *,
 #workspaces button.focused *
 {
     font-weight: bold;
-    text-shadow: @crust 1px 0 5px;
+    text-shadow: @foreground 0px 0 7px;
 }
 
 /* Bluetooth is a half-size icon so its size must be slightly adjusted */
@@ -42,7 +43,6 @@ window#waybar {
 /* Removing margin on letmost icon */
 #custom-traydrawer
 {
-    text-shadow: black 1px 0 5px;
     font-size: 23px;
     margin: 0px;
     padding: 0px;
@@ -62,7 +62,8 @@ window#waybar {
 {
     margin: 0;
     padding: 0 10px;
-    background-color: @background-subtle;
+    background-color: @foreground;
+    color: @foreground2;
 }
 
 /* Removing border-radius on items that are part of a drawer */
@@ -81,13 +82,17 @@ window#waybar {
     border-radius: 0px 8px 8px 0px;
 }
 
+#battery.1 {
+    font-size: 18px;
+}
+
 /* Changing colour on some stuff */
 #battery.1.charging,
 #pulseaudio.muted {
     /* color: @base; */
     /* background-color: @foreground2; */
     font-weight: bold;
-    text-shadow: @foreground 1px 0 5px;
+    text-shadow: @foreground 0px 0 5px;
 }
 
 #pulseaudio.bluetooth {
@@ -101,9 +106,6 @@ window#waybar {
     background-color: @urgent;
 }
 
-#workspaces * {
-   color: @foreground2;
-}
 #workspaces button.focused * {
    color: @foreground;
 }
