@@ -168,12 +168,12 @@
         "format": "  {temperatureC}°C"
     },
     "power-profiles-daemon": {
-        "format": "{icon}    {profile}",
+        "format": "{icon}    {profile: >14}",
         "tooltip": false,
         "format-icons": {
             "performance": "",
-            "balanced": "",
-            "power-saver": ""
+            "balanced": " ",
+            "power-saver": " "
         }
     },
     "backlight": {
