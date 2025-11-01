@@ -1,0 +1,8 @@
+#!/bin/sh
+
+swayidle \
+  timeout 10 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' &
+
+hyprlock
+pkill swayidle
