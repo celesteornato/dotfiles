@@ -1,7 +1,6 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
     "modules-left": [
         "group/stats",
         "sway/window",
