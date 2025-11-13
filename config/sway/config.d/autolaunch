@@ -5,10 +5,6 @@ exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 # Desktop notifications
 exec mako
 
-# Pipewire
-exec pipewire
-exec pipewire-pulse
-exec wireplumber
 
 # Wob
 exec mkfifo $SWAYSOCK.wob
@@ -60,7 +56,7 @@ exec kdeconnect-indicator
 exec ~/.config/sway/scripts/fetch_mail.sh &
 
 exec ~/.bin/capsmorse -Mc "~/.config/sway/scripts/check_mail.sh" -d 30 -D 1000
-exec ~/.bin/capsmorse -I /dev/input/event11 -L /sys/class/leds/chromeos:white:power/brightness -s
+exec "~/.bin/capsmorse -s -L /sys/class/leds/chromeos:white:power/brightness -I /dev/input/by-path/pci-0000:00:19.0-platform-i2c_designware.2-event-mouse"
 
 # Necessary so as to correctly set whether or not the bar should be blurred
 exec_always bg_switch ~/.background_img noreload
