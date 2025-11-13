@@ -5,9 +5,9 @@ then
 swaymsg reload
 fi
 
-BRIGHTNESS=$(magick ~/.background_img -gravity South -chop 90% -colorspace gray -format "%[fx:round(100*mean)]" info:)
+BRIGHTNESS=$(magick ~/.background_img -gravity South -chop 0x97% -colorspace gray -format "%[fx:round(100*mean)]" info:)
 
-if [ $BRIGHTNESS -gt 40 ]
+if [ $BRIGHTNESS -ge 60 ]
 then
   echo "switching to light bg mode"
   swaymsg 'layer_effects "waybar" blur disable;'
