@@ -117,6 +117,7 @@
     },
     "clock": {
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click-right": "gnome-calendar",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -199,17 +200,18 @@
         "on-scroll-down": "brightnessctl -c backlight set 5%-",
         "on-scroll-up": "brightnessctl -c backlight set +5%"
     },
+
     "battery#1": {
         "states": {
             "good": 75,
             "warning": 30,
             "critical": 15
         },
-        "interval": 0.5,
+        "interval": 1,
         "full-at": 100,
         "format": "{icon}",
-        "format-charging": " {capacity: >3}%",
-        "format-alt": "{icon}    {capacity: >3}%",
+        "format-charging": "{capacity: >3}%",
+        "format-alt": "{icon} {capacity: >3}%",
         "tooltip-format": "{capacity}%, {time} until empty (at -{power}W)",
         "tooltip-format-charging": "{capacity}%, {time} until full (at {power}W)",
         "tooltip-format-full": "Battery full",
@@ -233,6 +235,7 @@
         "format-charging": "Full in {time}",
         "format-full": "Battery full"
     },
+
     "network": {
         "interval": 1,
         "format-disconnected": "No wifi",
