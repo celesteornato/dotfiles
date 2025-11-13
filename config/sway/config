@@ -27,9 +27,11 @@ output DP-4 scale 0.8 pos 1920 0
 ### Input configuration
 input type:touchpad {
   tap enabled
-  pointer_accel 0.6
   accel_profile "flat"
   dwt disabled
+}
+input type:pointer {
+  accel_profile "flat"
 }
 input type:keyboard {
   xkb_layout fr
