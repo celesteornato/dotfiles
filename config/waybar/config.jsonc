@@ -157,7 +157,8 @@
     "custom/calevent": {
         "interval": 300,
         "format": "{}",
-	"exec": "python3 ~/.config/waybar/scripts/ical_next.py"
+	"exec": "python3 ~/.config/waybar/scripts/ical_next.py",
+	"tooltip": false
     },
     "cpu": {
         "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
