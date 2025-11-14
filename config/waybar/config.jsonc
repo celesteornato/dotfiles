@@ -13,7 +13,7 @@
         "group/batterydrawer",
         "group/backlightdrawer",
         "group/pulseaudiodrawer",
-        "clock"
+        "group/clockdrawer"
     ],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -108,6 +108,17 @@
         ],
         "orientation": "horizontal"
     },
+    "group/pulseaudiodrawer": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "clock",
+            "custom/calevent"
+        ],
+        "orientation": "horizontal"
+    },
     "sway/window": {
         "format": "{app_id}"
     },
@@ -142,6 +153,11 @@
         "format": "{:%a %b %d     %H:%M}",
         "format-alt": "{:%d/%m/%Y    %H:%M:%S}",
         "interval": 1
+    },
+    "custom/calevent": {
+        "interval": 300,
+        "format": "{}",
+	"exec": "python3 ~/.config/waybar/scripts/ical_next.py"
     },
     "cpu": {
         "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",

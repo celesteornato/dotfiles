@@ -65,6 +65,7 @@ window#waybar {
 #bluetooth.2,
 #battery.2,
 #pulseaudio.2,
+#custom-calevent,
 #backlight.2
 {
     margin: 0;
