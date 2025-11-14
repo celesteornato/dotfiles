@@ -24,8 +24,8 @@ for i, (d, e, s, l) in enumerate(events):
         break
 
     # Otherwise we format the classes together as usual
-    startfmt = d.strftime("%A %H:%M")
-    endfmt = e.strftime("%H:%M")
+    startfmt = d.astimezone().strftime("%A %H:%M")
+    endfmt = e.astimezone().strftime("%H:%M")
     locationfmt = f'in {l}' if len(l) < MAX_ROOM_NAME_LEN else '(No Room specified)'
     separator = '\n' if i == len(events)-1 else '   |   '
     print(f'{s} — {startfmt} to {endfmt} {locationfmt}', end=separator)
