@@ -6,4 +6,4 @@
 @define-color foreground2 lightgrey;
 
 @define-color background-opaque black;
-@define-color background-subtle black;
+@define-color background-subtle rgba(0,0,0,0.7);
