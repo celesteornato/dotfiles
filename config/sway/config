@@ -54,7 +54,7 @@ exec_always {
   gsettings set $gnome_schema text-scaling-factor $system_dpi_scaling_factor
   gsettings set $gnome_schema cursor-theme $cursor_theme
   gsettings set $gnome_schema cursor-size $cursor_size
-  gsettings set $gnome_schema color-scheme prefer-dark
+  gsettings set $gnome_schema color-scheme dark
   gsettings set org.gnome.desktop.interface gtk-theme $system_theme 
 }
 
