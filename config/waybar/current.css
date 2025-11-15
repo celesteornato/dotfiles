@@ -1,9 +1,0 @@
-@define-color crust  transparent;
-@define-color base   rgba(40,40,40,1);
-@define-color urgent rgba(255, 0, 0, 0.8);
-
-@define-color foreground white;
-@define-color foreground2 lightgrey;
-
-@define-color background-opaque black;
-@define-color background-subtle black;
