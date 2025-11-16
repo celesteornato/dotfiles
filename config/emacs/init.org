@@ -41,7 +41,7 @@ We then add extra repos...
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 #+end_src
 ...And then install any package that was selected in earlier
-#+begin_src
+#+begin_src emacs-lisp
   (package-install-selected-packages)
 #+end_src
 
@@ -50,7 +50,6 @@ We then add extra repos...
 These require no external package, they're just changes I personally like
 having in my config.
 #+begin_src emacs-lisp
-  ;; Setting good defaults
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
@@ -66,8 +65,8 @@ having in my config.
 
 ** Configuring packages
 This is the section for any generic and simple package configuration
+*** General config
 #+begin_src emacs-lisp
-  ;; Configuring packages
   (load-theme 'adwaita)
 
   (require 'company)
@@ -77,8 +76,8 @@ This is the section for any generic and simple package configuration
 
   (require 'smartparens)
   (require 'evil-smartparens)
-  (add-hook 'after-init-hook (lambda () (smartparens-mode)
-  			     (evil-smartparens-mode)))
+  (add-hook 'text-mode-hook (lambda () (smartparens-mode)
+                               (evil-smartparens-mode)))
   (require 'evil)
   (add-hook 'after-init-hook 'evil-mode)
 
@@ -88,7 +87,7 @@ This is the section for any generic and simple package configuration
   (require 'doom-modeline)
   (doom-modeline-mode)
 #+end_src
-*** Eglot
+*** Eglot Specifics
 This is slightly bigger than the usual, thus is separated, it declares two functions
 which we can use to configure the generic coding environment for a language, with
 respect to whether or not we have a Language Server available.
@@ -109,7 +108,7 @@ respect to whether or not we have a Language Server available.
   (conf-lang-nolsp 'org-mode-hook)
 #+end_src
 
-*** Org-Mode
+*** Org-mode specifics
 Same as eglot, this is a big-ish one so we separate it from the rest.
 #+begin_src emacs-lisp
   (require 'org-modern)
@@ -137,7 +136,6 @@ These are unpackaged function that I like having on hand.
     (interactive)
     (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 #+end_src
-
 ** Binds
 #+begin_src emacs-lisp
   (evil-set-leader '(normal visual) (kbd "<SPC>"))
@@ -155,5 +153,11 @@ These are unpackaged function that I like having on hand.
   (evil-define-key '(normal visual) 'global (kbd "<leader>t") 'mistty)
   (require 'format-all)
   (evil-define-key '(normal visual) 'global (kbd "<leader>f") 'eglot-format-buffer)
+  (require 'blamer)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>bb") 'blamer-mode)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>bs") 'blamer-show-posframe-commit-info)
+  (require 'magit)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>g") 'magit)
+
 #+end_src
 
