@@ -6,6 +6,11 @@
  ;; If there is more than one, they won't work right.
  '(evil-undo-system 'undo-tree)
  '(global-undo-tree-mode t)
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 2.0 :html-foreground
+		 "Black" :html-background "Transparent" :html-scale
+		 1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-startup-with-latex-preview t)
  '(package-selected-packages
    '(company company-box doom-modeline evil evil-smartparens flycheck
 	     format-all gruber-darker-theme magit mistty org-bullets
