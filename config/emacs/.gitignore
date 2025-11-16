@@ -11,3 +11,4 @@ ido.last
 *#
 config/waybar/current.css
 init.el # Is created by init.org
+tramp
