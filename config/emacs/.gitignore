@@ -1,4 +1,6 @@
 elpa/
+quelpa/
+straight/
 eln-cache/
 auto-save-list/
 ido.last
@@ -7,3 +9,4 @@ ido.last
 \#*
 *#
 config/waybar/current.css
+init.el # Is created by init.org

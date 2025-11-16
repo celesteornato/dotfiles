@@ -4,9 +4,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-undo-system 'undo-tree)
+ '(global-undo-tree-mode t)
  '(package-selected-packages
-   '(company company-box doom-modeline evil evil-smartparens format-all
-	     gruber-darker-theme ido-yes-or-no smartparens undo-tree)))
+   '(company company-box doom-modeline evil evil-smartparens flycheck
+	     format-all gruber-darker-theme magit mistty org-bullets
+	     org-fragtog org-modern org-superstar quelpa
+	     quelpa-use-package smartparens undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

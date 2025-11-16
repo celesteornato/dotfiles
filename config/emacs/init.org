@@ -1,0 +1,159 @@
+#+TITLE: Emacs config
+#+SUBTITLE: Semi-Literate emacs personal config
+#+AUTHOR: Céleste Ornato
+#+PROPERTY: header-args :results silent :tangle "~/.config/emacs/init.el"
+
+* Prologue
+This section must be put at the start, it is here to add some repos and
+to install any missing selected package.
+** Loading custom.el
+Self-explanatory, this just needs to be there at the start.
+#+begin_src emacs-lisp
+  (setq custom-file "~/.config/emacs/custom.el")
+  (load-file "~/.config/emacs/custom.el")
+#+end_src
+
+We then add extra repos...
+#+begin_src emacs-lisp
+  (require 'package)
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name
+  	"straight/repos/straight.el/bootstrap.el"
+  	(or (bound-and-true-p straight-base-dir)
+  	    user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+  	(url-retrieve-synchronously
+  	 "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+  	 'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+  (require 'quelpa)
+  (quelpa
+   '(quelpa-use-package
+     :fetcher git
+     :url "https://github.com/quelpa/quelpa-use-package.git"))
+
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+#+end_src
+...And then install any package that was selected in earlier
+#+begin_src
+  (package-install-selected-packages)
+#+end_src
+
+* Configuration
+** Sensible defaults
+These require no external package, they're just changes I personally like
+having in my config.
+#+begin_src emacs-lisp
+  ;; Setting good defaults
+  (menu-bar-mode 0)
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0)
+  (global-display-line-numbers-mode 1)
+  (add-to-list 'default-frame-alist '(font . "SF Mono 16"))
+
+  (require 'ido)
+  (ido-mode 1)
+  (ido-everywhere 1)
+
+  (add-hook 'find-file-hook 'auto-insert)
+#+end_src
+
+** Configuring packages
+This is the section for any generic and simple package configuration
+#+begin_src emacs-lisp
+  ;; Configuring packages
+  (load-theme 'adwaita)
+
+  (require 'company)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (require 'company-box)
+  (add-hook 'company-mode-hook 'company-box-mode)
+
+  (require 'smartparens)
+  (require 'evil-smartparens)
+  (add-hook 'after-init-hook (lambda () (smartparens-mode)
+  			     (evil-smartparens-mode)))
+  (require 'evil)
+  (add-hook 'after-init-hook 'evil-mode)
+
+  (require 'undo-tree)
+  (global-undo-tree-mode 1)
+
+  (require 'doom-modeline)
+  (doom-modeline-mode)
+#+end_src
+*** Eglot
+This is slightly bigger than the usual, thus is separated, it declares two functions
+which we can use to configure the generic coding environment for a language, with
+respect to whether or not we have a Language Server available.
+#+begin_src emacs-lisp
+  (require 'eglot)
+  (require 'flycheck)
+  (defun conf-lang (l-hook)
+    (add-hook l-hook 'eglot-ensure))
+  (defun conf-lang-nolsp (l-hook)
+    (add-hook l-hook 'flycheck-mode))
+
+  (conf-lang 'c-mode-hook)
+  (conf-lang 'rust-mode-hook)
+  (conf-lang 'python-mode-hook)
+  (conf-lang 'javascript-mode-hook)
+
+  (conf-lang-nolsp 'lisp-mode-hook)
+  (conf-lang-nolsp 'org-mode-hook)
+#+end_src
+
+*** Org-Mode
+Same as eglot, this is a big-ish one so we separate it from the rest.
+#+begin_src emacs-lisp
+  (require 'org-modern)
+  (require 'quelpa-use-package)
+
+  (require 'org-bullets)
+  (require 'org-superstar)
+  (require 'org-modern)
+  (require 'org-fragtog)
+  (add-hook 'org-mode-hook 'org-bullets-mode)
+  (add-hook 'org-mode-hook 'org-superstar-mode)
+  (add-hook 'org-mode-hook 'org-modern-mode)
+  (add-hook 'org-mode-hook 'org-fragtog-mode)
+  (use-package org-modern-indent
+    :ensure t
+    :quelpa (org-modern-indent :fetcher github :repo "jdtsmith/org-modern-indent" :files ("*.el" "resources"))
+    :config
+    (add-hook 'org-mode-hook 'org-indent-mode))
+#+end_src
+** Custom functions
+These are unpackaged function that I like having on hand.
+#+begin_src emacs-lisp
+  (defun kill-other-buffers ()
+    "kill all other buffers."
+    (interactive)
+    (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+#+end_src
+
+** Binds
+#+begin_src emacs-lisp
+  (evil-set-leader '(normal visual) (kbd "<SPC>"))
+
+  (evil-define-key '(normal visual) 'global (kbd "<leader>k") 'kill-other-buffers)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>/") 'project-search)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>d") 'dired)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>e") 'shell-command)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>cc") 'compile)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>cC") 'recompile)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>ca") 'eglot-code-actions)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>cr") 'eglot-rename)
+
+  (require 'mistty)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>t") 'mistty)
+  (require 'format-all)
+  (evil-define-key '(normal visual) 'global (kbd "<leader>f") 'eglot-format-buffer)
+#+end_src
+
