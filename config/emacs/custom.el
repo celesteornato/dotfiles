@@ -9,6 +9,10 @@
      default))
  '(evil-undo-system 'undo-tree)
  '(global-undo-tree-mode t)
+ '(org-babel-C-compiler "gcc -std=c23")
+ '(org-babel-load-languages '((C . t) (emacs-lisp . t) (python . t)))
+ '(org-confirm-babel-evaluate nil)
+ '(org-edit-src-content-indentation 0)
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.0 :html-foreground
 		 "Black" :html-background "Transparent" :html-scale
