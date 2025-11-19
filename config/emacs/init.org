@@ -45,6 +45,7 @@ having in my config.
 (scroll-bar-mode 0)
 (global-display-line-numbers-mode 1)
 (add-to-list 'default-frame-alist '(font . "SF Mono 16"))
+(visual-line-mode 0)
 
 (require 'ido)
 (ido-mode 1)
@@ -126,6 +127,7 @@ Same as eglot, this is a big-ish one so we separate it from the rest.
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 (add-hook 'org-mode-hook 'org-cdlatex-mode)
 (add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'visual-line-mode) 
 
 (use-package org-modern-indent
   :ensure t
