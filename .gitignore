@@ -11,3 +11,5 @@ gtk-4.0/
 *.swp
 *.env
 current.css
+games/
+ltximg/
