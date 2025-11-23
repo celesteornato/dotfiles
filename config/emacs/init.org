@@ -147,8 +147,8 @@ These are unpackaged function that I like having on hand.
 #+begin_src emacs-lisp
 (evil-set-leader '(normal visual) (kbd "<SPC>"))
 
-(evil-define-key '(insert) 'global (kbd "C-<tab>") 'company-manual-begin)
 
+(evil-define-key '(insert) 'global (kbd "C-<tab>") 'company-manual-begin)
 (evil-define-key '(normal visual) 'global (kbd "<leader>k") 'kill-other-buffers)
 (evil-define-key '(normal visual) 'global (kbd "<leader>/") 'project-search)
 (evil-define-key '(normal visual) 'global (kbd "<leader>d") 'dired)
@@ -157,6 +157,7 @@ These are unpackaged function that I like having on hand.
 (evil-define-key '(normal visual) 'global (kbd "<leader>cC") 'recompile)
 (evil-define-key '(normal visual) 'global (kbd "<leader>ca") 'eglot-code-actions)
 (evil-define-key '(normal visual) 'global (kbd "<leader>cr") 'eglot-rename)
+(evil-define-key '(normal visual) 'global (kbd "<leader>m") 'man)
 
 (require 'magit)
 (evil-define-key '(normal visual) 'global (kbd "<leader>g") 'magit)
