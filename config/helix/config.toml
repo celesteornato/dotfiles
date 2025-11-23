@@ -3,7 +3,7 @@ theme = "gruvbox_dark_hard"
 [editor]
 auto-format = true
 auto-pairs = true
-line-number = "relative"
+line-number = "absolute"
 mouse = false
 end-of-line-diagnostics = "hint"
 
