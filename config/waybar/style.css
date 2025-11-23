@@ -26,6 +26,9 @@ window#waybar {
     opacity: 0.99;
 }
 
+
+#battery.1.charging,
+#pulseaudio.muted,
 #window *,
 #workspaces button.focused *
 {
@@ -90,19 +93,6 @@ window#waybar {
     border-radius: 0px 8px 8px 0px;
 }
 
-#battery.1 {
-    font-size: 18px;
-}
-
-/* Changing colour on some stuff */
-#battery.1.charging,
-#pulseaudio.muted {
-    /* color: @base; */
-    /* background-color: @foreground2; */
-    font-weight: bold;
-    text-shadow: @foreground 0px 0 5px;
-}
-
 #pulseaudio.bluetooth {
     margin: 2px;
     /* Weird margins for some reason otherwise */
@@ -115,8 +105,3 @@ window#waybar {
 }
 
 
-
-/* SF Pro doesn't support all symbols, switch to Nerd Fonts when it is a problem */
-#memory {
-    font-family: "CaskaydiaCove Nerd Font";
-}

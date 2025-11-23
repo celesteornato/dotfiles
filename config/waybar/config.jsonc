@@ -9,8 +9,8 @@
     ],
     "modules-right": [
         "group/bluetoothdrawer",
-        "group/networkdrawer",
         "group/batterydrawer",
+        "group/networkdrawer",
         "group/backlightdrawer",
         "group/pulseaudiodrawer",
         "group/clockdrawer"
@@ -150,8 +150,8 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         },
-        "format": "{:%a %b %d     %H:%M}",
-        "format-alt": "{:%d/%m/%Y    %H:%M:%S}",
+        "format": "{:%a %b %d   %H:%M}",
+        "format-alt": "{:%d/%m/%Y   %H:%M:%S}",
         "interval": 1
     },
     "custom/calevent": {
@@ -176,7 +176,7 @@
         "interval": 1
     },
     "memory": {
-        "format": " {: >3}%",
+        "format": "􀫦 {: >3}%",
         "on-click": "alacritty -e btop"
     },
     "temperature": {
@@ -227,17 +227,17 @@
         "interval": 1,
         "full-at": 100,
         "format": "{icon}",
-        "format-charging": "{capacity: >3}%",
+        "format-charging": "􀢋 {capacity: >3}%",
         "format-alt": "{icon} {capacity: >3}%",
         "tooltip-format": "{capacity}%, {time} until empty (at -{power}W)",
         "tooltip-format-charging": "{capacity}%, {time} until full (at {power}W)",
         "tooltip-format-full": "Battery full",
         "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
+            "􀛪 ",
+            "􀛩 ",
+            "􀺶 ",
+            "􀺸 ",
+            "􀛨 "
         ],
         "events": {
             "on-discharging-warning": "notify-send -u normal 'Charge' 'Low Battery'",
@@ -255,9 +255,9 @@
 
     "network": {
         "interval": 1,
-        "format-disconnected": "No wifi",
+        "format-disconnected": "􀙈",
         "format-disabled": " ",
-        "format-wifi": " ",
+        "format-wifi": "􀙇 ",
         "format-ethernet": "",
         "on-click": "alacritty -e nmtui",
         "tooltip-format": "{bandwidthUpBytes} Up    {bandwidthDownBytes} Down",
