@@ -5,7 +5,7 @@ then
 swaymsg reload
 fi
 
-BRIGHTNESS=$(magick ~/.background_img -gravity South -chop 0x97% -colorspace gray -format "%[fx:round(100*mean)]" info:)
+BRIGHTNESS=$(magick ~/.background_img -resize 1920x1200^\! -gravity South -chop 0x97% -colorspace gray -format "%[fx:round(100*mean)]" info:)
 
 if [ $BRIGHTNESS -ge 60 ]
 then
