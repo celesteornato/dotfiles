@@ -97,7 +97,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+d exec $menu2
 
 bindsym $mod+Control+l exec ~/.config/sway/scripts/lock.sh
-bindsym $mod+Shift+b exec 'cd ~/Pictures/Wallpapers/ && (find * | tofi --width 800 | xargs bg_switch)'
+bindsym $mod+Shift+b exec 'cd ~/Pictures/Wallpapers/ && (find * | tofi --prompt-text=" " --placeholder-text="Select a wallpaper" | xargs bg_switch)'
 
 for_window [app_id="Alacritty"] floating enable 
 for_window [app_id="pavucontrol"] floating enable 
