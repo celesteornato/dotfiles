@@ -6,7 +6,6 @@ text-color = #AAA
 selection-color = #FFF
 placeholder-text = "Search "
 prompt-text = "􀊫 "
-input-padding = 500
 fuzzy-match = true
 text-cursor = false
 hide-cursor = true
@@ -25,8 +24,8 @@ hide-cursor = true
 
 ## Separate menu
 width = 640
-# height = 480
 corner-radius = 20
 outline-width = 2
 background-color = #16161699
 result-spacing=10
+prompt-padding=40
