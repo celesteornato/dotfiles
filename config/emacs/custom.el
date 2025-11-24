@@ -26,7 +26,7 @@
    '(auctex blamer cdlatex company-box doom-modeline evil-smartparens
 	    flycheck format-all gruber-darker-theme magit mistty
 	    org-bullets org-fragtog org-modern org-modern-indent
-	    org-superstar quelpa-use-package undo-tree)))
+	    org-superstar quelpa-use-package rust-mode undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
