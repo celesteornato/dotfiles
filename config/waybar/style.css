@@ -6,13 +6,14 @@
     border: 0;
     margin: 0px;
     padding: 1px 3px;
-    margin: 0px 4px 0px 9px;
+    margin: 0px 3px;
     font-family: "SF Pro Text";
     font-size: 16px;
     font-weight: normal;
     border-radius: 8px;
     transition: all 0.5s ease;
     opacity: 1;
+    transition: all 200ms ease-in-out;
 }
 
 decoration {
@@ -25,7 +26,6 @@ window#waybar {
     border-radius: 0;
     opacity: 0.99;
 }
-
 
 #battery.1.charging,
 #pulseaudio.muted,
@@ -57,8 +57,13 @@ window#waybar {
     margin: 0px;
     padding: 0px;
 }
+/* Adding some padding between clock and taskbar */
+#clock {
+    margin: 0px 0px 0px 15px;
+}
 
 /* Setting background on drawer items */
+#custom-kdeconnect,
 #cpu,
 #memory,
 #temperature,
@@ -98,10 +103,7 @@ window#waybar {
     /* Weird margins for some reason otherwise */
 }
 
-
 #network.disconnected {
     color: @base;
     background-color: @urgent;
 }
-
-

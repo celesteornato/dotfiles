@@ -8,6 +8,7 @@
         "sway/mode",
     ],
     "modules-right": [
+        "group/phone",
         "group/bluetoothdrawer",
         "group/batterydrawer",
         "group/networkdrawer",
@@ -19,7 +20,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "disable-click": true,
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons": {
             "1": "1",
             "2": "2",
@@ -120,7 +121,7 @@
         "orientation": "horizontal"
     },
     "sway/window": {
-        "format": "{app_id}"
+        "format": "<span text_transform='capitalize'>{app_id}</span>",
     },
     "tray": {
         "icon-size": 16,
@@ -160,6 +161,32 @@
 	"exec": "python3 ~/.config/waybar/scripts/ical_next.py",
 	"tooltip": false
     },
+    "custom/kdedrawer": {
+        "interval": 5,
+        "format": "􀟜",
+        "format-alt": "􀟜 {}",
+	"exec": "PHONEID=7edf8bec5438420086f4fa36b2c0c76c sh ~/.config/waybar/scripts/phone_battery.sh",
+	"on-click-right": "kdeconnect-app",
+	"tooltip": false
+    },
+    "custom/kdeconnect": {
+        "interval": 5,
+        "format": "{}",
+	"exec": "PHONEID=7edf8bec5438420086f4fa36b2c0c76c sh ~/.config/waybar/scripts/phone_battery.sh",
+	"on-click-right": "kdeconnect-app",
+	"tooltip": false
+    },
+    "group/phone": {
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/kdedrawer",
+            "custom/kdeconnect",
+        ],
+        "orientation": "horizontal"
+    },
     "cpu": {
         "format": "  {icon0}{icon1}{icon2}{icon3} {usage: >3}%",
         "format-icons": [
@@ -185,7 +212,7 @@
         "format": "  {temperatureC}°C"
     },
     "power-profiles-daemon": {
-        "format": "{icon}    {profile: >14}",
+        "format": "{icon} <span text_transform='capitalize'>{profile}</span>",
         "tooltip": false,
         "format-icons": {
             "performance": "",
@@ -292,13 +319,13 @@
     "pulseaudio": {
         "scroll-step": 0.1,
         "format": "{icon}",
-        "format-bluetooth": "{icon}",
+        "format-bluetooth": " 󰂰",
         "tooltip": false,
         "format-muted": " ",
         "format-icons": {
-            "headphones": " ",
-            "handsfree": " ",
-            "headset": " ",
+            "headphones": "􀑈 ",
+            "handsfree": "􀑈 ",
+            "headset": "􀑈 ",
             "phone": " ",
             "portable": " ",
             "car": " ",
