@@ -23,10 +23,11 @@
 		 1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-startup-with-latex-preview t)
  '(package-selected-packages
-   '(auctex blamer cdlatex company-box doom-modeline evil-smartparens
-	    flycheck format-all gruber-darker-theme magit mistty
-	    org-bullets org-fragtog org-modern org-modern-indent
-	    org-superstar quelpa-use-package rust-mode undo-tree)))
+   '(## auctex blamer cdlatex company-box doom-modeline evil-smartparens
+	flycheck format-all gruber-darker-theme magit mistty
+	org-bullets org-fragtog org-modern org-modern-indent
+	org-superstar ox-beamer-lecture ox-reveal quelpa-use-package
+	rust-mode undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
