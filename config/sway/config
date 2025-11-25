@@ -30,7 +30,6 @@ set $up k
 set $right l
 set $term kitty
 set $menu tofi-drun | xargs swaymsg exec --
-
 default_border pixel 0
 default_floating_border none
 smart_gaps off
@@ -66,13 +65,14 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 # Start a terminal
 bindsym $mod+a exec $term
 
-bindsym $mod+shift+a exec firefox-wayland
+bindsym $mod+shift+a exec MOZ_DBUS_REMOTE=1 MOZ_ENABLE_WAYLAND=1 firefox-wayland
 bindsym $mod+t exec emacsclient -c
 bindsym $mod+Shift+t exec emacsclient --eval "(emacs-everywhere)"
 bindsym Print exec grimshot copy area
 bindsym $mod+m exec alacritty --command neomutt
 
-bindsym $mod+b exec mpv ~/Videos/baltrou.mp4
+bindsym $mod+x exec (clipman --histpath="~/.cache/clipman.json" pick -t STDOUT) | tofi\
+	--prompt="" --placeholder="" --width=50% --font-size=12 --height=25%
 
 # Volume
  
