@@ -5,22 +5,21 @@ then
 swaymsg reload
 fi
 
-BRIGHTNESS=$(magick ~/.background_img -resize 1920x1200^\! -gravity South -chop 0x97% -colorspace gray -format "%[fx:round(100*mean)]" info:)
+BRIGHTNESS=$(magick ~/.background_img -gravity South -chop 0x97% -colorspace gray -format "%[fx:round(100*mean)]" info:)
+MAX=$(magick ~/.background_img -gravity South -chop 0x97% -colorspace HSB -format "%[max]" info:)
 
-if [ $BRIGHTNESS -ge 60 ]
-then
-  echo "switching to light bg mode"
+if [ $BRIGHTNESS -ge 50 -a $MAX -ge 65530 ] ; then
+  echo "switching to dark bg mode"
   swaymsg 'layer_effects "waybar" blur disable;'
   ln -f ~/.config/waybar/light.css ~/.config/waybar/current.css
-elif [ $BRIGHTNESS -lt 10 ]
-then
+elif [ $BRIGHTNESS -ge 30 -a $MAX -ge 65000 ] ; then
+  echo "switching to light bg mode"
+  swaymsg 'layer_effects "waybar" blur enable;'
+  ln -f ~/.config/waybar/dark.css ~/.config/waybar/current.css
+else
   echo "switching to darker bg mode"
   swaymsg 'layer_effects "waybar" blur disable;'
   ln -f ~/.config/waybar/darker.css ~/.config/waybar/current.css
-else
-  echo "switching to dark bg mode"
-  swaymsg 'layer_effects "waybar" blur enable;'
-  ln -f ~/.config/waybar/dark.css ~/.config/waybar/current.css
 fi
 
 pkill waybar -USR2
