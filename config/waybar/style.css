@@ -14,6 +14,7 @@
     transition: all 0.5s ease;
     opacity: 1;
     transition: all 200ms ease-in-out;
+    text-shadow: @background-opaque 0px 0px 5px;
 }
 
 decoration {
@@ -28,12 +29,19 @@ window#waybar {
 }
 
 #battery.1.charging,
+#custom-kdedrawer.charging,
 #pulseaudio.muted,
-#window *,
 #workspaces button.focused *
 {
     font-weight: bold;
-    text-shadow: @foreground 0px 0 7px;
+    text-shadow: @foreground 0px 0 5px;
+}
+
+
+#window *
+{
+    font-weight: bold;
+    text-shadow: @background-opaque 0px 0px 8px;
 }
 
 #workspaces button.focused * {
@@ -80,6 +88,7 @@ window#waybar {
     padding: 0 10px;
     background-color: @background-subtle;
     color: @foreground2;
+    text-shadow: transparent 0 0px;
 }
 
 /* Removing border-radius on items that are part of a drawer */

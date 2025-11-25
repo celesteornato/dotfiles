@@ -162,17 +162,18 @@
 	"tooltip": false
     },
     "custom/kdedrawer": {
-        "interval": 5,
+        "interval": 1,
         "format": "􀟜",
-        "format-alt": "􀟜 {}",
 	"exec": "PHONEID=7edf8bec5438420086f4fa36b2c0c76c sh ~/.config/waybar/scripts/phone_battery.sh",
+	"return-type": "json",
 	"on-click-right": "kdeconnect-app",
 	"tooltip": false
     },
     "custom/kdeconnect": {
-        "interval": 5,
+        "interval": 1,
         "format": "{}",
 	"exec": "PHONEID=7edf8bec5438420086f4fa36b2c0c76c sh ~/.config/waybar/scripts/phone_battery.sh",
+	"return-type": "json",
 	"on-click-right": "kdeconnect-app",
 	"tooltip": false
     },
@@ -319,7 +320,7 @@
     "pulseaudio": {
         "scroll-step": 0.1,
         "format": "{icon}",
-        "format-bluetooth": " 󰂰",
+        "format-bluetooth": "{icon}<span>&#8198;</span>󰂰",
         "tooltip": false,
         "format-muted": " ",
         "format-icons": {
